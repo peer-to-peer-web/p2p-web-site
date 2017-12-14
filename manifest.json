@@ -1,0 +1,10 @@
+{
+  "name": "Peer-to-Peer Web / Los Angeles, Ca",
+  "description": "A day of conversation and workshops on the p2p web",
+  "short_name": "p2p/la",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "theme_color": "#000",
+  "background_color": "#000",
+  "twitter": "http://peer-to-peer-web.com/assets/social-square.png"
+}
