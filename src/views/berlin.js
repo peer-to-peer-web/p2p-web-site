@@ -1,7 +1,12 @@
 var objectKeys = require('object-keys')
+var raw = require('choo/html/raw')
+var Markdown = require('markdown-it')
 var html = require('choo/html')
+var md = new Markdown()
 
+var FormRsvp = require('../components/form-rsvp')
 var wrapper = require('../components/wrapper')
+var formRsvp = new FormRsvp()
 
 module.exports = wrapper(view)
 
@@ -12,16 +17,9 @@ function view (state, emit) {
       <div class="p1 pt0 tac lh1 fs1 sm-fs3">
         ${state.page.date}
       </div>
-      <div class="p1">
-        testing hows it going
-      </div>
-      <div class="x xjc w100 p1">
-        <img src="/assets/02-berlin/venue.jpg" class="grayscale db" style="width: 10rem">
-        <div class="p1">
-          ${state.page.venue}<br>
-          ${state.page.address}
-        </div>
-      </div>
+      ${copy()}
+      ${rsvp()}
+      ${location()}
     </div>
   `
 
@@ -56,7 +54,49 @@ function view (state, emit) {
         <div class="w100 p0-5 psr x">
           <div class="x xac">↓</div>
           <div class="xx">${state.page.title}</div>
-          <div class="x xac">↓</div>
+          <a href="/" class="db x xac psr oh curp bb0">
+            <div
+              class="psa t0 r0 l0 b0 x xjc xac"
+              style="transform: rotate(90deg)"
+            >
+              |||
+            </div>
+            <span class="op0">↓</span>
+          </a>
+        </div>
+      </div>
+    `
+  }
+
+  function copy () {
+    return html` 
+      <div class="x xjc p0-5">
+        <div class="c12 sm-c8 p0-5 copy">
+          ${raw(md.render(state.page.textone))}
+        </div>
+      </div>
+    `
+  }
+
+  function location () {
+    return html`
+      <div class="tac w100 p1">
+        <img src="/assets/02-berlin/venue.jpg" class="grayscale" style="width: 10rem">
+        <div class="p1">
+          ${state.page.venue}<br>
+          ${state.page.address}
+        </div>
+      </div>
+    `
+  }
+
+  function rsvp () {
+    return html`
+      <div class="p1 x xjc">
+        <div class="c12 sm-c8 md-c6">
+          ${formRsvp.render({
+            event: 'berlin' 
+          })}
         </div>
       </div>
     `

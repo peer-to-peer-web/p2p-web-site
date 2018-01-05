@@ -29,6 +29,8 @@ var custom = `
     border-bottom-color: #fff;
   }
 
+  .bb0 { border-bottom: 0 }
+
   .contrast {
     filter: grayscale(100%) contrast(1.5);
   }

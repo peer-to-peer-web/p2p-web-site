@@ -48,5 +48,14 @@ function store (site) {
       playing: false,
       video: '01-jon-kyle'
     }, require('../../assets/01-los-angeles/index.json'))
+    
+    state.events.CONTENT = 'content'
+    emitter.on(state.events.CONTENT, content)
+
+    function content (data) {
+      if (!data.page || !data.data) return
+      state.content[data.page] = xtend(state.content[data.page], data.data)
+      if (data.render !== false) emitter.emit(state.events.RENDER)
+    }
   }
 }
