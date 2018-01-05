@@ -29,6 +29,10 @@ var custom = `
     border-bottom-color: #fff;
   }
 
+  .contrast {
+    filter: grayscale(100%) contrast(1.5);
+  }
+
   .grayscale {
     filter: grayscale(100%);
   }
@@ -131,6 +135,10 @@ var custom = `
 
   .blink {
     animation: blink 500ms steps(1, end) infinite;
+  }
+
+  .blink-sec {
+    animation: blink 2s steps(1, end) infinite;
   }
 
   @keyframes blink {

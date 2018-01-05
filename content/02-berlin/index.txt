@@ -1,0 +1,11 @@
+title: Peer-to-Peer Web / Berlin
+----
+view: berlin
+----
+short: berlin
+----
+date: February 10th, 2018
+----
+venue: Trust
+----
+address: Kluckstraße 25, 10785 Berlin
