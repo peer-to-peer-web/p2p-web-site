@@ -16,7 +16,7 @@ var video = new Video()
 module.exports = wrapper(view)
 
 function view (state, emit) {
-  var page = state.content['01-los-angeles']
+  var page = state.content['/01-los-angeles']
   emit(state.events.DOMTITLECHANGE, 'Peer-to-peer web / Los Angeles, Ca')
   return html`
     <div>

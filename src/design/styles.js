@@ -45,10 +45,29 @@ utils.push({
   vals: [ 6, 12 ]
 })
 
+var borderWeights = [0, 1, 2]
+var borders = {}
+borderWeights.forEach(border => {
+  Object.keys(colors).forEach(key => {
+    borders[border + '-' + key] = `${border * 0.05}rem solid ${colors[key]}`
+  })
+})
+
+utils.push({
+  prop: [
+    'border',
+    'border-top',
+    'border-right',
+    'border-bottom',
+    'border-left'
+  ],
+  vals: borders
+})
+
 module.exports = gr8({
   lineHeight: [1, 1.1, 1.25, { '1-5': 1.65 }],
-  spacing: [0, 0.5, 1, 1.5, 2, 3, 4],
-  fontSize: [1, 2, 3],
+  spacing: [0, 0.25, 0.5, 1, 1.5, 2, 3, 4],
+  fontSize: [1, 2, 3, 4],
   utils: utils,
   responsive: true,
   breakpointSelector: 'class'

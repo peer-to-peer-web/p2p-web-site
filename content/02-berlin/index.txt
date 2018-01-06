@@ -4,20 +4,24 @@ view: berlin
 ----
 short: berlin
 ----
-date: February 10th, 2018
+dateen: February 10th, 2018
+----
+datede: Februar 10th, 2018
 ----
 venue: Trust
 ----
-address: Kluckstraße 25, 10785 Berlin
+address: Kluckstraße 25, 10785
 ----
-textone: 
+addresslink: https://duckduckgo.com/?q=Kluckstra%C3%9Fe+25%2C+10785&t=ffab&ia=maps&iax=maps
+----
+texten: 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dignissim, dui ac dapibus luctus, est justo tempor dolor, in molestie tellus lectus a velit. Aliquam tortor eros, dapibus id tincidunt eget, interdum sed augue.
 
 Etiam rhoncus imperdiet massa. Vivamus a purus erat. Mauris fringilla cursus sapien, sed molestie velit auctor sed. Sed at varius risus. Suspendisse potenti. In id cursus urna, ut hendrerit ante. Vestibulum viverra magna quis nibh fermentum eleifend. Nunc efficitur quam pretium mattis imperdiet. 
 ----
-texttwo:
+textde:
 
-Suspendisse suscipit nec justo ac semper. Sed ac luctus mi. Maecenas eu felis mauris. Duis ut eros venenatis, ultrices velit nec, tristique ligula. Suspendisse vitae rutrum ante. Nulla finibus arcu sit amet turpis congue, ac vehicula diam blandit. Integer et augue a lorem scelerisque gravida ut quis augue.
+Deutsches Ipsum Dolor id latine Käsefondue complectitur pri, mea Mercedes Benz denique nominavi id. Guten Tag expetenda nam an, Bier ei reque euismod Wie geht's Odio principes iracundia was machst du pri. Ut vel Grimms Märchen mandamus, quas natum Welt ei ius, diam Angela Merkel honestatis eum no.
 
-Mauris sed semper enim. Sed volutpat enim non magna egestas laoreet. Duis fringilla laoreet placerat. In eget volutpat sapien. Aenean enim nisi, dapibus vitae blandit vitae, porttitor vel sem. 
+Tollit Ritter Sport ius an. Saepe Guten Tag elaboraret per ne, Guten Tag eu probatus pertinax, Volkswagen eripuit aliquando no Hallo Diam scripserit no Fußball eos meis suscipit Krankenschwester Eam ea offendit Die unendliche Geschichte ad blandit voluptatibus Meerschweinchen ad eius consul Hackfleisch vix. Cu quas Döner veritus vim.

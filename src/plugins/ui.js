@@ -6,16 +6,23 @@ module.exports = ui
 
 function ui (state, emitter, app) {
   state.ui = {
+    lang: 'en',
     p2p: false,
     livestream: false,
     loaded: false,
     rsvp: false
   }
 
+  state.events.UI = 'ui'
+
   emitter.on(state.events.DOMCONTENTLOADED, function () {
     state.ui.p2p = window.location.protocol === 'dat:'
     loadOptions()
     loadFonts()
+  })
+
+  emitter.on(state.events.UI, function (data) {
+    state.ui = xtend(state.ui, data)
   })
 
   function loadOptions () {

@@ -1,6 +1,7 @@
 var Nanocomponent = require('nanocomponent')
 var html = require('choo/html')
 var css = require('sheetify')
+var xtend = require('xtend')
 var xhr = require('xhr')
 var qs = require('qs')
 
@@ -36,13 +37,35 @@ module.exports = class FormRsvp extends Nanocomponent {
     this.props = { }
     this.state = {
       loading: false,
+      lang: 'en',
       message: '',
       error: '',
-      form: {
-        name: '',
-        address: '',
-        event: 'p2p',
-        attendance: 'livestream'
+      name: '',
+      address: '',
+      event: 'p2p',
+      attendance: 'livestream'
+    }
+
+    this.lang = {
+      en: {
+        livestream: 'Livestream',
+        event: 'Event',
+        name: 'Name',
+        email: 'Email address',
+        submit: 'Submit RSVP',
+        submitting: 'Submitting…',
+        success: 'Success!',
+        error: 'Submission failed'
+      },
+      de: {
+        livestream: 'Liveübertragung',
+        event: 'Veranstaltung',
+        name: 'Name',
+        email: 'Email addresse',
+        submit: 'Senden Sie Ihre Antwort',
+        submitting: 'Einreichen…',
+        success: '',
+        error: ''
       }
     }
 
@@ -51,7 +74,7 @@ module.exports = class FormRsvp extends Nanocomponent {
   }
 
   createElement (props) {
-    this.props = props
+    this.state = xtend(this.state, props)
 
     return html`
       <form
@@ -68,10 +91,10 @@ module.exports = class FormRsvp extends Nanocomponent {
             id="livestream"
             value="livestream"
             onchange=${this.handleInput}
-            ${this.state.form.attendance === 'livestream' ? 'checked' : ''}
+            ${this.state.attendance === 'livestream' ? 'checked' : ''}
           >
           <label class="curp ff-sans px1 py0-5 db fs1 bgc-white fc-black" style="margin-right: 1px" for="livestream">
-            Livestream
+            ${this.getLang('livestream')}
           </label>
         </div>
         <input
@@ -81,48 +104,52 @@ module.exports = class FormRsvp extends Nanocomponent {
           id="event"
           value="event"
           onchange=${this.handleInput}
-          ${this.state.form.attendance === 'event' ? 'checked' : ''}
+          ${this.state.attendance === 'event' ? 'checked' : ''}
         >
         <label class="curp ff-sans px1 py0-5 db c6 fs1 bgc-white fc-black" for="event">
-          Event
+          ${this.getLang('event')}
         </label>
         <input
           name="name"
           required="true"
           type="text"
-          class="px1 py0-5 c12 fs1 ff-sans fc-black bgc-white"
+          class="px1 py0-5 c12 fs1 lh1-5 ff-sans fc-black bgc-white"
           placeholder="Name"
-          value="${this.state.form.name}"
+          value="${this.state.name}"
           oninput=${this.handleInput}
         />
         <input
           name="address"
           type="email"
           required="true"
-          class="px1 py0-5 c12 fs1 ff-sans fc-black bgc-white"
-          placeholder="Email address"
-          value="${this.state.form.address}"
+          class="px1 py0-5 c12 fs1 lh1-5 ff-sans fc-black bgc-white"
+          placeholder="${this.getLang('email')}"
+          value="${this.state.address}"
           oninput=${this.handleInput}
         />
         <div class="psr w100">
           <div class="${this.state.loading ? 'x' : 'dn'} curd xjc xac bgc-white psa t0 l0 r0 b0 z2">
-            Submitting…
+            ${this.getLang('submitting')}
           </div>
           <div class="${this.state.message ? 'x' : 'dn'} curd xjc xac bgc-white psa t0 l0 r0 b0 z2">
             ${this.state.message}
           </div>
           <button
             type="submit"
-            class="px1 py0-5 c12 fs1 curp ff-sans fc-black bgc-white"
+            class="px1 py0-5 c12 fs1 curp lh1-5 ff-sans fc-black bgc-white"
             style="outline: 0;"
-          >Submit RSVP</button>
+          >${this.getLang('submit')}</button>
         </div>
       </form>
     `
   }
 
+  getLang (str) {
+    return this.lang[this.state.lang][str]
+  }
+
   handleInput (event) {
-    this.state.form[event.target.name] = event.target.value
+    this.state[event.target.name] = event.target.value
     this.rerender()
   }
 
@@ -134,22 +161,22 @@ module.exports = class FormRsvp extends Nanocomponent {
     this.rerender()
 
     xhr.post('https://api.jon-kyle.com/mailinglist/save', {
-      body: qs.stringify(this.state.form),
+      body: qs.stringify(this.state),
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded '
       }
     }, function (err, resp) {
       self.state.loading = false
       if (err) {
-        self.state.error = 'Submission failed'
+        self.state.error = this.getLang('error')
       } else {
-        self.state.message = 'Success!'
+        self.state.message = this.getLang('success')
       }
       self.rerender()
     })
   }
 
   update (props) {
-    return false
+    return (this.state.lang !== props.lang)
   }
 }

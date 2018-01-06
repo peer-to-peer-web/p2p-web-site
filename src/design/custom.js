@@ -24,12 +24,15 @@ var custom = `
     }
   }
 
+  .mxwidth { max-width: 1000px }
+
   .fc-white a {
     color: #fff;
     border-bottom-color: #fff;
   }
 
   .bb0 { border-bottom: 0 }
+  .oph100:hover { opacity: 1 }
 
   .contrast {
     filter: grayscale(100%) contrast(1.5);
