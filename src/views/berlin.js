@@ -7,6 +7,7 @@ var md = new Markdown()
 
 var FormRsvp = require('../components/form-rsvp')
 var wrapper = require('../components/wrapper')
+var footer = require('../components/footer')
 var formRsvp = new FormRsvp()
 
 var style = css`
@@ -51,17 +52,21 @@ function view (state, emit) {
         <div class="c12 pt3">
           ${copy()}
         </div>
+        <div class="c12 pt2">
+          ${images()}
+        </div>
         <div class="c12 pt3">
           ${location()}
         </div>
-        ${images()}
+        <div class="c12 pt2"></div>
       </div>
+      ${footer()}
     </div>
   `
 
   function header () {
     return html`
-      <div class="c12 x xdc lh1 tac vh100 p0-5 fs3 lh1-25 sm-lh1 curd">
+      <div class="usn c12 x xdc lh1 tac vh100 p0-5 fs3 lh1-25 sm-lh1 curd">
         <div class="xx w100 psr">
           <div class="psa lh1 px1 t0 r0 z2 blink-sec fc-white">
             •
@@ -129,8 +134,8 @@ function view (state, emit) {
 
   function rsvp () {
     return html`
-      <div class="c12 p1 x xjc">
-        <div class="c12 sm-c8">
+      <div class="c12 x xjc">
+        <div class="c12 sm-c8 p1">
           ${formRsvp.render({
             lang: state.ui.lang,
             event: 'berlin' 
@@ -174,16 +179,18 @@ function view (state, emit) {
       function img () {
         return html`
           <div
-            class="psa t0 l0 r0 b0 m0-5 bgsct bgrn"
-            style="background-position: bottom center; background-image: url(${image.url});"
+            class="psa t0 l0 r0 b0 m0-5 bgpc bgsct bgrn"
+            style=" background-image: url(${image.url});"
           ></div>
         `
       }
     })
 
     return html`
-      <div class="c12 x xw p0-5">
-        ${blocks}
+      <div class="c12 sm-co1 sm-c10 p0-5">
+        <div class="c12 x">
+          ${blocks}
+        </div>
       </div>
     `
   }

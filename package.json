@@ -6,6 +6,7 @@
   "dependencies": {
     "bel": "^5.1.5",
     "choo": "^6.5.1",
+    "ez.js": "^1.0.3",
     "fontfaceobserver": "^2.0.13",
     "form-data-to-object": "^0.2.0",
     "from2-string": "^1.1.0",
@@ -25,6 +26,7 @@
     "read-directory": "^3.0.0",
     "sheetify": "^6.2.0",
     "sublevel": "^2.4.0",
+    "tweezer.js": "^1.4.0",
     "xhr": "^2.4.0",
     "xtend": "^4.0.1"
   },

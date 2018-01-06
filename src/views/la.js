@@ -8,6 +8,7 @@ var FormRsvp = require('../components/form-rsvp')
 var navigation = require('../components/navigation')
 var Header = require('../components/header')
 var Video = require('../components/video')
+var footer = require('../components/footer')
 
 var header = new Header()
 var formRsvp = new FormRsvp()
@@ -65,6 +66,7 @@ function view (state, emit) {
           </div>
         </div>
       </div>
+      ${footer()}
     </div>
   `
 
@@ -106,7 +108,7 @@ function view (state, emit) {
     function handleClick () {
       if (page.timeout) return
       emit(state.events.CONTENT, {
-        page: '01-los-angeles',
+        page: '/01-los-angeles',
         data: { playing: true, video: key }
       })
     }
@@ -114,21 +116,21 @@ function view (state, emit) {
 
   function handlePlay (data) {
     emit(state.events.CONTENT, {
-      page: '01-los-angeles',
+      page: '/01-los-angeles',
       data: { playing: true, video: data.video }
     })
   }
 
   function handlePause () {
     emit(state.events.CONTENT, {
-      page: '01-los-angeles',
+      page: '/01-los-angeles',
       data: { playing: false }
     })
   }
 
   function handleTimeout () {
     emit(state.events.CONTENT, {
-      page: '01-los-angeles',
+      page: '/01-los-angeles',
       data: { timeout: true }
     })
   }
