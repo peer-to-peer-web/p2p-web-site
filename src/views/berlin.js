@@ -106,7 +106,7 @@ function view (state, emit) {
   }
 
   function copy () {
-    return html` 
+    return html`
       <div class="c12 x xw p0-5">
         <div class="c12 sm-c6 p0-5 copy">
           ${raw(md.render(state.page.texten))}
@@ -121,7 +121,7 @@ function view (state, emit) {
   function location () {
     return html`
       <div class="c12 tac w100 p1">
-        <img src="/assets/02-berlin/venue.jpg" class="" style="width: 12rem">
+        <img src="/assets/02-berlin/venue.jpg" class="" style="width: 6rem">
         <div class="p1">
           ${state.page.venue}<br>
           <a href="${state.page.addresslink}" class="pb0-25">
@@ -138,7 +138,7 @@ function view (state, emit) {
         <div class="c12 sm-c8 p1">
           ${formRsvp.render({
             lang: state.ui.lang,
-            event: 'berlin' 
+            event: 'berlin'
           })}
         </div>
       </div>
