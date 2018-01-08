@@ -5,9 +5,13 @@ var html = require('choo/html')
 var css = require('sheetify')
 var md = new Markdown()
 
+var Slideshow= require('../components/Slideshow')
 var FormRsvp = require('../components/form-rsvp')
 var wrapper = require('../components/wrapper')
 var footer = require('../components/footer')
+
+var slideshowLeft = new Slideshow()
+var slideshowRight = new Slideshow()
 var formRsvp = new FormRsvp()
 
 var style = css`
@@ -52,11 +56,11 @@ function view (state, emit) {
         <div class="c12 pt3">
           ${copy()}
         </div>
-        <div class="c12 pt2">
-          ${images()}
-        </div>
         <div class="c12 pt3">
           ${location()}
+        </div>
+        <div class="c12 pt3">
+          ${sponsors()}
         </div>
         <div class="c12 pt2"></div>
       </div>
@@ -68,18 +72,21 @@ function view (state, emit) {
     return html`
       <div class="usn c12 x xdc lh1 tac vh100 p0-5 fs3 lh1-25 sm-lh1 curd">
         <div class="xx w100 psr">
-          <div class="psa lh1 px1 t0 r0 z2 blink-sec fc-white">
+          <div class="psa lh1 p2 t0 r0 z2 blink-sec" style="color: #f00; font-size: 0.5rem">
             •
           </div>
-          <div
-            class="psa t0 l0 b0 c6 m0-5 bgsc bgrn bgpc"
-            style="background-image: url(/assets/02-berlin/apple.png)"
-          ></div>
-          <div
-            class="psa t0 r0 b0 c6 m0-5 bgsc bgrn bgpc"
-            style="background-image: url(/assets/02-berlin/google.png)"
-          ></div>
-          <div class="psa t0 l0 r0 b0 x fc-white lh1 fs2 sm-fs3 z2">
+          <div class="psa t0 l0 b0 c6 m0-5 oh pen">
+            ${slideshowLeft.render({
+              images: state.page.imgLeft
+            })}
+          </div>
+          <div class="psa t0 r0 b0 c6 m0-5 oh pen">
+            ${slideshowRight.render({
+              rightToLeft: true,
+              images: state.page.imgRight
+            })}
+          </div>
+          <div class="dn psa t0 l0 r0 b0 x fc-white lh1 fs2 sm-fs3 z2">
             <div class="c6 h100 x xdc ff-mono">
               <div class="x xx xjc xac">23</div>
               <div class="x xx xjc xac">10</div>
@@ -121,13 +128,32 @@ function view (state, emit) {
   function location () {
     return html`
       <div class="c12 tac w100 p1">
-        <img src="/assets/02-berlin/venue.jpg" class="" style="width: 6rem">
+        <img src="/assets/02-berlin/venue.jpg" class="" style="width: 12rem">
         <div class="p1">
           ${state.page.venue}<br>
           <a href="${state.page.addresslink}" class="pb0-25">
             ${state.page.address}
           </a>
         </div>
+      </div>
+    `
+  }
+
+  function sponsors () {
+    return html`
+      <div class="x xw p0-5 xjc">
+        <div class="c12 p0-5 tac">
+          Sponsors
+        </div>
+        ${state.page.sponsors.map(function (sponsor) {
+          return html`
+            <div class="x xjc xac p0-5">
+              <a href="${sponsors.url}" class="bb0">
+                <img src="/assets/02-berlin/${sponsor.src}" style="max-width: ${sponsor.size}rem">
+              </a>
+            </div>
+          `
+        })}
       </div>
     `
   }

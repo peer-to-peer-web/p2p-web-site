@@ -51,13 +51,22 @@ function makeLosAngeles () {
 function makeBerlin () {
   var state = { }
 
-  var streetview = Array(9).fill(null).map(function (num, i) {
-    return {
-      url: `/assets/02-berlin/sv${i+1}.png`
-    }
+  var images = [ ]
+
+  Array(9).fill(null).forEach(function (num, i) {
+    images.push({ url: `/assets/02-berlin/sv${i+1}.png` })
   })
 
-  state.streetview = shuffle(streetview.splice(0, 3))
+  Array(10).fill(null).forEach(function (num, i) {
+    images.push({ url: `/assets/02-berlin/a${i+1}.png` })
+  })
+
+  Array(10).fill(null).forEach(function (num, i) {
+    images.push({ url: `/assets/02-berlin/g${i+1}.png` })
+  })
+
+  state.imgLeft = shuffle(images.slice(0))
+  state.imgRight = shuffle(images.slice(0))
 
   return state
 }

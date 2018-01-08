@@ -14,14 +14,27 @@ address: Kluckstraße 25, 10785
 ----
 addresslink: https://duckduckgo.com/?q=Kluckstra%C3%9Fe+25%2C+10785&t=ffab&ia=maps&iax=maps
 ----
-texten: 
+texten:
+As incumbent tech platforms face growing scrutiny over their global influence, it is clear that we must envision decentralized, user-owned alternatives to counter the status quo. How do we build realistic alternatives? What do their implementations look like, and how do we address their technical and ethical challenges in the face of increasing user adoption?
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dignissim, dui ac dapibus luctus, est justo tempor dolor, in molestie tellus lectus a velit. Aliquam tortor eros, dapibus id tincidunt eget, interdum sed augue.
-
-Etiam rhoncus imperdiet massa. Vivamus a purus erat. Mauris fringilla cursus sapien, sed molestie velit auctor sed. Sed at varius risus. Suspendisse potenti. In id cursus urna, ut hendrerit ante. Vestibulum viverra magna quis nibh fermentum eleifend. Nunc efficitur quam pretium mattis imperdiet. 
+Peer-to-Peer Web Berlin is for those new to the decentralized web. The event will explore the possibilities that lie beyond a centralized internet controlled by platform monopolies. Through a series of presentations and workshops, we will examine the social, political, ethical and economic potentials and challenges of the peer-to-peer movement.
 ----
 textde:
 
 Deutsches Ipsum Dolor id latine Käsefondue complectitur pri, mea Mercedes Benz denique nominavi id. Guten Tag expetenda nam an, Bier ei reque euismod Wie geht's Odio principes iracundia was machst du pri. Ut vel Grimms Märchen mandamus, quas natum Welt ei ius, diam Angela Merkel honestatis eum no.
 
 Tollit Ritter Sport ius an. Saepe Guten Tag elaboraret per ne, Guten Tag eu probatus pertinax, Volkswagen eripuit aliquando no Hallo Diam scripserit no Fußball eos meis suscipit Krankenschwester Eam ea offendit Die unendliche Geschichte ad blandit voluptatibus Meerschweinchen ad eius consul Hackfleisch vix. Cu quas Döner veritus vim.
+----
+sponsors:
+  - title: Internet Archive
+    src: internet-archive.png
+    url: https://archive.org/
+    size: 5
+  - title: Foam
+    src: foam.png
+    url: https://www.foam.space/
+    size: 10
+  - title: unMonastery
+    src: unmonastery.png
+    size: 5
+    url: http://unmonastery.org/

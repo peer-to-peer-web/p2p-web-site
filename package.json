@@ -7,6 +7,8 @@
     "bel": "^5.1.5",
     "choo": "^6.5.1",
     "ez.js": "^1.0.3",
+    "flickity": "^2.0.10",
+    "flickity-bg-lazyload": "^1.0.0",
     "fontfaceobserver": "^2.0.13",
     "form-data-to-object": "^0.2.0",
     "from2-string": "^1.1.0",
