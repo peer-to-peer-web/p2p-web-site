@@ -240,7 +240,7 @@ function view (state, emit) {
 }
 
 function getRandomSlideDelay () {
-  return Math.floor((Math.random() * 3000)) + 2000
+  return Math.floor((Math.random() * 4000)) + 3000
 }
 
 function iconOff () {
