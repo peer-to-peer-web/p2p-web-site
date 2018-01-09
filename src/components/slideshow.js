@@ -7,6 +7,7 @@ module.exports = class Slideshow extends Nanocomponent {
   constructor () {
     super()
     this.state = {
+      trigger: false,
       rightToLeft: false,
       autoPlay: 3000,
       prevNextButtons: false,
@@ -17,23 +18,36 @@ module.exports = class Slideshow extends Nanocomponent {
       accessibility: false,
       bgLazyLoad: 1
     }
+
+    this.resizeTimeout
+    this.handleSettle = this.handleSettle.bind(this)
+    this.handleSelect = this.handleSelect.bind(this)
+    this.resize = this.resize.bind(this)
   }
 
   resize () {
-    if (this.slideshow) {
-      this.slideshow.resize()
-      this.slideshow.reposition()
-    }
+    var self = this
+    clearTimeout(this.resizeTimeout)
+    this.resizeTimeout = setTimeout(function () {
+      if (self.slideshow) {
+        self.slideshow.resize()
+        self.slideshow.position()
+      }
+    }, 500)
   }
 
   load (element) {
     this.slideshow = new Flickity(element, this.state)
+    this.slideshow.on('select', this.handleSelect)
+    this.slideshow.on('settle', this.handleSettle)
     window.addEventListener('resize', this.resize, false)
   }
 
   unload () {
     if (this.slideshow) {
       window.removeEventListener('resize', this.resize, false)
+      this.slideshow.off('select', this.handleSelect)
+      this.slideshow.off('settle', this.handleSettle)
       this.slideshow.destroy()
     }
   }
@@ -52,7 +66,20 @@ module.exports = class Slideshow extends Nanocomponent {
     `
   }
 
-  update () {
+  handleSelect (event) {
+    if (typeof this.state.select === 'function' && this.state.trigger) {
+      this.state.select(this.slideshow)
+    }
+  }
+
+  handleSettle (event) {
+    if (typeof this.state.settle === 'function'  && this.state.trigger) {
+      this.state.settle(this.slideshow)
+    }
+  }
+
+  update (props) {
+    this.state.trigger = props.trigger
     return false
   }
 }

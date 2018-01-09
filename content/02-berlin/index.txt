@@ -14,6 +14,8 @@ address: Kluckstraße 25, 10785
 ----
 addresslink: https://duckduckgo.com/?q=Kluckstra%C3%9Fe+25%2C+10785&t=ffab&ia=maps&iax=maps
 ----
+time: 3pm
+----
 texten:
 As incumbent tech platforms face growing scrutiny over their global influence, it is clear that we must envision decentralized, user-owned alternatives to counter the status quo. How do we build realistic alternatives? What do their implementations look like, and how do we address their technical and ethical challenges in the face of increasing user adoption?
 

@@ -67,6 +67,7 @@ function makeBerlin () {
 
   state.imgLeft = shuffle(images.slice(0))
   state.imgRight = shuffle(images.slice(0))
+  state.playing = false
 
   return state
 }
