@@ -7,7 +7,7 @@ var md = new Markdown()
 
 var Slideshow= require('../components/slideshow-2')
 var FormRsvp = require('../components/form-rsvp')
-// var sound = require('../components/berlin-sound')
+var sound = require('../components/berlin-sound')
 var wrapper = require('../components/wrapper')
 var footer = require('../components/footer')
 
@@ -77,28 +77,27 @@ function view (state, emit) {
           <div class="psa lh1 p2 t0 r0 z2 blink-sec" style="color: #f00; font-size: 0.5rem">
             •
           </div>
-          <div class="x psa t0 l0 b0 c6">
-            <div class="m0-5 mr0 bgc-black oh">
+          <div class="x psa t0 l0 b0 c6 pr0 p1">
+            <div class="w100 h100 bgc-black oh psr">
               ${slideshowLeft.render({
                 trigger: page.playing,
-                fade: true,
                 images: page.imgLeft,
+                reverse: true,
                 select: function (slideshow) {
-                  slideshow.options.autoPlay = getRandomSlideDelay()
+                  slideshow.delay = getRandomSlideDelay()
                   if (sound) sound.playOne()
                 }
               })}
             </div>
           </div>
-          <div class="x psa t0 r0 b0 c6">
-            <div class="m0-5 ml0 bgc-black oh">
+          <div class="psa t0 r0 b0 c6 pl0 p1">
+            <div class="w100 h100 bgc-black oh psr">
               ${slideshowRight.render({
                 trigger: page.playing,
-                fade: true,
                 rightToLeft: true,
                 images: page.imgRight,
                 select: function (slideshow) {
-                  slideshow.options.autoPlay = getRandomSlideDelay()
+                  slideshow.delay = getRandomSlideDelay()
                   if (sound) sound.playTwo()
                 }
               })}
