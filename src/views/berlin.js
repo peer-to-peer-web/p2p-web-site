@@ -85,7 +85,7 @@ function view (state, emit) {
                 reverse: true,
                 select: function (slideshow) {
                   slideshow.delay = getRandomSlideDelay()
-                  if (sound) sound.playOne()
+                  if (sound && slideshow.trigger) sound.playOne()
                 }
               })}
             </div>
@@ -98,7 +98,7 @@ function view (state, emit) {
                 images: page.imgRight,
                 select: function (slideshow) {
                   slideshow.delay = getRandomSlideDelay()
-                  if (sound) sound.playTwo()
+                  if (sound && slideshow.trigger) sound.playTwo()
                 }
               })}
             </div>

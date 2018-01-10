@@ -11,8 +11,9 @@ module.exports = class Slideshow extends Nanocomponent {
     this.loop
     this.state = {
       active: false,
+      trigger: false,
       index: 0,
-      delay: 500
+      delay: 2000
     }
   }
 
@@ -71,8 +72,11 @@ module.exports = class Slideshow extends Nanocomponent {
     }).begin()
 
     this.element.appendChild(elFresh)
-    if (typeof this.state.select === 'function') this.state.select(this.state)
     imgload(this.state.images[next].url).start()
+
+    if (typeof this.state.select === 'function') {
+      this.state.select(this.state)
+    }
 
     if (children.length > 2) {
       this.element.removeChild(children[0])
