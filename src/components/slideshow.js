@@ -14,7 +14,7 @@ module.exports = class Slideshow extends Nanocomponent {
       pageDots: false,
       wrapAround: true,
       pauseAutoPlayOnHover: false,
-      resize: true,
+      resize: false,
       accessibility: false,
       bgLazyLoad: 1
     }
@@ -23,15 +23,16 @@ module.exports = class Slideshow extends Nanocomponent {
     this.handleSettle = this.handleSettle.bind(this)
     this.handleSelect = this.handleSelect.bind(this)
     this.resize = this.resize.bind(this)
-  }
+}
 
   resize () {
     var self = this
     clearTimeout(this.resizeTimeout)
     this.resizeTimeout = setTimeout(function () {
-      if (self.slideshow) {
+      console.log(self.slideshow.resize)
+      if (self.slideshow && self.slideshow.resize && self.slideshow.position) {
         self.slideshow.resize()
-        self.slideshow.position()
+        // self.slideshow.position()
       }
     }, 500)
   }
@@ -41,6 +42,7 @@ module.exports = class Slideshow extends Nanocomponent {
     this.slideshow.on('select', this.handleSelect)
     this.slideshow.on('settle', this.handleSettle)
     window.addEventListener('resize', this.resize, false)
+    this.resize()
   }
 
   unload () {

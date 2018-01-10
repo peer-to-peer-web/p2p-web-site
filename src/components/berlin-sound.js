@@ -1,4 +1,3 @@
-var Nanocomponent = require('nanocomponent')
 var Tone = require('tone')
 
 var loaded = false

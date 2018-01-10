@@ -21,9 +21,9 @@ function store (site) {
       var view = views[page.view] || views.default
       state.content[page.url] = xtend(page, state.content[page.url])
 
-      app.route(page.short || page.url, function (state, emit) {
-        return view(xtend(state, { page: state.content[page.url] }), emit)
-      })
+      // app.route(page.short || page.url, function (state, emit) {
+      //   return view(xtend(state, { page: state.content[page.url] }), emit)
+      // })
     })
 
     state.events.CONTENT = 'content'

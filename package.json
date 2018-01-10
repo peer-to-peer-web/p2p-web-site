@@ -7,7 +7,6 @@
     "bel": "^5.1.5",
     "choo": "^6.5.1",
     "ez.js": "^1.0.3",
-    "flickity": "^2.0.10",
     "flickity-bg-lazyload": "^1.0.0",
     "fontfaceobserver": "^2.0.13",
     "form-data-to-object": "^0.2.0",
@@ -27,25 +26,24 @@
     "qs": "^6.5.1",
     "read-directory": "^3.0.0",
     "sheetify": "^6.2.0",
+    "siema": "^1.4.10",
     "sublevel": "^2.4.0",
     "tone": "^0.11.11",
     "tweezer.js": "^1.4.0",
     "xhr": "^2.4.0",
     "xtend": "^4.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "bankai": "^9.1.0"
+  },
   "scripts": {
-    "start": "bankai start"
+    "start": "bankai start",
+    "build": "bankai build"
   },
   "browserify": {
     "transform": [
       "read-directory",
       "hypha/transform"
-    ]
-  },
-  "documentify": {
-    "transform": [
-      "./src/tooling/social"
     ]
   },
   "keywords": [],

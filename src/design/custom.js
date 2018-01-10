@@ -142,6 +142,10 @@ var custom = `
     font-family: 'Lars Mono', menlo, manaco, monospace;
   }
 
+  .ofc {
+    object-fit: cover;
+  }
+
   .blink {
     animation: blink 500ms steps(1, end) infinite;
   }

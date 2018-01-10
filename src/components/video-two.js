@@ -16,7 +16,6 @@ module.exports = class Video extends Nanocomponent {
 
   load (element) {
     var self = this
-    console.log('LOAD')
     // this.player = plyr.setup(element.querySelector('video'))
     setTimeout(() => {
       self.player = plyr.setup(element.querySelector('video'))

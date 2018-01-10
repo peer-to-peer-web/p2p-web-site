@@ -7,6 +7,4 @@ The site for peer-to-peer web events.
 ### Todo
 
 - [ ] RSVP/mailing list viewer
-- [ ] Collect header imagery
-- [ ] Header component (slideshows and time)
-- [ ] Randomize street view images on click
+- [ ] Slideshow resizing and smoothness

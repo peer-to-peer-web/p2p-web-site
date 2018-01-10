@@ -59,13 +59,13 @@ module.exports = class FormRsvp extends Nanocomponent {
       },
       de: {
         livestream: 'Liveübertragung',
-        event: 'Veranstaltung',
-        name: 'Name',
-        email: 'Email addresse',
-        submit: 'Senden Sie Ihre Antwort',
-        submitting: 'Einreichen…',
-        success: '',
-        error: ''
+         event: 'Veranstaltung',
+         name: 'Name',
+         email: 'Email addresse',
+         submit: 'Senden Sie Ihre Antwort',
+         submitting: 'Wird Eingereicht!',
+         success: 'Erfolg',
+         error: 'Fehlgeschlagen'
       }
     }
 

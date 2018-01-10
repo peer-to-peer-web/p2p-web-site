@@ -10,8 +10,9 @@ var site = hypha.readSiteSync('./content', {
 app.use(require('./src/plugins/content')(site))
 app.use(require('./src/plugins/ui'))
 
-// app.route('/', require('./src/views/main'))
-// app.route('/los-angeles', require('./src/views/la'))
+app.route('/', require('./src/views/main'))
+app.route('/los-angeles', require('./src/views/la'))
+app.route('/berlin', require('./src/views/berlin'))
 
 if (!module.parent) app.mount('body')
 else module.exports = app

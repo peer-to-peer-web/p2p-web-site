@@ -23,9 +23,9 @@ Peer-to-Peer Web Berlin is for those new to the decentralized web. The event wil
 ----
 textde:
 
-Deutsches Ipsum Dolor id latine Käsefondue complectitur pri, mea Mercedes Benz denique nominavi id. Guten Tag expetenda nam an, Bier ei reque euismod Wie geht's Odio principes iracundia was machst du pri. Ut vel Grimms Märchen mandamus, quas natum Welt ei ius, diam Angela Merkel honestatis eum no.
+Da etablierte Technologieplattformen einer wachsenden kritischen Überprüfung und Kontrolle ihres globalen Einflusses ausgesetzt sind, ist es klar, dass wir uns dezentrale, nutzereigene Alternativen vorstellen müssen, um dem Status quo entgegenzuwirken. Wie entwerfen wir realistische Alternativen? Wie sehen ihre Implementierungen aus und wie gehen wir mit den technischen und ethischen Herausforderungen um, die sich aus der zunehmenden Benutzeradaption ergeben?
 
-Tollit Ritter Sport ius an. Saepe Guten Tag elaboraret per ne, Guten Tag eu probatus pertinax, Volkswagen eripuit aliquando no Hallo Diam scripserit no Fußball eos meis suscipit Krankenschwester Eam ea offendit Die unendliche Geschichte ad blandit voluptatibus Meerschweinchen ad eius consul Hackfleisch vix. Cu quas Döner veritus vim.
+Peer-to-Peer Web Berlin ist für Neueinsteiger im dezentralen Web. Die Veranstaltung wird die Möglichkeiten untersuchen, die jenseits eines, von Plattformmonopolen kontrollierten und zentralisierten Internets liegen. In einer Reihe von Vorträgen und Workshops werden wir die sozialen, politischen, ethischen und wirtschaftlichen Potenziale und Herausforderungen der Peer-to-Peer-Bewegung untersuchen.
 ----
 sponsors:
   - title: Internet Archive

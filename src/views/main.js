@@ -12,7 +12,7 @@ function view (state, emit) {
       <div class="copy p0-5">
         <h2>Peer-to-Peer Web</h2>
         <ul>
-          <li>/ <a href="/berlin">Berlin</a></li>
+          <li class="dn">/ <a href="/berlin">Berlin</a></li>
           <li>/ <a href="/los-angeles">Los Angeles</a></li>
         </ul>
       </div>

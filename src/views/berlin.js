@@ -5,9 +5,9 @@ var html = require('choo/html')
 var css = require('sheetify')
 var md = new Markdown()
 
-var Slideshow= require('../components/Slideshow')
+var Slideshow= require('../components/slideshow-2')
 var FormRsvp = require('../components/form-rsvp')
-var sound = require('../components/berlin-sound')
+// var sound = require('../components/berlin-sound')
 var wrapper = require('../components/wrapper')
 var footer = require('../components/footer')
 
@@ -24,18 +24,19 @@ var style = css`
 module.exports = wrapper(view)
 
 function view (state, emit) {
+  var page = state.content['/02-berlin']
   var langs = {
     en: {
       days: 'days',
       hours: 'hours',
       minutes: 'minutes',
-      date: state.page.dateen
+      date: page.dateen
     },
     de: {
       days: 'tag',
-      hours: 'stunde',
-      minutes: 'minuten',
-      date: state.page.datede
+       hours: 'Stunden',
+       minutes: 'minuten',
+       date: '10. Februar 2018'
     }
   }
 
@@ -76,28 +77,32 @@ function view (state, emit) {
           <div class="psa lh1 p2 t0 r0 z2 blink-sec" style="color: #f00; font-size: 0.5rem">
             •
           </div>
-          <div class="psa t0 l0 b0 c6 m0-5 oh pen bgc-black">
-            ${slideshowLeft.render({
-              trigger: state.page.playing,
-              fade: true,
-              images: state.page.imgLeft,
-              select: function (slideshow) {
-                slideshow.options.autoPlay = getRandomSlideDelay()
-                sound.playOne()
-              }
-            })}
+          <div class="x psa t0 l0 b0 c6">
+            <div class="m0-5 mr0 bgc-black oh">
+              ${slideshowLeft.render({
+                trigger: page.playing,
+                fade: true,
+                images: page.imgLeft,
+                select: function (slideshow) {
+                  slideshow.options.autoPlay = getRandomSlideDelay()
+                  if (sound) sound.playOne()
+                }
+              })}
+            </div>
           </div>
-          <div class="psa t0 r0 b0 c6 m0-5 oh pen bgc-black">
-            ${slideshowRight.render({
-              trigger: state.page.playing,
-              fade: true,
-              rightToLeft: true,
-              images: state.page.imgRight,
-              select: function (slideshow) {
-                slideshow.options.autoPlay = getRandomSlideDelay()
-                sound.playTwo()
-              }
-            })}
+          <div class="x psa t0 r0 b0 c6">
+            <div class="m0-5 ml0 bgc-black oh">
+              ${slideshowRight.render({
+                trigger: page.playing,
+                fade: true,
+                rightToLeft: true,
+                images: page.imgRight,
+                select: function (slideshow) {
+                  slideshow.options.autoPlay = getRandomSlideDelay()
+                  if (sound) sound.playTwo()
+                }
+              })}
+            </div>
           </div>
           <div class="dn psa t0 l0 r0 b0 x fc-white lh1 fs2 sm-fs3 z2">
             <div class="c6 h100 x xdc ff-mono">
@@ -113,10 +118,10 @@ function view (state, emit) {
           </div>
         </div>
         <div class="w100 p0-5 sm-psr">
-          <div class="xx">${state.page.title}</div>
+          <div class="xx">${page.title}</div>
           <div class="x xjc xac oh curp psa t0 r0 p0-5 t0 sm-b0 z2" onclick=${toggleSound}>
             <div class="bgc-black p1" style="border-radius: 50%">
-              ${state.page.playing ? iconOn() : iconOff()}
+              ${page.playing ? iconOn() : iconOff()}
             </div>
           </div>
         </div>
@@ -128,10 +133,10 @@ function view (state, emit) {
     return html`
       <div class="c12 x xw p0-5">
         <div class="c12 sm-c6 p0-5 copy">
-          ${raw(md.render(state.page.texten))}
+          ${raw(md.render(page.texten))}
         </div>
         <div class="c12 sm-c6 p0-5 copy">
-          ${raw(md.render(state.page.textde))}
+          ${raw(md.render(page.textde))}
         </div>
       </div>
     `
@@ -142,9 +147,9 @@ function view (state, emit) {
       <div class="c12 tac w100 p1">
         <img src="/assets/02-berlin/venue.jpg" class="" style="width: 12rem">
         <div class="p1">
-          <div>${state.page.venue} @ ${state.page.time} (CET)</div>
-          <a href="${state.page.addresslink}" class="pb0-25">
-            ${state.page.address}
+          <div>${page.venue} @ ${page.time} (CET)</div>
+          <a href="${page.addresslink}" class="pb0-25">
+            ${page.address}
           </a><br>
         </div>
       </div>
@@ -154,7 +159,7 @@ function view (state, emit) {
   function sponsors () {
     return html`
       <div class="x xw p0-5 xjc">
-        ${state.page.sponsors.map(function (sponsor) {
+        ${page.sponsors.map(function (sponsor) {
           return html`
             <div class="x xjc xac p0-5">
               <a href="${sponsors.url}" class="bb0">
@@ -203,7 +208,7 @@ function view (state, emit) {
   }
 
   function images () {
-    var blocks = state.page.streetview.map(function (image) {
+    var blocks = page.streetview.map(function (image) {
       return html`
         <div class="c4 psr p0-5">
           ${state.ui.loaded ? img() : ''}
@@ -231,10 +236,10 @@ function view (state, emit) {
   }
 
   function toggleSound () {
-    sound.load()
+    if (sound) sound.load()
     emit(state.events.CONTENT, {
       page: '/02-berlin',
-      data: { playing: !state.page.playing }
+      data: { playing: !page.playing }
     })
   }
 }
