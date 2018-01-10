@@ -15,6 +15,8 @@ module.exports = class Slideshow extends Nanocomponent {
       index: 0,
       delay: 2000
     }
+
+    this.handleClick = this.handleClick.bind(this)
   }
 
   load (element) {
@@ -48,6 +50,7 @@ module.exports = class Slideshow extends Nanocomponent {
       <img
         class="db h100 w100 ofc psa t0 l0 r0 b0"
         src="${props.image.url}"
+        onclick=${this.handleClick}
       >
     `
   }
@@ -78,13 +81,19 @@ module.exports = class Slideshow extends Nanocomponent {
       this.state.select(this.state)
     }
 
-    if (children.length > 2) {
-      this.element.removeChild(children[0])
-    }
-
+    clearTimeout(this.loop)
     this.loop = setTimeout(() => {
       this.progress()
+      if (children.length > 2) {
+        children.slice(0, children.length - 1).forEach(child => {
+          if (child) this.element.removeChild(child)
+        })
+      }
     }, this.state.delay)
+  }
+
+  handleClick (event) {
+    this.progress()
   }
 
   update (props) {

@@ -77,7 +77,7 @@ function view (state, emit) {
           <div class="psa lh1 p2 t0 r0 z2 blink-sec" style="color: #f00; font-size: 0.5rem">
             •
           </div>
-          <div class="x psa t0 l0 b0 c6 pr0 p1">
+          <div class="x psa t0 l0 b0 c6 pr0 p0-5">
             <div class="w100 h100 bgc-black oh psr">
               ${slideshowLeft.render({
                 trigger: page.playing,
@@ -89,8 +89,14 @@ function view (state, emit) {
                 }
               })}
             </div>
+            <div
+              class="psa t0 l0 b0 x xjc xac p2 fc-white z2 dn sm-db curp"
+              onclick=${e => slideshowLeft.progress()}
+            >
+              ←
+            </div>
           </div>
-          <div class="psa t0 r0 b0 c6 pl0 p1">
+          <div class="psa t0 r0 b0 c6 pl0 p0-5">
             <div class="w100 h100 bgc-black oh psr">
               ${slideshowRight.render({
                 trigger: page.playing,
@@ -101,6 +107,12 @@ function view (state, emit) {
                   if (sound && slideshow.trigger) sound.playTwo()
                 }
               })}
+            </div>
+            <div
+              class="psa t0 r0 b0 x xjc xac p2 fc-white dn sm-db z2 curp"
+              onclick=${e => slideshowRight.progress()}
+            >
+              →
             </div>
           </div>
           <div class="dn psa t0 l0 r0 b0 x fc-white lh1 fs2 sm-fs3 z2">
