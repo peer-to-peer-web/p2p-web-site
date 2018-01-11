@@ -35,7 +35,7 @@ var custom = `
     border-bottom-color: #fff;
   }
 
-  .bb0 { border-bottom: 0 }
+  .bb0 { border-bottom: 0; padding-bottom: 0; }
   .oph100:hover { opacity: 1 }
 
   .contrast {
@@ -91,6 +91,10 @@ var custom = `
     border-bottom: 0.05em solid #000;
   }
 
+  .lh1-5 a { padding-bottom: 0.25em }
+  .lh1-25 a { padding-bottom: 0 }
+  .lh1 a { padding-bottom: 0 }
+
   .hyphen {
     margin-top: 1px;
     height: 1px;
@@ -102,9 +106,7 @@ var custom = `
     font-size: 1em;
   }
 
-  .copy {
-    hyphens: auto;
-  }
+  .copy { hyphens: auto; }
 
   .footnotes a {
     border-bottom: 2px solid #000;
@@ -133,6 +135,27 @@ var custom = `
   .copy ol li:nth-child(2):before { content: '2' }
   .copy ol li:nth-child(3):before { content: '3' }
   .copy ol li:nth-child(4):before { content: '4' }
+
+  .mxa { margin-left: auto; margin-right: auto; }
+
+  .copy-simple {
+    hyphens: auto;
+  }
+
+  .copy-simple > *+* {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .copy-simple ul li {
+    list-style: disc;
+    margin-left: 1rem;
+    padding-left: 0.5rem;
+  }
+
+  .copy-simple h2 {
+    margin-top: 3rem;
+  }
 
   strong {
     font-weight: bold;

@@ -24,8 +24,12 @@ module.exports = class Slideshow extends Nanocomponent {
     this.progress()
   }
 
-  unload () {
+  unload (element) {
+    var children = [...element.children]
     clearTimeout(this.loop)
+    children.forEach(child => {
+      if (child) element.removeChild(child)
+    })
   }
 
   createElement (props) {
@@ -36,11 +40,7 @@ module.exports = class Slideshow extends Nanocomponent {
     if (!this.state.active) return html`<div></div>`
 
     return html`
-      <div class="h100 w100 psr">
-        ${this.renderImage({
-          image: this.state.images[this.state.index]
-        })}
-      </div>
+      <div class="h100 w100 psr"></div>
     `
   }
 
@@ -49,6 +49,7 @@ module.exports = class Slideshow extends Nanocomponent {
     return html`
       <img
         class="db h100 w100 ofc psa t0 l0 r0 b0"
+        style="opacity: 0"
         src="${props.image.url}"
         onclick=${this.handleClick}
       >
@@ -56,6 +57,12 @@ module.exports = class Slideshow extends Nanocomponent {
   }
 
   progress () {
+    var self = this
+
+    if (typeof this.element === 'undefined') {
+      return clearTimeout(this.loop)
+    }
+
     var reverse = this.state.reverse
     this.state.index = (this.state.index + 1) % this.state.images.length
     var next = (this.state.index + 1) % this.state.images.length 
@@ -75,6 +82,7 @@ module.exports = class Slideshow extends Nanocomponent {
     }).begin()
 
     this.element.appendChild(elFresh)
+    setTimeout(() => { elFresh.style.opacity = 1 }, 0)
     imgload(this.state.images[next].url).start()
 
     if (typeof this.state.select === 'function') {
@@ -85,8 +93,8 @@ module.exports = class Slideshow extends Nanocomponent {
     this.loop = setTimeout(() => {
       this.progress()
       if (children.length > 2) {
-        children.slice(0, children.length - 1).forEach(child => {
-          if (child) this.element.removeChild(child)
+        children.slice(0, children.length - 1).forEach(function (child) {
+          if (child.parentNode === self.element) self.element.removeChild(child)
         })
       }
     }, this.state.delay)

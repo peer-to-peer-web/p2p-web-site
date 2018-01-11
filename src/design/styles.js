@@ -11,7 +11,7 @@ var colors = {
   white: '#fff',
   grey_15: '#ccc',
   grey_90: '#333',
-  highlight: '#FF0',
+  highlight: '#ff0',
   black: '#000'
 }
 

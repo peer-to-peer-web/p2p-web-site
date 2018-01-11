@@ -13,6 +13,7 @@ app.use(require('./src/plugins/ui'))
 app.route('/', require('./src/views/main'))
 app.route('/los-angeles', require('./src/views/la'))
 app.route('/berlin', require('./src/views/berlin'))
+app.route('/coc', require('./src/views/coc'))
 
 if (!module.parent) app.mount('body')
 else module.exports = app

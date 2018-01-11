@@ -19,10 +19,18 @@ function ui (state, emitter, app) {
     state.ui.p2p = window.location.protocol === 'dat:'
     loadOptions()
     loadFonts()
+    // bankai fix
+    try {
+      document.querySelector('head').removeChild(document.querySelector('style'))
+    } catch (err) { }
   })
 
   emitter.on(state.events.UI, function (data) {
     state.ui = xtend(state.ui, data)
+  })
+
+  emitter.on(state.events.NAVIGATE, function () {
+    window.scrollTo(0, 0)
   })
 
   function loadOptions () {

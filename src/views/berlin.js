@@ -36,7 +36,7 @@ function view (state, emit) {
       days: 'tag',
        hours: 'Stunden',
        minutes: 'minuten',
-       date: '10. Februar 2018'
+       date: page.datede
     }
   }
 
@@ -47,7 +47,7 @@ function view (state, emit) {
   return html`
     <div class="x xjc xw ${style}">
       ${header()}
-      <div class="c12 p1 sm-pt0 tac lh1 fs1 sm-fs3">
+      <div class="c12 p1 sm-pt0 tac lh1-25 sm-lh1 fs3">
         ${lang.date}
       </div>
       <div class="mxwidth">
@@ -72,11 +72,12 @@ function view (state, emit) {
 
   function header () {
     return html`
-      <div class="usn c12 x xdc lh1 tac vh100 p0-5 fs3 lh1-25 sm-lh1 curd">
+      <div class="usn c12 x xdc lh1 tac vhmn100 p0-5 fs3 lh1-25 sm-lh1 curd">
         <div class="xx w100 psr">
-          <div class="psa lh1 p2 t0 r0 z2 blink-sec" style="color: #f00; font-size: 0.5rem">
+          <div class="psa lh1 p2 t0 r0 z2 blink-sec" style="color: #ff0; font-size: 0.5rem">
             •
           </div>
+          <div class="psa t0 l0 r0 b0 bgsct bgrn bgpc z2 pen" style="margin: 2.5vmin; background-image: url(/assets/02-berlin/lines.png"></div>
           <div class="x psa t0 l0 b0 c6 pr0 p0-5">
             <div class="w100 h100 bgc-black oh psr">
               ${slideshowLeft.render({
@@ -88,12 +89,6 @@ function view (state, emit) {
                   if (sound && slideshow.trigger) sound.playOne()
                 }
               })}
-            </div>
-            <div
-              class="psa t0 l0 b0 x xjc xac p2 fc-white z2 dn sm-db curp"
-              onclick=${e => slideshowLeft.progress()}
-            >
-              ←
             </div>
           </div>
           <div class="psa t0 r0 b0 c6 pl0 p0-5">
@@ -107,12 +102,6 @@ function view (state, emit) {
                   if (sound && slideshow.trigger) sound.playTwo()
                 }
               })}
-            </div>
-            <div
-              class="psa t0 r0 b0 x xjc xac p2 fc-white dn sm-db z2 curp"
-              onclick=${e => slideshowRight.progress()}
-            >
-              →
             </div>
           </div>
           <div class="dn psa t0 l0 r0 b0 x fc-white lh1 fs2 sm-fs3 z2">
@@ -156,12 +145,12 @@ function view (state, emit) {
   function location () {
     return html`
       <div class="c12 tac w100 p1">
-        <img src="/assets/02-berlin/venue.jpg" class="" style="width: 12rem">
+        <a href="https://trust.support" class="bb0" target="_blank"><img src="/assets/02-berlin/venue.jpg" class="" style="width: 12rem"></a>
         <div class="p1">
-          <div>${page.venue} @ ${page.time} (CET)</div>
-          <a href="${page.addresslink}" class="pb0-25">
-            ${page.address}
-          </a><br>
+          <div><a href="https://trust.support" target="_blank">${page.venue}</a></div>
+          <br>
+          <div>${page.time} (CET)</div>
+          <a href="${page.addresslink}" class="pb0-25">${page.address}</a>
         </div>
       </div>
     `
@@ -169,11 +158,11 @@ function view (state, emit) {
 
   function sponsors () {
     return html`
-      <div class="x xw p0-5 xjc">
+      <div class="x xw xjc">
         ${page.sponsors.map(function (sponsor) {
           return html`
-            <div class="x xjc xac p0-5">
-              <a href="${sponsors.url}" class="bb0">
+            <div class="x xjc xac p1 sm-px1-5">
+              <a href="${sponsor.url}" target="_blank" class="bb0">
                 <img src="/assets/02-berlin/${sponsor.src}" style="max-width: ${sponsor.size}rem">
               </a>
             </div>

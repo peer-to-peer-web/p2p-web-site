@@ -10,7 +10,17 @@ var style = css`
     padding: 1px;
   }
 
-  form input, form label { margin: 0 0 1px 0 }
+  form input, form label {
+    margin: 0 0 1px 0;
+    -webkit-appearance: none;
+  }
+
+  form button {
+    margin: 0;
+    -webkit-appearance: none;
+    -webkit-box-align: start;
+    -webkit-margin-collapse: discard;
+  }
 
   input:not([value=""]):invalid {
     color: #f00;
@@ -19,6 +29,7 @@ var style = css`
   :-moz-submit-invalid { box-shadow: none }
   :-moz-ui-invalid { box-shadow: none }
 
+  input[checked]+label { background: #ff0 }
   label { position: relative; }
   input[checked]+label:after {
     content: '×';
@@ -27,6 +38,17 @@ var style = css`
     top: 0;
     right: 0;
     padding: 0.5rem 1rem;
+  }
+
+  .wtf-safari {
+    height: 1px;
+    background: #000;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 3;
+    pointer-events: none;
   }
 `
 
@@ -52,7 +74,7 @@ module.exports = class FormRsvp extends Nanocomponent {
         event: 'Event',
         name: 'Name',
         email: 'Email address',
-        submit: 'Submit RSVP',
+        submit: 'Submit',
         submitting: 'Submitting…',
         success: 'Success!',
         error: 'Submission failed'
@@ -62,7 +84,7 @@ module.exports = class FormRsvp extends Nanocomponent {
          event: 'Veranstaltung',
          name: 'Name',
          email: 'Email addresse',
-         submit: 'Senden Sie Ihre Antwort',
+         submit: 'Senden',
          submitting: 'Wird Eingereicht!',
          success: 'Erfolg',
          error: 'Fehlgeschlagen'
@@ -80,9 +102,12 @@ module.exports = class FormRsvp extends Nanocomponent {
       <form
         enctype="application/x-www-form-urlencoded "
         method="post"
-        class="c12 x xw bgc-black ${style} ${this.state.loading ? 'pen' : ''}"
+        class="c12 x xw bgc-black psr ${style} ${this.state.loading ? 'pen' : ''}"
         onsubmit=${this.handleSubmit}
       >
+        <div class="c12 bgc-black fc-white tac px1 py0-5">
+          RSVP
+        </div>
         <div class="c6">
           <input
             type="radio"
@@ -93,22 +118,24 @@ module.exports = class FormRsvp extends Nanocomponent {
             onchange=${this.handleInput}
             ${this.state.attendance === 'livestream' ? 'checked' : ''}
           >
-          <label class="curp ff-sans px1 py0-5 db fs1 bgc-white fc-black" style="margin-right: 1px" for="livestream">
+          <label class="c12 curp ff-sans px1 py0-5 db fs1 bgc-white fc-black" for="livestream">
             ${this.getLang('livestream')}
           </label>
         </div>
-        <input
-          type="radio"
-          name="attendance"
-          class="dn"
-          id="event"
-          value="event"
-          onchange=${this.handleInput}
-          ${this.state.attendance === 'event' ? 'checked' : ''}
-        >
-        <label class="curp ff-sans px1 py0-5 db c6 fs1 bgc-white fc-black" for="event">
-          ${this.getLang('event')}
-        </label>
+        <div class="c6">
+          <input
+            type="radio"
+            name="attendance"
+            class="dn"
+            id="event"
+            value="event"
+            onchange=${this.handleInput}
+            ${this.state.attendance === 'event' ? 'checked' : ''}
+          >
+          <label class="curp ff-sans px1 py0-5 db c12 fs1 bgc-white fc-black" for="event">
+            ${this.getLang('event')}
+          </label>
+        </div>
         <input
           name="name"
           required="true"
@@ -140,6 +167,7 @@ module.exports = class FormRsvp extends Nanocomponent {
             style="outline: 0;"
           >${this.getLang('submit')}</button>
         </div>
+        <div class="wtf-safari"></div>
       </form>
     `
   }
@@ -161,16 +189,22 @@ module.exports = class FormRsvp extends Nanocomponent {
     this.rerender()
 
     xhr.post('https://api.jon-kyle.com/mailinglist/save', {
-      body: qs.stringify(this.state),
+      body: qs.stringify({
+        name: this.state.name,
+        address: this.state.address,
+        event: this.state.address,
+        attendance: this.state.attendance,
+        date: this.state.date
+      }),
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded '
       }
     }, function (err, resp) {
       self.state.loading = false
       if (err) {
-        self.state.error = this.getLang('error')
+        self.state.error = self.getLang('error')
       } else {
-        self.state.message = this.getLang('success')
+        self.state.message = self.getLang('success')
       }
       self.rerender()
     })

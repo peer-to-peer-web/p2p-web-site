@@ -1,0 +1,24 @@
+title: Code of Conduct
+----
+text:
+
+Peer-to-Peer Web endeavors to create a harassment-free environment for everyone participating in our events. We do not tolerate harassment of participants in any form. We are here to promote inclusion, regardless of race, religion, gender identity, sexual orientation, disability, age or physical appearance.
+
+## Harassment
+Harassment includes, but is not limited to:
+
+- Inappropriate and discriminatory verbal comments
+- Intimidation and stalking
+- Inappropriate physical contact
+- Unwelcome sexual attention
+- Unwanted photographing or video/audio recordings
+
+Anyone that is asked to stop harassing another participant is expected to comply immediately.
+
+Participants, including speakers and organizers, found to be violating our Code of Conduct may be expelled from the event, and any future events held by Peer-to-Peer Web.
+
+## Reporting
+If someone makes you feel uncomfortable or unsafe, do not hesitate to report them to one of our organizers. We will handle your report as discretely and respectfully as possible.
+
+## Attribution
+This Code of Conduct was adapted from [JSConfAU’s 2018 Code of Conduct](http://2018.jsconfau.com/code-of-conduct).

@@ -6,7 +6,7 @@ module.exports = transform
 
 function transform (opts) {
   var header = `
-    <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="http://peer-to-peer-web.com/">
     <meta name="twitter:title" content="${manifest.name}">
     <meta name="twitter:description" content="${manifest.description}">

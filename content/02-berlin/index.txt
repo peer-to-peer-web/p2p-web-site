@@ -6,7 +6,7 @@ short: berlin
 ----
 dateen: February 10th, 2018
 ----
-datede: Februar 10th, 2018
+datede: 10. Februar 2018
 ----
 venue: Trust
 ----
@@ -19,24 +19,28 @@ time: 3pm
 texten:
 As incumbent tech platforms face growing scrutiny over their global influence, it is clear that we must envision decentralized, user-owned alternatives to counter the status quo. How do we build realistic alternatives? What do their implementations look like, and how do we address their technical and ethical challenges in the face of increasing user adoption?
 
-Peer-to-Peer Web Berlin is for those new to the decentralized web. The event will explore the possibilities that lie beyond a centralized internet controlled by platform monopolies. Through a series of presentations and workshops, we will examine the social, political, ethical and economic potentials and challenges of the peer-to-peer movement.
+Peer-to-Peer Web / Berlin is for those new to the decentralized web. The event will explore the possibilities that lie beyond a centralized internet controlled by platform monopolies. Through a series of presentations and workshops, we will examine the social, political, ethical and economic potentials and challenges of the peer-to-peer movement.
 ----
 textde:
 
 Da etablierte Technologieplattformen einer wachsenden kritischen Überprüfung und Kontrolle ihres globalen Einflusses ausgesetzt sind, ist es klar, dass wir uns dezentrale, nutzereigene Alternativen vorstellen müssen, um dem Status quo entgegenzuwirken. Wie entwerfen wir realistische Alternativen? Wie sehen ihre Implementierungen aus und wie gehen wir mit den technischen und ethischen Herausforderungen um, die sich aus der zunehmenden Benutzeradaption ergeben?
 
-Peer-to-Peer Web Berlin ist für Neueinsteiger im dezentralen Web. Die Veranstaltung wird die Möglichkeiten untersuchen, die jenseits eines, von Plattformmonopolen kontrollierten und zentralisierten Internets liegen. In einer Reihe von Vorträgen und Workshops werden wir die sozialen, politischen, ethischen und wirtschaftlichen Potenziale und Herausforderungen der Peer-to-Peer-Bewegung untersuchen.
+Peer-to-Peer Web / Berlin ist für Neueinsteiger im dezentralen Web. Die Veranstaltung wird die Möglichkeiten untersuchen, die jenseits eines, von Plattformmonopolen kontrollierten und zentralisierten Internets liegen. In einer Reihe von Vorträgen und Workshops werden wir die sozialen, politischen, ethischen und wirtschaftlichen Potenziale und Herausforderungen der Peer-to-Peer-Bewegung untersuchen.
 ----
 sponsors:
-  - title: Internet Archive
-    src: internet-archive.png
-    url: https://archive.org/
-    size: 5
   - title: Foam
     src: foam.png
     url: https://www.foam.space/
-    size: 10
+    size: 6
+  - title: Internet Archive
+    src: internet-archive.png
+    url: https://archive.org/
+    size: 3
   - title: unMonastery
     src: unmonastery.png
-    size: 5
+    size: 3
     url: http://unmonastery.org/
+  - title: Trust
+    src: trust.png
+    size: 6
+    url: https://trust.support/

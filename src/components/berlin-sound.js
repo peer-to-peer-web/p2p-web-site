@@ -1,4 +1,4 @@
-var Tone = require('tone')
+var Tone
 
 var loaded = false
 var synthOne = { }
@@ -11,6 +11,7 @@ var notes = [
 ]
 
 function init () {
+  Tone = require('tone/build/Tone.min.js')
   var chOne = new Tone.PanVol(-0.8, -3).connect(Tone.Master)
   var chTwo = new Tone.PanVol(0.8, -3).connect(Tone.Master)
 

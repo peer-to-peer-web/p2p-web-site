@@ -44,6 +44,11 @@
       "hypha/transform"
     ]
   },
+  "documentify": {
+    "transform": [
+      "./src/tooling/social"
+    ]
+  },
   "keywords": [],
   "author": "Jon-Kyle <contact@jon-kyle.com> (http://jon-kyle.com)",
   "license": "ISC"
