@@ -12,6 +12,7 @@ function transform (opts) {
     <meta name="twitter:description" content="${manifest.description}">
     <meta name="twitter:creator" content="@jondashkyle">
     <meta name="twitter:image" content="${manifest.twitter}">
+    <meta name="google" value="notranslate">
   `.replace(/\n +/g, '')
 
   return hyperstream({

@@ -192,7 +192,7 @@ module.exports = class FormRsvp extends Nanocomponent {
       body: qs.stringify({
         name: this.state.name,
         address: this.state.address,
-        event: this.state.address,
+        event: this.state.event,
         attendance: this.state.attendance,
         date: this.state.date
       }),

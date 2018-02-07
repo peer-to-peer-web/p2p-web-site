@@ -176,10 +176,10 @@ function view (state, emit) {
     return html`
       <div class="c12 x xjc">
         <div class="c12 sm-c8 p1">
-          ${formRsvp.render({
-            lang: state.ui.lang,
-            event: 'berlin'
-          })}
+          <div class="bgc-black fc-white p4 tac">
+            <div class="fs2">RSVP Closed</div>
+            <div>Please join us for the livestream at 3pm CET</div>
+          </div>
         </div>
       </div>
     `
