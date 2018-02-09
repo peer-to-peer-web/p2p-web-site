@@ -10,6 +10,7 @@ var FormRsvp = require('../components/form-rsvp')
 var sound = require('../components/berlin-sound')
 var wrapper = require('../components/wrapper')
 var footer = require('../components/footer')
+var livestream = require('../components/livestream')
 
 var slideshowLeft = new Slideshow()
 var slideshowRight = new Slideshow()
@@ -46,6 +47,7 @@ function view (state, emit) {
 
   return html`
     <div class="x xjc xw ${style}">
+      ${livestream(state)}
       ${header()}
       <div class="c12 p1 sm-pt0 tac lh1-25 sm-lh1 fs3">
         ${lang.date}

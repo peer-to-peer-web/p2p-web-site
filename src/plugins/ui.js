@@ -2,6 +2,9 @@ var FontFaceObserver = require('fontfaceobserver')
 var xtend = require('xtend')
 var xhr = require('xhr')
 
+var streamDate = new Date('Sat Feb 10 2018 14:45:00 GMT')
+var streamDate = new Date('Sat Feb 10 2018 14:45:00 GMT')
+
 module.exports = ui
 
 function ui (state, emitter, app) {
@@ -17,8 +20,8 @@ function ui (state, emitter, app) {
 
   emitter.on(state.events.DOMCONTENTLOADED, function () {
     state.ui.p2p = window.location.protocol === 'dat:'
-    loadOptions()
     loadFonts()
+    checkLivestream()
     // bankai fix
     try {
       document.querySelector('head').removeChild(document.querySelector('style'))
@@ -33,17 +36,15 @@ function ui (state, emitter, app) {
     window.scrollTo(0, 0)
   })
 
-  function loadOptions () {
-    var timestamp = process.env.NODE_ENV === 'production' ? '?' + (new Date().getTime()) : ''
-    xhr('/assets/options.json' + timestamp, function (err, resp, body) {
-      if (err) return
-      try {
-        state.ui = xtend(state.ui, JSON.parse(body))
-        emitter.emit(state.events.RENDER)
-      } catch (err) {
-        return
-      }
-    })
+  function checkLivestream() {
+    var dateNow = new Date()
+    var dateLocal = dateNow.valueOf() + dateNow.getTimezoneOffset() * 60000
+    if (dateLocal >= streamDate.valueOf() && !state.ui.livestream) {
+      state.ui.livestream = true
+      emitter.emit(state.events.RENDER)
+    } else {
+      setTimeout(checkLivestream, 1000 * 60)
+    }
   }
 
   function loadFonts () {

@@ -2,11 +2,13 @@ var html = require('choo/html')
 
 module.exports = livestream
 
-function livestream (props) {
+function livestream (state) {
+  if (!state.ui.livestream) return ''
+    
   return html`
-    <div class="psr c12 vh100">
+    <div class="psr c12 vh100 bgc-black">
       <iframe
-        src="https://player.twitch.tv/?channel=jondashkyle"
+        src="https://player.vimeo.com/video/254950313"
         frameborder="0"
         allowfullscreen="true"
         scrolling="no"
