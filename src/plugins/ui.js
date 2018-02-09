@@ -2,8 +2,7 @@ var FontFaceObserver = require('fontfaceobserver')
 var xtend = require('xtend')
 var xhr = require('xhr')
 
-var streamDate = new Date('Sat Feb 10 2018 14:45:00 GMT')
-var streamDate = new Date('Sat Feb 10 2018 14:45:00 GMT')
+var streamDate = new Date('Sat Feb 10 2018 13:45:00 GMT')
 
 module.exports = ui
 
