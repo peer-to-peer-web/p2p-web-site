@@ -3,15 +3,13 @@ var wrapper = require('../components/wrapper')
 var Form = require('../components/form-mailinglist')
 
 var form = new Form()
-var livestream = require('../components/livestream')
 
 module.exports = wrapper(view)
 
 function view (state, emit) {
-  emit(state.events.DOMTITLECHANGE, 'Peer-to-peer Web')
+  emit(state.events.DOMTITLECHANGE, 'Peer-to-Peer Web')
   return html`
     <div class="vhmn100">
-      ${livestream(state)}
       <div class="vhmn100 x xdc xjb c12 p0-5 lh1-25 fs2 sm-fsvw6">
         <div class="copy p0-5">
           <h2>Peer-to-Peer Web</h2>

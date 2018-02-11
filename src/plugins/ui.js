@@ -18,9 +18,10 @@ function ui (state, emitter, app) {
   state.events.UI = 'ui'
 
   emitter.on(state.events.DOMCONTENTLOADED, function () {
-    state.ui.p2p = window.location.protocol === 'dat:'
+    state.ui.p2p = typeof DatArchive !== false
     loadFonts()
-    checkLivestream()
+    // checkLivestream()
+
     // bankai fix
     try {
       document.querySelector('head').removeChild(document.querySelector('style'))

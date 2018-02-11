@@ -10,7 +10,6 @@ var FormRsvp = require('../components/form-rsvp')
 var sound = require('../components/berlin-sound')
 var wrapper = require('../components/wrapper')
 var footer = require('../components/footer')
-var livestream = require('../components/livestream')
 
 var slideshowLeft = new Slideshow()
 var slideshowRight = new Slideshow()
@@ -43,11 +42,15 @@ function view (state, emit) {
 
   var lang = langs[state.ui.lang] || langs.en
 
-  emit(state.events.DOMTITLECHANGE, 'Peer-to-peer web / Berlin')
+  emit(state.events.DOMTITLECHANGE, 'Peer-to-Peer web / Berlin')
 
   return html`
     <div class="x xjc xw ${style}">
-      ${livestream(state)}
+      <div class="c12 bgc-black fc-white p2 tac x xjc">
+        <div style="max-width: 25rem">
+          We’re working to format and upload video documentation of the day; thanks for the patience!
+        </div> 
+      </div>
       ${header()}
       <div class="c12 p1 sm-pt0 tac lh1-25 sm-lh1 fs3">
         ${lang.date}
