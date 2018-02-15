@@ -88,10 +88,14 @@ var custom = `
   a {
     color: #000;
     text-decoration: none;
-    border-bottom: 0.05em solid #000;
+    border-bottom: 1px solid #000;
   }
 
-  .lh1-5 a { padding-bottom: 0.25em }
+  .sm-fsvw6 a {
+    border-bottom: 0.04em solid #000;
+  }
+
+  .lh1-5 a { padding-bottom: 0.2em }
   .lh1-25 a { padding-bottom: 0 }
   .lh1 a { padding-bottom: 0 }
 

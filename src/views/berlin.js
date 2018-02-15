@@ -5,15 +5,15 @@ var html = require('choo/html')
 var css = require('sheetify')
 var md = new Markdown()
 
-var Slideshow= require('../components/slideshow-2')
-var FormRsvp = require('../components/form-rsvp')
+var Slideshow = require('../components/slideshow-2')
+var Video = require('../components/video-two')
 var sound = require('../components/berlin-sound')
 var wrapper = require('../components/wrapper')
 var footer = require('../components/footer')
 
+var video = new Video()
 var slideshowLeft = new Slideshow()
 var slideshowRight = new Slideshow()
-var formRsvp = new FormRsvp()
 
 var style = css`
   .ham {
@@ -25,6 +25,7 @@ module.exports = wrapper(view)
 
 function view (state, emit) {
   var page = state.content['/02-berlin']
+
   var langs = {
     en: {
       days: 'days',
@@ -46,19 +47,25 @@ function view (state, emit) {
 
   return html`
     <div class="x xjc xw ${style}">
-      <div class="c12 bgc-black fc-white p2 tac x xjc">
-        <div style="max-width: 25rem">
-          We’re working to format and upload video documentation of the day; thanks for the patience!
-        </div> 
-      </div>
       ${header()}
       <div class="c12 p1 sm-pt0 tac lh1-25 sm-lh1 fs3">
         ${lang.date}
       </div>
       <div class="mxwidth">
         ${localization()}
-        <div class="c12 pt3">
-          ${rsvp()}
+        <div class="c12 sm-c8 pt3" style="margin: 0 auto">
+          <div class="p0-5">
+            ${video.render({
+              active: !page.timeout || state.ui.p2p,
+              video: page.video,
+              src: '/assets/02-berlin/videos/' + page.video + '.mp4',
+              play: page.videoPlaying,
+              handlePlay: handlePlay,
+              handlePause: handlePause,
+              handleTimeout: handleTimeout
+            })}
+          </div>
+          ${objectKeys(page.videos).map(renderTalk)}
         </div>
         <div class="c12 pt3">
           ${copy()}
@@ -177,19 +184,6 @@ function view (state, emit) {
     `
   }
 
-  function rsvp () {
-    return html`
-      <div class="c12 x xjc">
-        <div class="c12 sm-c8 p1">
-          <div class="bgc-black fc-white p4 tac">
-            <div class="fs2">RSVP Closed</div>
-            <div>Please join us for the livestream at 3pm CET</div>
-          </div>
-        </div>
-      </div>
-    `
-  }
-
   function localization () {
     return html`
       <div class="c12 x xjc lh1-5">
@@ -240,11 +234,56 @@ function view (state, emit) {
     `
   }
 
+  function renderTalk (key, i) {
+    var props = page.videos[key]
+    var active = key === page.video
+    return html`
+      <div class="x ${page.public !== false ? 'curp' : ''} px0-5" onclick=${page.public !== false ? handleClick : ''}>
+        <div class="ff-mono ${active && page.playing ? 'blink' : ''}" style="width: 1.5em">
+          ${active ? '→' : i + 1}
+        </div>
+        <div class="xx">${props.title}</div>
+        <div class="ff-mono">
+          ${props.time}
+        </div>
+      </div>
+    `
+
+    function handleClick () {
+      if (page.timeout) return
+      emit(state.events.CONTENT, {
+        page: '/02-berlin',
+        data: { videoPlaying: true, video: key }
+      })
+    }
+  }
+
   function toggleSound () {
     if (sound) sound.load()
     emit(state.events.CONTENT, {
       page: '/02-berlin',
       data: { playing: !page.playing }
+    })
+  }
+
+  function handlePlay (data) {
+    emit(state.events.CONTENT, {
+      page: '/02-berlin',
+      data: { videoPlaying: true, video: data.video }
+    })
+  }
+
+  function handlePause () {
+    emit(state.events.CONTENT, {
+      page: '/02-berlin',
+      data: { videoPlaying: false }
+    })
+  }
+
+  function handleTimeout () {
+    emit(state.events.CONTENT, {
+      page: '/02-berlin',
+      data: { timeout: true }
     })
   }
 }

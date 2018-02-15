@@ -49,7 +49,7 @@ var borderWeights = [0, 1, 2]
 var borders = {}
 borderWeights.forEach(border => {
   Object.keys(colors).forEach(key => {
-    borders[border + '-' + key] = `${border * 0.05}rem solid ${colors[key]}`
+    borders[border + '-' + key] = `${border}px solid ${colors[key]}`
   })
 })
 

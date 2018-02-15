@@ -18,7 +18,7 @@ function ui (state, emitter, app) {
   state.events.UI = 'ui'
 
   emitter.on(state.events.DOMCONTENTLOADED, function () {
-    state.ui.p2p = typeof DatArchive !== false
+    state.ui.p2p = typeof DatArchive === 'function'
     loadFonts()
     // checkLivestream()
 

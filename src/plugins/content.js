@@ -49,7 +49,31 @@ function makeLosAngeles () {
 }
 
 function makeBerlin () {
-  var state = { }
+  var state = {
+    playing: false,
+    video: 'cade',
+    "videos": {
+      "mathias": {
+        "id": 1,
+        "title": "Mathias Buus Madsen",
+        "text": "",
+        "time": "Coming soon",
+        "public": false
+      },
+      "cade": {
+        "id": 2,
+        "title": "Cade Diehm",
+        "text": "",
+        "time": "29:15"
+      },
+      "louis": {
+        "id": 3,
+        "title": "Louis Center",
+        "text": "",
+        "time": "43:56"
+      }
+    }
+  }
 
   var images = [ ]
 
