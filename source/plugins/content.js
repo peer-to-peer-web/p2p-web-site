@@ -8,50 +8,29 @@ var views = require('../views')
 
 module.exports = store
 
-function store (site) {
+function store () {
   return function content (state, emitter, app) {
-    state.content = { }
+    state.custom = { }
 
     // lol
-    state.content['/01-los-angeles'] = makeLosAngeles()
-    state.content['/02-berlin'] = xtend(state.content['/02-berlin'], makeBerlin())
+    state.custom['/01-los-angeles'] = require('../../content/01-los-angeles/index.json')
+    state.custom['/02-berlin'] = makeBerlin()
 
-    objectKeys(site).forEach(function (path) {
-      var page = site[path] || { }
-      var view = views[page.view] || views.default
-      state.content[page.url] = xtend(page, state.content[page.url])
+    state.events.CUSTOM = 'custom'
+    emitter.on(state.events.CUSTOM, custom)
 
-      // app.route(page.short || page.url, function (state, emit) {
-      //   return view(xtend(state, { page: state.content[page.url] }), emit)
-      // })
-    })
-
-    state.events.CONTENT = 'content'
-    emitter.on(state.events.CONTENT, content)
-
-    function content (data) {
+    function custom (data) {
       if (!data.page || !data.data) return
-      state.content[data.page] = xtend(state.content[data.page], data.data)
+      state.custom[data.page] = xtend(state.custom[data.page], data.data)
       if (data.render !== false) emitter.emit(state.events.RENDER)
     }
   }
 }
 
-function makeLosAngeles () {
-  return xtend(
-    {
-      content: fs.readFileSync(path.join(__dirname, '../../assets/01-los-angeles/about.md'), 'utf8'),
-      playing: false,
-      video: '01-jon-kyle'
-    },
-    require('../../assets/01-los-angeles/index.json')
-  )
-}
-
 function makeBerlin () {
   var state = {
     playing: false,
-    video: 'cade',
+    video: "cade",
     "videos": {
       "mathias": {
         "id": 1,
@@ -78,15 +57,15 @@ function makeBerlin () {
   var images = [ ]
 
   Array(9).fill(null).forEach(function (num, i) {
-    images.push({ url: `/assets/02-berlin/sv${i+1}.png` })
+    images.push({ url: `/content/02-berlin/images/sv${i+1}.png` })
   })
 
   Array(10).fill(null).forEach(function (num, i) {
-    images.push({ url: `/assets/02-berlin/a${i+1}.png` })
+    images.push({ url: `/content/02-berlin/images/a${i+1}.png` })
   })
 
   Array(10).fill(null).forEach(function (num, i) {
-    images.push({ url: `/assets/02-berlin/g${i+1}.png` })
+    images.push({ url: `/content/02-berlin/images/g${i+1}.png` })
   })
 
   state.imgLeft = shuffle(images.slice(0))

@@ -21,11 +21,6 @@ function ui (state, emitter, app) {
     state.ui.p2p = typeof DatArchive === 'function'
     loadFonts()
     // checkLivestream()
-
-    // bankai fix
-    // try {
-    //   document.querySelector('head').removeChild(document.querySelector('style'))
-    // } catch (err) { }
   })
 
   emitter.on(state.events.UI, function (data) {

@@ -4,10 +4,15 @@ var Form = require('../components/form-mailinglist')
 
 var form = new Form()
 
+var TITLE = 'Peer-to-Peer Web'
+
 module.exports = wrapper(view)
 
 function view (state, emit) {
-  emit(state.events.DOMTITLECHANGE, 'Peer-to-Peer Web')
+  if (!state.title !== TITLE) {
+    emit(state.events.DOMTITLECHANGE, TITLE)
+  }
+
   return html`
     <div class="vhmn100">
       <div class="vhmn100 x xdc xjb c12 p0-5 lh1-25 fs2 sm-fsvw6">

@@ -1,8 +1,10 @@
 var objectKeys = require('object-keys')
 var raw = require('choo/html/raw')
 var Markdown = require('markdown-it')
+var Page = require('enoki/page')
 var html = require('choo/html')
 var css = require('sheetify')
+var xtend = require('xtend')
 var md = new Markdown()
 
 var Slideshow = require('../components/slideshow-2')
@@ -21,10 +23,15 @@ var style = css`
   }
 `
 
+var TITLE = 'Peer-to-Peer Web / Berlin'
+
 module.exports = wrapper(view)
 
 function view (state, emit) {
-  var page = state.content['/02-berlin']
+  var page = xtend(
+    state.content['/02-berlin'],
+    state.custom['/02-berlin']
+  )
 
   var langs = {
     en: {
@@ -43,7 +50,9 @@ function view (state, emit) {
 
   var lang = langs[state.ui.lang] || langs.en
 
-  emit(state.events.DOMTITLECHANGE, 'Peer-to-Peer web / Berlin')
+  if (state.title !== TITLE) {
+    emit(state.events.DOMTITLECHANGE, TITLE)
+  }
 
   return html`
     <div class="x xjc xw ${style}">
@@ -58,7 +67,7 @@ function view (state, emit) {
             ${video.render({
               active: !page.timeout || state.ui.p2p,
               video: page.video,
-              src: '/assets/02-berlin/videos/' + page.video + '.mp4',
+              src: '/content/02-berlin/videos/' + page.video + '.mp4',
               play: page.videoPlaying,
               handlePlay: handlePlay,
               handlePause: handlePause,
@@ -87,9 +96,9 @@ function view (state, emit) {
       <div class="usn c12 x xdc lh1 tac vhmn100 p0-5 fs3 lh1-25 sm-lh1 curd">
         <div class="xx w100 psr">
           <div class="psa lh1 p2 t0 r0 z2 blink-sec" style="color: #ff0; font-size: 0.5rem">
-            •
+            ${raw('•')}
           </div>
-          <div class="psa t0 l0 r0 b0 bgsct bgrn bgpc z2 pen" style="margin: 2.5vmin; background-image: url(/assets/02-berlin/lines.png"></div>
+          <div class="psa t0 l0 r0 b0 bgsct bgrn bgpc z2 pen" style="margin: 2.5vmin; background-image: url(/content/02-berlin/images/lines.png"></div>
           <div class="x psa t0 l0 b0 c6 pr0 p0-5">
             <div class="w100 h100 bgc-black oh psr">
               ${slideshowLeft.render({
@@ -157,7 +166,7 @@ function view (state, emit) {
   function location () {
     return html`
       <div class="c12 tac w100 p1">
-        <a href="https://trust.support" class="bb0" target="_blank"><img src="/assets/02-berlin/venue.jpg" class="" style="width: 12rem"></a>
+        <a href="https://trust.support" class="bb0" target="_blank"><img src="/content/02-berlin/images/venue.jpg" class="" style="width: 12rem"></a>
         <div class="p1">
           <div><a href="https://trust.support" target="_blank">${page.venue}</a></div>
           <br>
@@ -175,7 +184,7 @@ function view (state, emit) {
           return html`
             <div class="x xjc xac p1 sm-px1-5">
               <a href="${sponsor.url}" target="_blank" class="bb0">
-                <img src="/assets/02-berlin/${sponsor.src}" style="max-width: ${sponsor.size}rem">
+                <img src="/content/02-berlin/images/${sponsor.src}" style="max-width: ${sponsor.size}rem">
               </a>
             </div>
           `
@@ -251,7 +260,7 @@ function view (state, emit) {
 
     function handleClick () {
       if (page.timeout) return
-      emit(state.events.CONTENT, {
+      emit(state.events.CUSTOM, {
         page: '/02-berlin',
         data: { videoPlaying: true, video: key }
       })
@@ -260,28 +269,28 @@ function view (state, emit) {
 
   function toggleSound () {
     if (sound) sound.load()
-    emit(state.events.CONTENT, {
+    emit(state.events.CUSTOM, {
       page: '/02-berlin',
       data: { playing: !page.playing }
     })
   }
 
   function handlePlay (data) {
-    emit(state.events.CONTENT, {
+    emit(state.events.CUSTOM, {
       page: '/02-berlin',
       data: { videoPlaying: true, video: data.video }
     })
   }
 
   function handlePause () {
-    emit(state.events.CONTENT, {
+    emit(state.events.CUSTOM, {
       page: '/02-berlin',
       data: { videoPlaying: false }
     })
   }
 
   function handleTimeout () {
-    emit(state.events.CONTENT, {
+    emit(state.events.CUSTOM, {
       page: '/02-berlin',
       data: { timeout: true }
     })

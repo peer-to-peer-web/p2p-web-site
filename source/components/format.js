@@ -1,4 +1,4 @@
-var raw = require('bel/raw')
+var raw = require('choo/html/raw')
 var Markdown = require('markdown-it')
 var md = new Markdown()
 

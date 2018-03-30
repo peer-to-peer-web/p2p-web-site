@@ -1,0 +1,17 @@
+title: NYC
+----
+view: nyc
+----
+invert: true
+----
+text:
+
+May 26th @ 1–5pm
+
+[School for Poetic Computation](https://duckduckgo.com/?q=155+Bank+St.%2C+New+York%2C+NY+10014&t=ffab&ia=maps&iaxm=maps)
+
+The internet is at a crossroads. We’re dependent on it for staying in touch with our friends, accessing our memories, and enabling our livelihoods.
+
+However, the tools we often use are built around centralized platforms, designed to capture and sell our attention.
+
+What are the alternatives, and how do we use them today? This was an afternoon of relaxed conversation on using the peer-to-peer web, both within our practices and daily lives.

@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 dist
+bundles/bundle.js
+bundles/bundle.css
 
 *.mp4
 *.mp3

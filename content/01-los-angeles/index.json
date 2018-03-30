@@ -1,4 +1,6 @@
 {
+  "playing": false,
+  "video": "01-jon-kyle",
   "videos": {
     "01-jon-kyle": {
       "id": 1,

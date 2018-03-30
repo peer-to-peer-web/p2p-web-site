@@ -1,5 +1,6 @@
 var objectKeys = require('object-keys')
 var html = require('choo/html')
+var xtend = require('xtend')
 
 var wrapper = require('../components/wrapper')
 var format = require('../components/format')
@@ -14,11 +15,20 @@ var header = new Header()
 var formRsvp = new FormRsvp()
 var video = new Video()
 
+var TITLE = 'Peer-to-Peer Web / Los Angeles'
+
 module.exports = wrapper(view)
 
 function view (state, emit) {
-  var page = state.content['/01-los-angeles']
-  emit(state.events.DOMTITLECHANGE, 'Peer-to-Peer web / Los Angeles, Ca')
+  var page = xtend(
+    state.content['/01-los-angeles'],
+    state.custom['/01-los-angeles']
+  )
+
+  if (state.title !== TITLE) {
+    emit(state.events.DOMTITLECHANGE, TITLE)
+  }
+
   return html`
     <div>
       <div
@@ -54,13 +64,13 @@ function view (state, emit) {
           ${objectKeys(page.videos).map(renderTalk)}
         </div>
         <div class="c12 sm-c6 p0-5 sm-py2">
-          <img src="/assets/01-los-angeles/imgs/la.jpg" class="grayscale c12">
+          <img src="/content/01-los-angeles/media/la.jpg" class="grayscale c12">
           <div class="c12 pt0-5">
             LA, CA event
           </div>
         </div>
         <div class="c12 sm-c6 p0-5 sm-py2">
-          <img src="/assets/01-los-angeles/imgs/nyc.jpg" class="grayscale c12">
+          <img src="/content/01-los-angeles/media/nyc.jpg" class="grayscale c12">
           <div class="c12 pt0-5">
             NY, NY <a href="http://newcomputers.group/">viewing party</a>
           </div>
@@ -78,7 +88,7 @@ function view (state, emit) {
         ${video.render({
           active: !page.timeout || state.ui.p2p,
           video: page.video,
-          src: '/assets/01-los-angeles/videos/' + page.video + '.mp4',
+          src: '/content/01-los-angeles/videos/' + page.video + '.mp4',
           play: page.playing,
           handlePlay: handlePlay,
           handlePause: handlePause,
