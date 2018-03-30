@@ -6,6 +6,7 @@
   "dependencies": {
     "bel": "^5.1.5",
     "choo": "^6.5.1",
+    "enoki": "^2.0.7",
     "ez.js": "^1.0.3",
     "fontfaceobserver": "^2.0.13",
     "form-data-to-object": "^0.2.0",
@@ -32,22 +33,17 @@
     "xtend": "^4.0.1"
   },
   "devDependencies": {
-    "bankai": "^9.1.0"
+    "browserify": "^15.2.0",
+    "css-extract": "^1.2.0",
+    "es2040": "^1.2.6",
+    "sheetify": "^7.0.0",
+    "sheetify-cssnext": "^1.0.7",
+    "tinyify": "^2.4.0",
+    "watchify": "^3.10.0"
   },
   "scripts": {
-    "start": "bankai start",
-    "build": "bankai build"
-  },
-  "browserify": {
-    "transform": [
-      "read-directory",
-      "hypha/transform"
-    ]
-  },
-  "documentify": {
-    "transform": [
-      "./src/tooling/social"
-    ]
+    "start": "watchify index.js -o ../bundles/bundle.js -t brfs -t sheetify -p [ css-extract -o ../bundles/bundle.css ] index.js",
+    "build": "browserify index.js -o ../bundles/bundle.js -t brfs -t yo-yoify -t  [ sheetify -u sheetify-cssnext ] -g es2040 -p [ css-extract -o ../bundles/bundle.css ] -p tinyify"
   },
   "keywords": [],
   "author": "Jon-Kyle <contact@jon-kyle.com> (http://jon-kyle.com)",
