@@ -23,9 +23,9 @@ function ui (state, emitter, app) {
     // checkLivestream()
 
     // bankai fix
-    try {
-      document.querySelector('head').removeChild(document.querySelector('style'))
-    } catch (err) { }
+    // try {
+    //   document.querySelector('head').removeChild(document.querySelector('style'))
+    // } catch (err) { }
   })
 
   emitter.on(state.events.UI, function (data) {
