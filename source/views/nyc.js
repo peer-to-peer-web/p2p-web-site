@@ -2,8 +2,8 @@ var objectKeys = require('object-keys')
 var html = require('choo/html')
 var css = require('sheetify')
 
-var Rsvp = require('../components/form-rsvp')
 var wrapper = require('../components/wrapper')
+var Rsvp = require('../components/form-rsvp')
 var format = require('../components/format')
 var footer = require('../components/footer')
 

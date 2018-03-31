@@ -17,12 +17,6 @@ var video = new Video()
 var slideshowLeft = new Slideshow()
 var slideshowRight = new Slideshow()
 
-var style = css`
-  .ham {
-    transform: translateY(0.4rem) rotate(90deg);
-  }
-`
-
 var TITLE = 'Peer-to-Peer Web / Berlin'
 
 module.exports = wrapper(view)
@@ -55,7 +49,7 @@ function view (state, emit) {
   }
 
   return html`
-    <div class="x xjc xw ${style}">
+    <div class="x xjc xw">
       ${header()}
       <div class="c12 p1 sm-pt0 tac lh1-25 sm-lh1 fs3">
         ${lang.date}
