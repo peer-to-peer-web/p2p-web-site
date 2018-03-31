@@ -8,7 +8,7 @@ function footer (props) {
   props = props || { }
   var colors = props.invert ? 'bgc-black fc-white' : 'bgc-white fc-black'
   return html`
-    <div class="fs1 c12 lh1-5 x ${colors} p0-5">
+    <div class="psr z3 fs1 c12 lh1-5 x ${colors} p0-5">
       <div class="p0-5 c4 ff-mono">
        ${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}
       </div>

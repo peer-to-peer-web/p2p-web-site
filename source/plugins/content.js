@@ -13,8 +13,8 @@ function store () {
     state.custom = { }
 
     // lol
-    state.custom['/01-los-angeles'] = require('../../content/01-los-angeles/index.json')
-    state.custom['/02-berlin'] = makeBerlin()
+    state.custom['/los-angeles'] = require('../../content/los-angeles/index.json')
+    state.custom['/berlin'] = makeBerlin()
 
     state.events.CUSTOM = 'custom'
     emitter.on(state.events.CUSTOM, custom)
@@ -57,15 +57,15 @@ function makeBerlin () {
   var images = [ ]
 
   Array(9).fill(null).forEach(function (num, i) {
-    images.push({ url: `/content/02-berlin/images/sv${i+1}.png` })
+    images.push({ url: `/content/berlin/images/sv${i+1}.png` })
   })
 
   Array(10).fill(null).forEach(function (num, i) {
-    images.push({ url: `/content/02-berlin/images/a${i+1}.png` })
+    images.push({ url: `/content/berlin/images/a${i+1}.png` })
   })
 
   Array(10).fill(null).forEach(function (num, i) {
-    images.push({ url: `/content/02-berlin/images/g${i+1}.png` })
+    images.push({ url: `/content/berlin/images/g${i+1}.png` })
   })
 
   state.imgLeft = shuffle(images.slice(0))

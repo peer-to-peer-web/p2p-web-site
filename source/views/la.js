@@ -21,8 +21,8 @@ module.exports = wrapper(view)
 
 function view (state, emit) {
   var page = xtend(
-    state.content['/01-los-angeles'],
-    state.custom['/01-los-angeles']
+    state.content['/los-angeles'],
+    state.custom['/los-angeles']
   )
 
   if (state.title !== TITLE) {
@@ -64,13 +64,13 @@ function view (state, emit) {
           ${objectKeys(page.videos).map(renderTalk)}
         </div>
         <div class="c12 sm-c6 p0-5 sm-py2">
-          <img src="/content/01-los-angeles/media/la.jpg" class="grayscale c12">
+          <img src="/content/los-angeles/media/la.jpg" class="grayscale c12">
           <div class="c12 pt0-5">
             LA, CA event
           </div>
         </div>
         <div class="c12 sm-c6 p0-5 sm-py2">
-          <img src="/content/01-los-angeles/media/nyc.jpg" class="grayscale c12">
+          <img src="/content/los-angeles/media/nyc.jpg" class="grayscale c12">
           <div class="c12 pt0-5">
             NY, NY <a href="http://newcomputers.group/">viewing party</a>
           </div>
@@ -88,7 +88,7 @@ function view (state, emit) {
         ${video.render({
           active: !page.timeout || state.ui.p2p,
           video: page.video,
-          src: '/content/01-los-angeles/videos/' + page.video + '.mp4',
+          src: '/content/los-angeles/videos/' + page.video + '.mp4',
           play: page.playing,
           handlePlay: handlePlay,
           handlePause: handlePause,
@@ -116,7 +116,7 @@ function view (state, emit) {
     function handleClick () {
       if (page.timeout) return
       emit(state.events.CONTENT, {
-        page: '/01-los-angeles',
+        page: '/los-angeles',
         data: { playing: true, video: key }
       })
     }
@@ -124,21 +124,21 @@ function view (state, emit) {
 
   function handlePlay (data) {
     emit(state.events.CONTENT, {
-      page: '/01-los-angeles',
+      page: '/los-angeles',
       data: { playing: true, video: data.video }
     })
   }
 
   function handlePause () {
     emit(state.events.CONTENT, {
-      page: '/01-los-angeles',
+      page: '/los-angeles',
       data: { playing: false }
     })
   }
 
   function handleTimeout () {
     emit(state.events.CONTENT, {
-      page: '/01-los-angeles',
+      page: '/los-angeles',
       data: { timeout: true }
     })
   }

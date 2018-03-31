@@ -3,7 +3,7 @@ node_modules
 dist
 bundles/bundle.js
 bundles/bundle.css
-
+package-lock.json
+dat.json
 *.mp4
 *.mp3
-dat.json

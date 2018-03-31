@@ -29,8 +29,8 @@ module.exports = wrapper(view)
 
 function view (state, emit) {
   var page = xtend(
-    state.content['/02-berlin'],
-    state.custom['/02-berlin']
+    state.content['/berlin'],
+    state.custom['/berlin']
   )
 
   var langs = {
@@ -67,7 +67,7 @@ function view (state, emit) {
             ${video.render({
               active: !page.timeout || state.ui.p2p,
               video: page.video,
-              src: '/content/02-berlin/videos/' + page.video + '.mp4',
+              src: '/content/berlin/videos/' + page.video + '.mp4',
               play: page.videoPlaying,
               handlePlay: handlePlay,
               handlePause: handlePause,
@@ -98,7 +98,7 @@ function view (state, emit) {
           <div class="psa lh1 p2 t0 r0 z2 blink-sec" style="color: #ff0; font-size: 0.5rem">
             ${raw('•')}
           </div>
-          <div class="psa t0 l0 r0 b0 bgsct bgrn bgpc z2 pen" style="margin: 2.5vmin; background-image: url(/content/02-berlin/images/lines.png"></div>
+          <div class="psa t0 l0 r0 b0 bgsct bgrn bgpc z2 pen" style="margin: 2.5vmin; background-image: url(/content/berlin/images/lines.png"></div>
           <div class="x psa t0 l0 b0 c6 pr0 p0-5">
             <div class="w100 h100 bgc-black oh psr">
               ${slideshowLeft.render({
@@ -166,7 +166,7 @@ function view (state, emit) {
   function location () {
     return html`
       <div class="c12 tac w100 p1">
-        <a href="https://trust.support" class="bb0" target="_blank"><img src="/content/02-berlin/images/venue.jpg" class="" style="width: 12rem"></a>
+        <a href="https://trust.support" class="bb0" target="_blank"><img src="/content/berlin/images/venue.jpg" class="" style="width: 12rem"></a>
         <div class="p1">
           <div><a href="https://trust.support" target="_blank">${page.venue}</a></div>
           <br>
@@ -184,7 +184,7 @@ function view (state, emit) {
           return html`
             <div class="x xjc xac p1 sm-px1-5">
               <a href="${sponsor.url}" target="_blank" class="bb0">
-                <img src="/content/02-berlin/images/${sponsor.src}" style="max-width: ${sponsor.size}rem">
+                <img src="/content/berlin/images/${sponsor.src}" style="max-width: ${sponsor.size}rem">
               </a>
             </div>
           `
@@ -261,7 +261,7 @@ function view (state, emit) {
     function handleClick () {
       if (page.timeout) return
       emit(state.events.CUSTOM, {
-        page: '/02-berlin',
+        page: '/berlin',
         data: { videoPlaying: true, video: key }
       })
     }
@@ -270,28 +270,28 @@ function view (state, emit) {
   function toggleSound () {
     if (sound) sound.load()
     emit(state.events.CUSTOM, {
-      page: '/02-berlin',
+      page: '/berlin',
       data: { playing: !page.playing }
     })
   }
 
   function handlePlay (data) {
     emit(state.events.CUSTOM, {
-      page: '/02-berlin',
+      page: '/berlin',
       data: { videoPlaying: true, video: data.video }
     })
   }
 
   function handlePause () {
     emit(state.events.CUSTOM, {
-      page: '/02-berlin',
+      page: '/berlin',
       data: { videoPlaying: false }
     })
   }
 
   function handleTimeout () {
     emit(state.events.CUSTOM, {
-      page: '/02-berlin',
+      page: '/berlin',
       data: { timeout: true }
     })
   }

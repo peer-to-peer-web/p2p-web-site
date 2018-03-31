@@ -105,9 +105,6 @@ module.exports = class FormRsvp extends Nanocomponent {
         class="c12 x xw bgc-black psr ${style} ${this.state.loading ? 'pen' : ''}"
         onsubmit=${this.handleSubmit}
       >
-        <div class="c12 bgc-black fc-white tac px1 py0-5">
-          RSVP
-        </div>
         <div class="c6">
           <input
             type="radio"
