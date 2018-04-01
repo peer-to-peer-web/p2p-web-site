@@ -88,7 +88,7 @@ function view (state, emit) {
         ${video.render({
           active: !page.timeout || state.ui.p2p,
           video: page.video,
-          src: '/content/los-angeles/videos/' + page.video + '.mp4',
+          src: '/content/los-angeles/2017-12-10/media/' + page.video + '.mp4',
           play: page.playing,
           handlePlay: handlePlay,
           handlePause: handlePause,
@@ -116,7 +116,7 @@ function view (state, emit) {
     function handleClick () {
       if (page.timeout) return
       emit(state.events.CONTENT, {
-        page: '/los-angeles',
+        page: '/los-angeles/2017-12-10',
         data: { playing: true, video: key }
       })
     }
@@ -124,21 +124,21 @@ function view (state, emit) {
 
   function handlePlay (data) {
     emit(state.events.CONTENT, {
-      page: '/los-angeles',
+      page: '/los-angeles/2017-12-10',
       data: { playing: true, video: data.video }
     })
   }
 
   function handlePause () {
     emit(state.events.CONTENT, {
-      page: '/los-angeles',
+      page: '/los-angeles/2017-12-10',
       data: { playing: false }
     })
   }
 
   function handleTimeout () {
     emit(state.events.CONTENT, {
-      page: '/los-angeles',
+      page: '/los-angeles/2017-12-10',
       data: { timeout: true }
     })
   }

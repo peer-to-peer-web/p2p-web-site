@@ -256,7 +256,7 @@ function view (state, emit) {
     function handleClick () {
       if (page.timeout) return
       emit(state.events.CUSTOM, {
-        page: '/berlin',
+        page: '/berlin/2018-02-10',
         data: { videoPlaying: true, video: key }
       })
     }
@@ -265,28 +265,28 @@ function view (state, emit) {
   function toggleSound () {
     if (sound) sound.load()
     emit(state.events.CUSTOM, {
-      page: '/berlin',
+      page: '/berlin/2018-02-10',
       data: { playing: !page.playing }
     })
   }
 
   function handlePlay (data) {
     emit(state.events.CUSTOM, {
-      page: '/berlin',
+      page: '/berlin/2018-02-10',
       data: { videoPlaying: true, video: data.video }
     })
   }
 
   function handlePause () {
     emit(state.events.CUSTOM, {
-      page: '/berlin',
+      page: '/berlin/2018-02-10',
       data: { videoPlaying: false }
     })
   }
 
   function handleTimeout () {
     emit(state.events.CUSTOM, {
-      page: '/berlin',
+      page: '/berlin/2018-02-10',
       data: { timeout: true }
     })
   }

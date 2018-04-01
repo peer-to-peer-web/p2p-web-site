@@ -16,11 +16,11 @@ function init () {
   var chTwo = new Tone.PanVol(0.8, -3).connect(Tone.Master)
 
   synthOne = new Tone.Sampler({
-    'C3' : '/content/02-berlin/sample.mp3'
+    'C3' : '/content/berlin/2018-02-10/sample.mp3'
   }).connect(chOne)
 
   synthTwo = new Tone.Sampler({
-    'C3' : '/content/02-berlin/sample.mp3'
+    'C3' : '/content/berlin/2018-02-10/sample.mp3'
   }).connect(chTwo)
 
   loaded = true
