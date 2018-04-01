@@ -94,7 +94,7 @@ function view (state, emit) {
             ${raw('•')}
           </div>
           <div class="psa t0 l0 r0 b0 bgsct bgrn bgpc z2 pen" style="margin: 2.5vmin; background-image: url(/content/berlin/2018-02-10/images/lines.png"></div>
-          <div class="x psa t0 l0 b0 c6">
+          <div class="x psa t0 l0 b0 c6 pl1">
             <div class="w100 h100 bgc-black oh psr">
               ${slideshowLeft.render({
                 trigger: page.playing,
@@ -107,7 +107,7 @@ function view (state, emit) {
               })}
             </div>
           </div>
-          <div class="psa t0 r0 b0 c6">
+          <div class="psa t0 r0 b0 c6 pr1">
             <div class="w100 h100 bgc-black oh psr">
               ${slideshowRight.render({
                 trigger: page.playing,
@@ -120,22 +120,10 @@ function view (state, emit) {
               })}
             </div>
           </div>
-          <div class="dn psa t0 l0 r0 b0 x fc-white lh1 fs2 sm-fs3 z2">
-            <div class="c6 h100 x xdc ff-mono">
-              <div class="x xx xjc xac">23</div>
-              <div class="x xx xjc xac">10</div>
-              <div class="x xx xjc xac">59</div>
-            </div>
-            <div class="c6 h100 x xdc">
-              <div class="x xx xjc xac">${lang.days}</div>
-              <div class="x xx xjc xac">${lang.hours}</div>
-              <div class="x xx xjc xac">${lang.minutes}</div>
-            </div>
-          </div>
         </div>
         <div class="w100 p0-5 sm-psr">
           <div class="xx">Peer-to-Peer Web / Berlin</div>
-          <div class="x xjc xac oh curp psa t0 r0 p0-5 t0 sm-b0 z2" onclick=${toggleSound}>
+          <div class="x xjc xac oh curp psa t0 r0 p1 t0 sm-b0 z2" onclick=${toggleSound}>
             <div class="bgc-black p1" style="border-radius: 50%">
               ${page.playing ? iconOn() : iconOff()}
             </div>
