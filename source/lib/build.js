@@ -3,7 +3,9 @@ var path = require('path')
 var fs = require('fs')
 
 try {
-  var site = hypha.readSiteSync('../content')
+  var site = hypha.readSiteSync('../content', {
+    parent: '/content'
+  })
   fs.writeFileSync(
     path.join(__dirname, '../../bundles/content.json'),
     JSON.stringify(site)
