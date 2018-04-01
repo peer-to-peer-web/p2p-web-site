@@ -9,6 +9,14 @@ var styles = css`
     content: '/';
     margin: 0 0.5rem;
   }
+
+  :host .header-empty-line {
+    background: #000;
+    height: 0.05em;
+    width: 4rem;
+    margin-bottom: 0.1em;
+    align-self: flex-end;
+  }
 `
 
 module.exports = header
@@ -19,7 +27,7 @@ function header (state, emit, props) {
 
   return html`
     <div class="psr z3 fs1 c12 lh1 p0-5 x xjb ${styles}">
-      <div class="p0-5 x breadcrumbs"> 
+      <div class="p0-5 x breadcrumbs wsnw oh toe"> 
         <span><a href="/">Peer-to-Peer Web</a></span>
         ${breadcrumbs({
           content: state.content,
@@ -46,14 +54,17 @@ function breadcrumbs (props) {
       var href = result.map(crumb => crumb.path).join('/') + '/' + path
       result.push({
         path: path,
-        el: html`<span><a href="${href}">${content[href].title}</a></span>`
+        el: html`<span class="wsnw toe"><a href="${href}">${content[href].title}</a></span>`
       })
       return result
     }, [{ path: '', el: ''}])
 
-    return pagePaths
+    var result = pagePaths
       .reduce(function (arr, crumb) {
         arr.push(crumb.el)
         return arr
       }, [ ])
+
+    if (result.length <= 1) return html`<div class="header-empty-line"></div>`
+    else return result
 }

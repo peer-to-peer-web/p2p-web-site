@@ -2,9 +2,7 @@ var objectKeys = require('object-keys')
 var html = require('choo/html')
 var xtend = require('xtend')
 
-var wrapper = require('../components/wrapper')
 var format = require('../components/format')
-
 var FormRsvp = require('../components/form-rsvp')
 var navigation = require('../components/navigation')
 var Video = require('../components/video-two')
@@ -16,7 +14,7 @@ var video = new Video()
 
 var TITLE = 'Peer-to-Peer Web / Los Angeles'
 
-module.exports = wrapper(view)
+module.exports = view
 
 function view (state, emit) {
   var page = xtend(

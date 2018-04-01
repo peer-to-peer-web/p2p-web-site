@@ -1,5 +1,4 @@
 var html = require('choo/html')
-var wrapper = require('../components/wrapper')
 var Form = require('../components/form-mailinglist')
 var header = require('../components/header')
 
@@ -7,7 +6,7 @@ var form = new Form()
 
 var TITLE = 'Peer-to-Peer Web'
 
-module.exports = wrapper(view)
+module.exports = view
 
 function view (state, emit) {
   if (!state.title !== TITLE) {

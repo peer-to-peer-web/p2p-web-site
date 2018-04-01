@@ -10,7 +10,6 @@ var md = new Markdown()
 var Slideshow = require('../components/slideshow-2')
 var Video = require('../components/video-two')
 var sound = require('../components/berlin-sound')
-var wrapper = require('../components/wrapper')
 var footer = require('../components/footer')
 var nav = require('../components/header')
 
@@ -20,7 +19,7 @@ var slideshowRight = new Slideshow()
 
 var TITLE = 'Peer-to-Peer Web / Berlin'
 
-module.exports = wrapper(view)
+module.exports = view
 
 function view (state, emit) {
   var page = xtend(

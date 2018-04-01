@@ -2,7 +2,6 @@ var objectKeys = require('object-keys')
 var html = require('choo/html')
 var css = require('sheetify')
 
-var wrapper = require('../components/wrapper')
 var Rsvp = require('../components/form-rsvp')
 var header = require('../components/header')
 var format = require('../components/format')
@@ -77,7 +76,7 @@ var styleHeader = css`
 
 var TITLE = 'Peer-to-Peer Web / NYC'
 
-module.exports = wrapper(view)
+module.exports = view
 
 function view (state, emit) {
   var page = state.content['/nyc/2018-05-26']

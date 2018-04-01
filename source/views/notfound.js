@@ -10,10 +10,8 @@ function view (state, emit) {
   return html`
     <div class="vhmn100 x xdc xjb c12 lh1-5 fs1">
       ${header(state, emit)}
-      <div class="p1 my4">
-        <div class="mxa copy-simple copy-width">
-          ${format(page.text)}
-        </div>
+      <div class="p1 x xx xjc xac ff-mono">
+        404
       </div>
       ${footer()}
     </div>

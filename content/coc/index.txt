@@ -1,5 +1,7 @@
 title: Code of Conduct
 ----
+visible: false
+----
 text:
 
 Peer-to-Peer Web endeavors to create a harassment-free environment for everyone participating in our events. We do not tolerate harassment of participants in any form. We are here to promote inclusion, regardless of race, religion, gender identity, sexual orientation, disability, age or physical appearance.

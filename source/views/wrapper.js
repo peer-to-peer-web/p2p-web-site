@@ -1,28 +1,30 @@
 var html = require('choo/html')
 
 var Form = require('../components/form-mailinglist')
+var views = require('.')
+
 var form = new Form()
 
 module.exports = wrapper
 
-function wrapper (view) {
-  return function (state, emit) {
-    if (!state.site.loaded) return createLoading()
-    var page = state.content[state.href || '/'] || { }
-    var colors = page.invert === true ? 'bgc-black fc-white' : 'bgc-white fc-black'
-      
-    return html`
-      <body class="ff-sans lh1-5 fs1 ${colors}">
-        ${view(state, emit)}
-        ${state.query.subscribe ? createSubscribe() : ''}
-      </body>
-    `
-  }
+function wrapper (state, emit) {
+  if (!state.site.loaded) return createLoading()
+  var page = state.content[state.href || '/'] || { }
+  if (page.redirect) page = state.content[page.redirect || '/'] || { }
+  var view = views[page.view] || views.default
+  var colors = page.invert === true ? 'bgc-black fc-white' : 'bgc-white fc-black'
+    
+  return html`
+    <body class="ff-sans lh1-5 fs1 ${colors}">
+      ${view(state, emit)}
+      ${state.query.subscribe ? createSubscribe() : ''}
+    </body>
+  `
 }
 
 function createSubscribe () {
   return html`
-    <div class="psf t0 l0 r0 b0 x xjc xac p1" style="z-index: 99">
+    <div class="psf t0 l0 r0 b0 x xjc xac p1 img-grid" style="z-index: 99">
       <a href="?" class="db psa t0 l0 r0 b0"></a>
       <div class="psr z2 c12 sm-c6">
         ${form.render()}

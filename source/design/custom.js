@@ -26,7 +26,13 @@ var custom = `
 
   a {
     color: currentColor;
-    border-bottom-color: currentColor;
+    border-bottom: currentColor solid 0;
+  }
+
+  @media (min-width: 767px) {
+    .abbh a:hover {
+      border-bottom-width: 0.05em;
+    }
   }
 
   .flickity-slider {
@@ -87,10 +93,6 @@ var custom = `
 
   a {
     text-decoration: none;
-  }
-
-  .sm-fsvw6 a {
-    border-bottom: 0.04em solid currentColor;
   }
 
   .lh1-5 a { padding-bottom: 0.2em }
@@ -169,6 +171,12 @@ var custom = `
 
   .ofc {
     object-fit: cover;
+  }
+
+  .img-grid {
+    background-image: url('data:image/svg+xml;utf8,<svg height="10" width="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><rect height="5" width="5" x="0" y="0" fill="#000000" /><rect height="5" width="5" x="5" y="5" fill="#000000" /></svg>');
+    background-size: 4px 4px;
+    background-repeat: repeat;
   }
 
   .blink {
