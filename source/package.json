@@ -44,7 +44,8 @@
   },
   "scripts": {
     "start": "watchify index.js -o ../bundles/bundle.js -t brfs -t sheetify -p [ css-extract -o ../bundles/bundle.css ] index.js",
-    "build": "node lib/content.js & build-js",
+    "build": "npm run content & npm run build-js",
+    "content": "node lib/build.js",
     "build-js": "browserify index.js -o ../bundles/bundle.js -t brfs -t yo-yoify -t  [ sheetify -t sheetify-cssnext ] -g es2040 -p [ css-extract -o ../bundles/bundle.css ] -p tinyify"
   },
   "keywords": [],
