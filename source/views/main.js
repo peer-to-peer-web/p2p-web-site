@@ -1,6 +1,7 @@
 var html = require('choo/html')
 var wrapper = require('../components/wrapper')
 var Form = require('../components/form-mailinglist')
+var header = require('../components/header')
 
 var form = new Form()
 

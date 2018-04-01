@@ -7,11 +7,10 @@ var format = require('../components/format')
 
 var FormRsvp = require('../components/form-rsvp')
 var navigation = require('../components/navigation')
-var Header = require('../components/header')
 var Video = require('../components/video-two')
 var footer = require('../components/footer')
+var header = require('../components/header')
 
-var header = new Header()
 var formRsvp = new FormRsvp()
 var video = new Video()
 
@@ -21,8 +20,8 @@ module.exports = wrapper(view)
 
 function view (state, emit) {
   var page = xtend(
-    state.content['/los-angeles'],
-    state.custom['/los-angeles']
+    state.content['/los-angeles/2017-12-10'],
+    state.custom['/los-angeles/2017-12-10']
   )
 
   if (state.title !== TITLE) {
@@ -31,32 +30,35 @@ function view (state, emit) {
 
   return html`
     <div>
-      <div
-        class="x xdc xjb sm-vhmn100 p1 psr wsnw lh1 usn fsvw12 bgc-black fc-white ${state.ui.loaded ? '' : 'op0'}"
-        style="padding-bottom: 2vw;"
-      >
-        <div class="psa t0 l0 r0 b0 x xjc xac pen">
-          ${slideshow()}
-        </div>
-        <div class="x xjb">
-          <div>Peer-to-Peer</div>
-          <div class="usn arrow">→</div>
-        </div>
-        <div class="pen op0 sm-dn">-</div>
-        <div class="x xjb c12">
-          <div>Web</div>
-          <div>Los</div>
-        </div>
-        <div class="pen op0 sm-dn">-</div>
-        <div class="x xjb">
-          <div class="usn">←</div>
-          <div>Angeles, Ca</div>
+      <div class="x xdc sm-vhmn100">
+        ${header(state, emit)}
+        <div
+          class="x xdc xjb xx p1 psr wsnw lh1 usn fsvw12 bgc-black fc-white"
+          style="padding-bottom: 2vw;"
+        >
+          <div class="psa t0 l0 r0 b0 x xjc xac pen">
+            ${slideshow()}
+          </div>
+          <div class="x xjb">
+            <div>Peer-to-Peer</div>
+            <div class="usn arrow">→</div>
+          </div>
+          <div class="pen op0 sm-dn">-</div>
+          <div class="x xjb c12">
+            <div>Web</div>
+            <div>Los</div>
+          </div>
+          <div class="pen op0 sm-dn">-</div>
+          <div class="x xjb">
+            <div class="usn">←</div>
+            <div>Angeles, Ca</div>
+          </div>
         </div>
       </div>
       <div class="x xw c12 p0-5 mxwidth sm-py2" style="margin: 0 auto;">
         <div class="c12 sm-c8 sm-co2 md-c6 md-co3 sm-py2">
           <div class="copy p0-5">
-            ${format(page.content)}
+            ${format(page.text)}
           </div>
         </div>
         <div class="c12 sm-c8 sm-co2 md-c6 md-co3 sm-py2">
@@ -64,13 +66,13 @@ function view (state, emit) {
           ${objectKeys(page.videos).map(renderTalk)}
         </div>
         <div class="c12 sm-c6 p0-5 sm-py2">
-          <img src="/content/los-angeles/media/la.jpg" class="grayscale c12">
+          <img src="/content/los-angeles/2017-12-10/media/la.jpg" class="grayscale c12">
           <div class="c12 pt0-5">
             LA, CA event
           </div>
         </div>
         <div class="c12 sm-c6 p0-5 sm-py2">
-          <img src="/content/los-angeles/media/nyc.jpg" class="grayscale c12">
+          <img src="/content/los-angeles/2017-12-10/media/nyc.jpg" class="grayscale c12">
           <div class="c12 pt0-5">
             NY, NY <a href="http://newcomputers.group/">viewing party</a>
           </div>

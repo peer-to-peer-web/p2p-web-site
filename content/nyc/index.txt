@@ -3,9 +3,3 @@ title: NYC
 view: nyc
 ----
 invert: true
-----
-meta:
-
-May 26th @ 1–5pm → [School for Poetic Computation](https://duckduckgo.com/?q=155+Bank+St.%2C+New+York%2C+NY+10014&t=ffab&ia=maps&iaxm=maps)
-----
-text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a nunc condimentum, dapibus dolor quis, gravida sapien. Sed dictum eleifend ex in dignissim. Nunc eget orci sapien. Aliquam et viverra ex, at viverra lacus. Curabitur suscipit neque ut erat molestie, ac mollis purus aliquam.

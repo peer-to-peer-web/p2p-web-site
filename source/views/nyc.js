@@ -4,6 +4,7 @@ var css = require('sheetify')
 
 var wrapper = require('../components/wrapper')
 var Rsvp = require('../components/form-rsvp')
+var header = require('../components/header')
 var format = require('../components/format')
 var footer = require('../components/footer')
 
@@ -58,7 +59,7 @@ var container = css`
   }
 `
 
-var header = css`
+var styleHeader = css`
   :host {
     object-fit: contain;
     image-rendering: -moz-crisp-edges;
@@ -79,7 +80,7 @@ var TITLE = 'Peer-to-Peer Web / NYC'
 module.exports = wrapper(view)
 
 function view (state, emit) {
-  var page = state.content['/nyc']
+  var page = state.content['/nyc/2018-05-26']
 
   if (!state.title === TITLE) {
     emit(state.events.DOMTITLECHANGE, TITLE)
@@ -87,13 +88,16 @@ function view (state, emit) {
 
   return html`
     <div>
+      <div class="fc-white psa t0 l0 r0 z3">
+        ${header(state, emit)}
+      </div>
       <div
         class="${container} w100 vhmn100 pb3 bgc-black fc-white tac fs2 sm-fsvw6"
         style=""
       >
         <img
-          class="db psf t0 l0 ${header}"
-          src="/content/nyc/img2.png"
+          class="db psf t0 l0 ${styleHeader}"
+          src="/content/nyc/2018-05-26/img2.png"
         />
         <div
           class="nyc-title x xac psr lh1-25 vh100 tac"
