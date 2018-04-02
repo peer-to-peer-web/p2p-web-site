@@ -19,7 +19,7 @@ var video = new Video()
 var TITLE = 'Peer-to-Peer Web / Los Angeles'
 
 var styles = css`
-  :host .la2-header { min-height: 75vh; }
+  :host .la2-header { min-height: 100vh; }
 `
 
 module.exports = view
@@ -33,7 +33,7 @@ function view (state, emit) {
 
   return html`
     <div class="x xdc xjb vhmn100 ${styles}">
-      <div class="la2-header sm-vh100 oh x xdc xje xx p1 psr sm-fs2 bgc-black fc-white">
+      <div class="la2-header oh x xdc xje xx p1 psr sm-fs2 bgc-black fc-white">
         <div class="psa t0 l0 r0 z3">
           ${header(state, emit)}
         </div>
