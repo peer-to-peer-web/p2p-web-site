@@ -10,11 +10,7 @@ var footer = require('../components/footer')
 var rsvp = new Rsvp()
 
 var container = css`
-  :host {
-    font-smoothing: never;
-    -webkit-font-smoothing: none;
-    -moz-osx-font-smoothing: none;
-  }
+  :host { }
 
   :host .nyc-copy {
     mix-blend-mode: difference;
@@ -92,7 +88,6 @@ function view (state, emit) {
       </div>
       <div
         class="${container} w100 vhmn100 pb3 bgc-black fc-white tac fs2 sm-fsvw6"
-        style=""
       >
         <img
           class="db psf t0 l0 ${styleHeader}"

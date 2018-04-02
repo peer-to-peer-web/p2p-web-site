@@ -13,8 +13,7 @@ var styles = css`
   :host .header-empty-line {
     background: #000;
     height: 0.05em;
-    width: 4rem;
-    margin-bottom: 0.1em;
+    width: 2rem;
     align-self: flex-end;
   }
 `

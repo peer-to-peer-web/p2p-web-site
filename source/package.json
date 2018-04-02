@@ -20,6 +20,7 @@
     "object-keys": "^1.0.11",
     "object-values": "^2.0.0",
     "plyr": "^3.0.11",
+    "popmotion": "^8.1.22",
     "qs": "^6.5.1",
     "read-directory": "^3.0.0",
     "sheetify": "^6.2.0",

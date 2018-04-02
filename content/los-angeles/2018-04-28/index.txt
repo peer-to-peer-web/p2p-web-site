@@ -1,7 +1,19 @@
 title: April 28th, 2018
 ----
+view: la-two
+----
 date: 2018-04-28
 ----
-visible: false
+visible: true
 ----
-text: Upcoming LA date!
+text: 
+
+In our everyday lives, network infrastructure overlays the environment we inhabit. While this technology affords unique possibility, we frequently see those creating it possess misaligned values with those using, especially it as adoption grows.
+
+As we becoming increasingly dependent on this connectivity, how do we go about defining and creating local and domestic space within this new landscape? 
+
+For those of us producing and implementing technology, how do we prioritize ethics, and progressively introduce peer-to-peer functionality into projects today?
+
+There will be two brief talks, followed by a workshop and open time to hang. <span class="ic">1</span> An introduction to Enoki, an accessible peer-to-peer native publishing tool. <span class="ic">2</span> An overview of creating a  `dat://` plugin for [Kirby](https://getkirby.com/) as a way of bridging p2p and http. <span class="ic">3</span> A workshop on creating your first peer-to-peer site with (or without) [Enoki](https://enoki.site).
+
+Everyone is welcome regardless of skill or familiarity; we’re here to provide a helping community. Please RSVP if planning to attend. Thanks!

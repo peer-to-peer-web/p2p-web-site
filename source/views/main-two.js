@@ -48,17 +48,17 @@ function view (state, emit) {
         <a href="${props.url}" class="psa t0 l0 r0 b0 z3"></a>        
         <img
           src="${image.path}"
-          class="psa t0 l0 r0 b0 h100 w100"
-          style="object-fit: cover; image-rendering: -moz-crisp-edges; image-rendering: pixelated;"
+          class="psa t0 l0 r0 b0 h100 w100 pixelate"
+          style="object-fit: cover;"
         >
         <div class="psr z2 x xdc xac">
           <div class="lh1 fs2 sm-fsvw6 bgc-black fc-white p0-5">
             ${props.title}
           </div>
-          <div class="mt0-5 bgc-black fc-white p0-5">
+          <div class="mt0-5 bgc-black fc-white p0-5 ff-mono">
             ${[
-              previous ? previous + ' previous' : '',
-              upcoming ? upcoming + ' upcoming' : ''
+              previous ? previous + ' Previous' : '',
+              upcoming ? upcoming + ' Upcoming' : ''
             ].filter(line => line).join(' / ')}
           </div>
         </div>

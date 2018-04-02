@@ -44,13 +44,8 @@ var custom = `
   .bb0 { border-bottom: 0; padding-bottom: 0; }
   .oph100:hover { opacity: 1 }
 
-  .contrast {
-    filter: grayscale(100%) contrast(1.5);
-  }
-
-  .grayscale {
-    filter: grayscale(100%);
-  }
+  .contrast { filter: grayscale(100%) contrast(1.5) }
+  .grayscale { filter: grayscale(100%) }
 
   .usn {
     user-select: none;
@@ -111,10 +106,26 @@ var custom = `
   }
 
   .copy { hyphens: auto; }
+  .copy a { border-bottom: 0.05em solid currentColor }
 
   .footnotes a {
     border-bottom: 2px solid currentColor;
     padding-bottom: 0.1em;
+  }
+
+  .ic {
+    background: #000;
+    color: #fff;
+    display: inline-block;
+    line-height: 1rem;
+    height: 1rem;
+    width: 1rem;
+    margin-bottom: 0.4em;
+    vertical-align: bottom;
+    font-size: 0.7em;
+    text-align: center;
+    font-family: "Lars Mono", menlo, monospace;
+    border-radius: 50%;
   }
 
   .copy p {
@@ -161,6 +172,10 @@ var custom = `
     margin-top: 3rem;
   }
 
+  .copy-simple p {
+    text-indent: 0;
+  }
+
   strong {
     font-weight: bold;
   }
@@ -169,15 +184,20 @@ var custom = `
     font-family: 'Lars Mono', menlo, manaco, monospace;
   }
 
-  .ofc {
-    object-fit: cover;
-  }
+  .ofc { object-fit: cover }
 
   .img-grid {
     background-image: url('data:image/svg+xml;utf8,<svg height="10" width="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><rect height="5" width="5" x="0" y="0" fill="#000000" /><rect height="5" width="5" x="5" y="5" fill="#000000" /></svg>');
     background-size: 4px 4px;
     background-repeat: repeat;
   }
+
+  .pixelate {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: pixelated;
+  }
+
+  .psst { position: sticky }
 
   .blink {
     animation: blink 500ms steps(1, end) infinite;

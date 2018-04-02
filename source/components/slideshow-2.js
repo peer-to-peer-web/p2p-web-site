@@ -48,8 +48,8 @@ module.exports = class Slideshow extends Nanocomponent {
     var translate = props.translate || 0
     return html`
       <img
-        class="db h100 w100 ofc psa t0 l0 r0 b0"
-        style="opacity: 0"
+        class="db h100 w100 ofc psa t0 l0 r0 b0 pixelate"
+        style="opacity: 0;"
         src="${props.image.url}"
         onclick=${this.handleClick}
       >

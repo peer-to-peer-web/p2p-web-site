@@ -12,7 +12,6 @@ function view (state, emit) {
   var children = page().children().visible().sortBy('date', 'asc').value()
   var previous = page(libEvents.previous(children)).sortBy('date', 'asc').toArray()
   var upcoming = page(libEvents.upcoming(children)).sortBy('date', 'asc').toArray()
-  console.log(upcoming)
 
   return html`
     <div class="x xdc vhmn100">
@@ -30,7 +29,8 @@ function view (state, emit) {
   function renderGroup (title, children) {
     return html`
       <div class="p1">
-        <div class="fs1">${title}</div>
+        <div class="fs1 ff-mono lh1-5">${title}</div>
+        <div class="fs1 lh1-5">↓</div>
         ${children.map(renderChild)}
       </div>
     `
