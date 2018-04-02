@@ -187,7 +187,7 @@ var custom = `
   .ofc { object-fit: cover }
 
   .img-grid {
-    background-image: url('data:image/svg+xml;utf8,<svg height="10" width="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><rect height="5" width="5" x="0" y="0" fill="#000000" /><rect height="5" width="5" x="5" y="5" fill="#000000" /></svg>');
+    background-image: url(/assets/imgs/grid.svg);
     background-size: 4px 4px;
     background-repeat: repeat;
   }

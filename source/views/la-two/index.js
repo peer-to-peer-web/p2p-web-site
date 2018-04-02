@@ -33,7 +33,7 @@ function view (state, emit) {
 
   return html`
     <div class="x xdc xjb vhmn100 ${styles}">
-      <div class="la2-header oh x xdc xje xx p1 psr sm-fs2 bgc-black fc-white">
+      <div class="la2-header oh x xdc xje xx p1 psr sm-fs2 img-grid fc-white">
         <div class="psa t0 l0 r0 z3">
           ${header(state, emit)}
         </div>
