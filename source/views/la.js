@@ -115,7 +115,7 @@ function view (state, emit) {
 
     function handleClick () {
       if (page.timeout) return
-      emit(state.events.CONTENT, {
+      emit(state.events.CUSTOM, {
         page: '/los-angeles/2017-12-10',
         data: { playing: true, video: key }
       })
@@ -123,21 +123,21 @@ function view (state, emit) {
   }
 
   function handlePlay (data) {
-    emit(state.events.CONTENT, {
+    emit(state.events.CUSTOM, {
       page: '/los-angeles/2017-12-10',
       data: { playing: true, video: data.video }
     })
   }
 
   function handlePause () {
-    emit(state.events.CONTENT, {
+    emit(state.events.CUSTOM, {
       page: '/los-angeles/2017-12-10',
       data: { playing: false }
     })
   }
 
   function handleTimeout () {
-    emit(state.events.CONTENT, {
+    emit(state.events.CUSTOM, {
       page: '/los-angeles/2017-12-10',
       data: { timeout: true }
     })
