@@ -8,7 +8,7 @@ visible: true
 ----
 text: 
 
-In our everyday lives, network infrastructure overlays the environment we inhabit. While this technology affords unique possibility, we frequently see those creating it possess misaligned values with users, especially as adoption grows.
+Network infrastructure overlays the environment we inhabit in our everyday lives. While this technology affords unique possibility, we frequently see those creating it possess misaligned values with users, especially as adoption grows.
 
 As we becoming increasingly dependent on this connectivity, how do we go about defining and creating local and domestic space within this new landscape? 
 
