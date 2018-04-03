@@ -11,10 +11,11 @@ module.exports = class Header extends Nanocomponent {
 
   load (element) {
     var self = this
-    this.image = this.element.querySelector('img[data-la2-clip]')
-    this.posx = window.innerWidth / 2
+    var imageold = this.element.querySelector('img[data-la2-old]')
+    var imagenew = this.element.querySelector('img[data-la2-new]')
+    var imageXY = pm.value({ x: window.innerWidth / 2, y: 0 }, updateImage)
 
-    var imageXY = pm.value({ x: 0, y: 0 }, updateImage)
+    this.posx = window.innerWidth / 2
 
     this.activeAction = pm.physics({
       velocity: imageXY.getVelocity(),
@@ -32,7 +33,8 @@ module.exports = class Header extends Nanocomponent {
     window.addEventListener('mousemove', this.handleMouseMove, false)
 
     function updateImage (v) {
-      self.image.style.clipPath = `inset(0 0 0 ${v.x}px)`
+      imageold.style.clipPath = `inset(0 0 0 ${v.x - 1}px)`
+      imagenew.style.clipPath = `inset(0 ${window.innerWidth - v.x}px 0 0)`
     }
 
     function getXY () {
@@ -53,8 +55,8 @@ module.exports = class Header extends Nanocomponent {
   createElement (props) {
     return html`
       <div class="psa t0 l0 r0 b0" style="cursor: ew-resize;">
-        <img src="${props.imageOld}" class="psa t0 l0 r0 b0 h100 w100 ofc pen">
-        <img data-la2-clip src="${props.imageNew}" class="psa t0 l0 r0 b0 h100 w100 ofc pen" style="clip-path: inset(0 50% 0 0)">
+        <img data-la2-new src="${props.imageOld}" class="psa t0 l0 r0 b0 h100 w100 ofc pen">
+        <img data-la2-old src="${props.imageNew}" class="psa t0 l0 r0 b0 h100 w100 ofc pen" style="clip-path: inset(0 50% 0 0)">
       </div>
     `
   }
