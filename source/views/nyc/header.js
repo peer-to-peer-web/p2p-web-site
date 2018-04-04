@@ -25,8 +25,19 @@ var styleMarkings = css`
   }
 
   :host > div {
+    padding: 2rem;
     height: 33.3%;
     width: 33.3%;
+  }
+
+  :host > div:nth-child(4) { margin-right: 33.3% }
+
+  :host > div > img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: pixelated;
   }
 `
 
