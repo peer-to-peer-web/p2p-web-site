@@ -11,6 +11,7 @@ var styleMask = css`
     border-radius: 50%;
     mix-blend-mode: difference;
     position: fixed;
+    opacity: 0;
     top: 0;
     left: 0;
     margin: -25vmin;
@@ -75,6 +76,12 @@ module.exports = class Header extends Nanocomponent {
     var self = this
     var ball = this.element.querySelector('[data-nyc-mask]')
     var ballStyler = pm.styler(ball)
+
+    this.state.v = {
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2
+    }
+
     var smooth = pm.transform.transformMap({
       x: pm.transform.smooth(1000),
       y: pm.transform.smooth(1000)
@@ -83,6 +90,10 @@ module.exports = class Header extends Nanocomponent {
     self.activeAction = pm.everyFrame().start(function (v) {
       ballStyler.set(smooth(getXY()))
     })
+
+    setTimeout(function () {
+      ball.style.opacity = 1
+    }, 1)
 
     function getXY (event) {
       return self.state.v
@@ -117,8 +128,12 @@ module.exports = class Header extends Nanocomponent {
   }
 
   createMarking (props) {
+    var style = `transform: rotate(${Math.floor(Math.random() * 4) * 90}deg;`
     return html`
-      <div class="x xjc xac"><img src="${props.path}"></div>
+      <div
+        class="x xjc xac"
+        style="${style}"
+      ><img src="${props.path}"></div>
     `
   }
 
