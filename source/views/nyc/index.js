@@ -28,35 +28,6 @@ var container = css`
     line-height: 1;
     overflow: hidden;
     white-space: nowrap;
-    width: 100vw;
-  }
-
-  :host .nyc-title > div {
-    width: 100vw;
-  }
-
-  :host .nyc-title > div > div {
-    display: flex;
-    width: 200vw;
-  }
-
-  :host .nyc-title > div > div > div {
-    width: 100vw;
-  }
-  
-  /*
-  :host .nyc-title > div > div:nth-child(1) {
-    animation: nyctitle 30s linear infinite;
-  }
-
-  :host .nyc-title > div > div:nth-child(2) {
-    animation: nyctitle 30s linear infinite reverse;
-  }
-  */
-
-  @keyframes nyctitle {
-    0% { transform: translate3d(0, 0, 0) }
-    100% { transform: translate3d(-100vw, 0, 0) }
   }
 `
 

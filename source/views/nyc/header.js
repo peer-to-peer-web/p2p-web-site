@@ -34,8 +34,8 @@ var styleMarkings = css`
   :host > div:nth-child(4) { margin-right: 33.3% }
 
   :host > div > img {
-    height: 100%;
-    width: 100%;
+    max-height: 100%;
+    max-width: 100%;
     object-fit: contain;
     image-rendering: -moz-crisp-edges;
     image-rendering: pixelated;
@@ -149,21 +149,14 @@ module.exports = class Header extends Nanocomponent {
         ${this.createMarkings()}
         <div data-nyc-mask class="${styleMask}"></div>
         <div
-          class="nyc-title x xac psr lh1-25 vh100 tac pen z3"
+          class="nyc-title x xac xjc psr lh1-25 vh100 tac pen z3"
           style="mix-blend-mode: difference; font-size: 13vw;"
         >
           <div>
-            <div>
-              <div>Peer-to-Peer</div>
-              <div>Peer-to-Peer</div>
-            </div>
-            <div>
-              <div>Web / NYC</div>
-              <div>Web / NYC</div>
-            </div>
+            <div>Peer-to-Peer</div>
+            <div>Web / NYC</div>
           </div>
         </div>
-
       </div>
     `
   }
