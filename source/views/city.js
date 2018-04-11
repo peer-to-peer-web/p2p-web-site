@@ -9,7 +9,7 @@ module.exports = view
 
 function view (state, emit) {
   var page = Page(state)
-  var children = page().children().visible().sortBy('date', 'asc').value()
+  var children = page().children().sortBy('date', 'asc').toArray().filter(isVisible)
   var previous = page(libEvents.previous(children)).sortBy('date', 'asc').toArray()
   var upcoming = page(libEvents.upcoming(children)).sortBy('date', 'asc').toArray()
 
@@ -25,6 +25,12 @@ function view (state, emit) {
       ${footer()}
     </div>
   `
+
+  function isVisible (props) {
+    return state.ui.dev
+      ? true
+      : props.visible !== false
+  }
 
   function renderGroup (title, children) {
     return html`

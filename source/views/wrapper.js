@@ -9,17 +9,33 @@ module.exports = wrapper
 
 function wrapper (state, emit) {
   if (!state.site.loaded) return createLoading()
-  var page = state.content[state.href || '/'] || { }
-  if (page.redirect) page = state.content[page.redirect || '/'] || { }
-  var view = views[page.view] || views.default
-  var colors = page.invert === true ? 'bgc-black fc-white' : 'bgc-white fc-black'
-    
+  var page = getPage()
+  var view = getView()
+  var colors = getColors()
+
   return html`
     <body class="ff-sans lh1-5 fs1 ${colors}">
       ${view(state, emit)}
       ${state.query.subscribe ? createSubscribe() : ''}
     </body>
   `
+
+  function getPage () {
+    var page = state.content[state.href || '/'] || { }
+    return page.redirect
+      ? state.content[page.redirect || '/'] || { }
+      : page
+  }
+
+  function getView () {
+    return views[page.view] || views.default
+  }
+
+  function getColors () {
+    return page.invert === true
+      ? 'bgc-black fc-white'
+      : 'bgc-white fc-black'
+  }
 }
 
 function createSubscribe () {

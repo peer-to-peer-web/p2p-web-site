@@ -45,6 +45,12 @@ utils.push({
   vals: [ 6, 12 ]
 })
 
+utils.push({
+  prop: { vhmn: 'height' },
+  unit: 'vh',
+  vals: [ 25, 33, 50, 75 ]
+})
+
 var borderWeights = [0, 1, 2]
 var borders = {}
 borderWeights.forEach(border => {

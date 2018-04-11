@@ -1,5 +1,14 @@
 title: May 5th, 2018
 ----
+view: berlin-two
+----
 date: 2018-05-05
 ----
 visible: false
+----
+intro: An offline hang about being online better ↓
+----
+introtags:
+  - mesh-networking
+  - local-area
+  - data-ownership

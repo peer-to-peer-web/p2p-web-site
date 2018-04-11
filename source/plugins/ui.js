@@ -8,6 +8,7 @@ module.exports = ui
 
 function ui (state, emitter, app) {
   state.ui = {
+    dev: false,
     lang: 'en',
     p2p: false,
     livestream: false,
@@ -18,6 +19,7 @@ function ui (state, emitter, app) {
   state.events.UI = 'ui'
 
   emitter.on(state.events.DOMCONTENTLOADED, function () {
+    state.ui.dev = state.query.dev
     state.ui.p2p = typeof DatArchive === 'function'
     loadFonts()
     // checkLivestream()
