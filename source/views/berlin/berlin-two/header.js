@@ -1,6 +1,7 @@
 var Nanocomponent = require('nanocomponent')
 var PIXI = require('pixi.js')
 var DotFilter = require('@pixi/filter-dot').DotFilter
+var DisplacementFilter = PIXI.filters.DisplacementFilter
 var html = require('choo/html')
 var css = require('sheetify')
 var pm = require('popmotion')
@@ -42,8 +43,12 @@ module.exports = class Header extends Nanocomponent {
       var dotFilter = new DotFilter()
       dotFilter.scale = 2
       dotFilter.angle = 45
+      //displace
+      self.displacementSprite = PIXI.Sprite.fromImage(this.local.displacement)
+      var displacementFilter = new DisplacementFilter(self.displacementSprite)
+      self.displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT
       // filters
-      app.stage.filters = [dotFilter]
+      app.stage.filters = [displacementFilter, dotFilter]
     } else {
       this.app.start()
     }
@@ -61,20 +66,24 @@ module.exports = class Header extends Nanocomponent {
     // mouse movement smoothing
     this.activeAction = pm.everyFrame().start(function () {
       var v = smooth(getXY())
-      if (!self.image) return
+      if (!self.image || !self.displacementSprite) return
       self.image.x = (v.x) * -1 * 2
       self.image.y = (v.y) * -1 * 5
+      self.displacementSprite.x += 1
     })
 
     // load image
-    if (!self.image) {
-      PIXI.loader.add('bunny', this.local.src).load(function (loader, resources) {
+    if (!self.image || !self.displacementSprite) {
+      PIXI.loader
+        .add('bunny', this.local.src)
+        .load(function (loader, resources) {
         self.image = new PIXI.Sprite(resources.bunny.texture)
         self.image.x = window.innerWidth / 2
         self.image.y = window.innerHeight / 2
         self.image.height = window.innerHeight * 6
         self.image.width = window.innerWidth * 3
         app.stage.addChild(self.image)
+        app.stage.addChild(self.displacementSprite)
       })
     }
 

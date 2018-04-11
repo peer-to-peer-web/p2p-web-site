@@ -38,7 +38,8 @@ function view (state, emit) {
           ${state
             .cache(BerlinHeader, 'berlin-header')
             .render({
-              src: page().file('dish.jpg').value('path')
+              src: page().file('dish.jpg').value('path'),
+              displacement: page().file('displacement.png').value('path'),
             })
           }
         </div>
