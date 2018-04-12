@@ -1,5 +1,4 @@
 var objectValues = require('object-values')
-var raw = require('choo/html/raw')
 var Page = require('enoki/page')
 var html = require('choo/html')
 var xtend = require('xtend')
@@ -82,8 +81,7 @@ function view (state, emit) {
         <div class="c12 p0-5 bgc-white">
           <div class="x xw mxa mxwidth">
             <div class="c12 sm-c6 p0-5 fc-black copy">
-              ${raw(lang[state.ui.lang].text.split('\n')[0] + ' <a href="/about">Continue reading…</a>')}
-              
+              ${lang[state.ui.lang].text.split('\n')[0]}<a href="/about" class="ml0-5">Continue reading…</a>
             </div>
             <div class="c12 sm-c6 fs2 p0-5">
               ${state

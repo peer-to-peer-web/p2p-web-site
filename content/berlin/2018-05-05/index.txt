@@ -6,7 +6,7 @@ date: 2018-05-05
 ----
 invert: true
 ----
-visible: false
+visible: true
 ----
 intro: An offline hang about being online better ↓
 ----
