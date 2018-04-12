@@ -29,7 +29,6 @@ module.exports = class Slideshow extends Nanocomponent {
     var self = this
     clearTimeout(this.resizeTimeout)
     this.resizeTimeout = setTimeout(function () {
-      console.log(self.slideshow.resize)
       if (self.slideshow && self.slideshow.resize && self.slideshow.position) {
         self.slideshow.resize()
         // self.slideshow.position()
