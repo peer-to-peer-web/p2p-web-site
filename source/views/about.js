@@ -22,11 +22,11 @@ function view (state, emit) {
     <div class="vhmn100 x xdc xjb c12 lh1-5 fs1">
       ${header(state, emit)}
       <div class="p0-5 my4">
-        <div class="p0-5 fs2 mxa copy-simple copy-width">
-          <a href="mailto:yo@peer-to-peer-web.com">yo@peer-to-peer-web.com</a>
-        </div>
         <div class="p0-5 mxa copy-simple copy-width">
           ${format(lang[state.ui.lang].text)}
+        </div>
+        <div class="p0-5 mxa copy-simple copy-width">
+          <a href="mailto:yo@peer-to-peer-web.com">yo@peer-to-peer-web.com</a>
         </div>
       </div>
       ${footer()}

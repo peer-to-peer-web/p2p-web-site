@@ -34,7 +34,7 @@ function header (state, emit, props) {
         })}
       </div>
       <div class="x">
-        <div class="p0-5">
+        <div class="p0-5 ${state.href === '/about' ? 'op25 pen' : ''}">
           <a href="/about">About</a>
         </div>
         <div class="p0-5">
