@@ -102,7 +102,7 @@ module.exports = class FormRsvp extends Nanocomponent {
       <form
         enctype="application/x-www-form-urlencoded "
         method="post"
-        class="c12 lh1-5 x xw bgc-black psr ${style} ${this.state.loading ? 'pen' : ''}"
+        class="c12 lh1-5 x xw bgc-black fc-black fs1 psr ${style} ${this.state.loading ? 'pen' : ''}"
         onsubmit=${this.handleSubmit}
       >
         <div class="c6">
