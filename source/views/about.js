@@ -26,6 +26,7 @@ function view (state, emit) {
           ${format(lang[state.ui.lang].text)}
         </div>
         <div class="p0-5 mxa copy-simple copy-width">
+          Built and published with <a href="https://enoki.site">Enoki</a><br>
           <a href="mailto:yo@peer-to-peer-web.com">yo@peer-to-peer-web.com</a>
         </div>
       </div>
