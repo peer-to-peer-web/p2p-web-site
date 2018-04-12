@@ -41,6 +41,9 @@ function header (state, emit, props) {
           <a href="?subscribe=active">Subscribe</a>
         </div>
         <div class="p0-5">
+          <a href="https://peer-to.peer-to-peer-web.com" class="external">Exhibitions</a>
+        </div>
+        <div class="p0-5">
           <a href="?lang=select" class="ttu">${state.ui.lang}</a>
         </div>
       </div>

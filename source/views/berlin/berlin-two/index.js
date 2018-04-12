@@ -25,10 +25,6 @@ function view (state, emit) {
       <div class="vhmn100 x xdc xjb c12 lh1-5 fs1">
         ${header(state, emit)}
         <div class="psr x xx xdc oh">
-          ${createExtra({
-            position: positions.smile,
-            source: page().file('happy.png').value('path'),
-          })}
           <div class="xx x xdc xjb p0-5 z2 fc-white">
             <div class="lh1 fsvw12 pen p0-5">${page().value('intro')}</div>
             <div class="c12 sm-c6 fs2 co0 sm-co6 lh1-25 p0-5 mt4">
@@ -65,7 +61,7 @@ function view (state, emit) {
             })
           }
         </div>
-        <div class="c12 p0-5 x xjc bb1-black">
+        <div class="c12 p0-5 x xjc bgc-white">
           <div class="c12 sm-c6 fs2 p0-5">
             ${state
               .cache(FormRsvp, 'berlin-rsvp')
