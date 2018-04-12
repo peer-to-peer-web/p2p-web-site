@@ -81,7 +81,8 @@ function view (state, emit) {
         <div class="c12 p0-5 bgc-white">
           <div class="x xw mxa mxwidth">
             <div class="c12 sm-c6 p0-5 fc-black copy">
-              ${lang[state.ui.lang].text.split('\n')[0]} <a href="/about">Continue reading…</a>
+              ${raw(lang[state.ui.lang].text.split('\n')[0] + ' <a href="/about">Continue reading…</a>')}
+              
             </div>
             <div class="c12 sm-c6 fs2 p0-5">
               ${state
