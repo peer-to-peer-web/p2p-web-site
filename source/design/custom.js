@@ -82,6 +82,13 @@ var custom = `
     transform: translate3d(0, 0, 0) rotate(15deg);
   }
 
+  .external:after {
+    content: '→';
+    display: inline-block;
+    font-family: 'Lars Mono', monospace;
+    transform: rotate(-45deg);
+  }
+
   .copy-width {
     max-width: 32rem;
   }

@@ -6,9 +6,28 @@ date: 2018-05-05
 ----
 visible: false
 ----
-intro: An offline hang about being online better ↓
+intro: An offline hang about being “online” better ↓
 ----
 introtags:
-  - mesh-networking
-  - local-area
-  - data-ownership
+  - hardware
+  - land-as-platform
+  - offline-networks
+----
+speakers:
+  kei:
+    name: Kei Kreutler
+    href: http://kei.bio
+  jay:
+    name: Jay Springett
+    href: https://thejaymo.net
+  yosh:
+    name: Yoshua Wuyts
+    href: https://www.yoshuawuyts.com
+----
+time: 3pm
+----
+venue:
+  name: Trust
+  href: https://trust.support
+  address: Kluckstr. 25, 10785 Berlin
+  map: https://duckduckgo.com/?q=Kluckstra%C3%9Fe+25%2C+10785&t=ffab&ia=maps&iax=maps

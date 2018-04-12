@@ -13,10 +13,21 @@ function wrapper (state, emit) {
   var view = getView()
   var colors = getColors()
 
+  // language
+  if (
+    state.query.lang &&
+    state.query.lang !== 'select' &&
+    state.query.lang !== state.ui.lang
+  ) {
+    emit(state.events.UI, { lang: state.query.lang })
+    emit(state.events.RENDER)
+  }
+
   return html`
     <body class="ff-sans lh1-5 fs1 ${colors}">
       ${view(state, emit)}
       ${state.query.subscribe ? createSubscribe() : ''}
+      ${state.query.lang === 'select' ? createLang(state) : ''}
     </body>
   `
 
@@ -36,6 +47,28 @@ function wrapper (state, emit) {
       ? 'bgc-black fc-white'
       : 'bgc-white fc-black'
   }
+}
+
+function createLang (state) {
+  var langs = state.ui.langs
+
+  return html`
+    <div class="psf t0 l0 r0 b0 x xjc xac p1 img-grid" style="z-index: 99">
+      <a href="?" class="db psa t0 l0 r0 b0"></a>
+      <div class="ttu lh1 x fs2 psr z2 c12 sm-c6 bgc-white fc-black">
+        ${langs.map(function (props) {
+          var active = props === state.ui.lang ? 'bgc-black fc-white' : ''
+          return html`
+            <a
+              href="?lang=${props}"
+              class="xx db p1 tac ${active}"
+              style="padding-bottom: 1rem;"
+            >${props}</a>
+          `
+        })}
+      </div>
+    </div>
+  `
 }
 
 function createSubscribe () {

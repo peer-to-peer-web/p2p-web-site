@@ -33,8 +33,16 @@ function header (state, emit, props) {
           page: page().value()
         })}
       </div>
-      <div class="p0-5">
-        <a href="?subscribe=active">Subscribe</a>
+      <div class="x">
+        <div class="p0-5">
+          <a href="/about">About</a>
+        </div>
+        <div class="p0-5">
+          <a href="?subscribe=active">Subscribe</a>
+        </div>
+        <div class="p0-5">
+          <a href="?lang=select" class="ttu">${state.ui.lang}</a>
+        </div>
       </div>
     </div>
   `

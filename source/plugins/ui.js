@@ -10,6 +10,7 @@ function ui (state, emitter, app) {
   state.ui = {
     dev: false,
     lang: 'en',
+    langs: ['en', 'de'],
     p2p: false,
     livestream: false,
     loaded: false,

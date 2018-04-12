@@ -9,7 +9,7 @@ module.exports = view
 
 function view (state, emit) {
   var page = Page(state)
-  var children = page().children().sortBy('date', 'asc').toArray().filter(isVisible)
+  var children = page().children().toArray().filter(isVisible)
   var previous = page(libEvents.previous(children)).sortBy('date', 'asc').toArray()
   var upcoming = page(libEvents.upcoming(children)).sortBy('date', 'asc').toArray()
 

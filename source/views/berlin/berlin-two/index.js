@@ -1,7 +1,9 @@
+var objectValues = require('object-values')
 var Page = require('enoki/page')
 var html = require('choo/html')
 var xtend = require('xtend')
 
+var FormRsvp = require('../../../components/form-rsvp')
 var format = require('../../../components/format')
 var footer = require('../../../components/footer')
 var header = require('../../../components/header')
@@ -16,7 +18,8 @@ module.exports = view
 
 function view (state, emit) {
   var page = new Page(state)
-   
+  var venue = page().value('venue')
+
   return html`
     <div>
       <div class="vhmn100 x xdc xjb c12 lh1-5 fs1">
@@ -26,13 +29,32 @@ function view (state, emit) {
             position: positions.smile,
             source: page().file('happy.png').value('path'),
           })}
-          <div class="xx x xdc xjb p1 z2 fc-white pen">
-            <div class="lh1 fsvw12">${page().value('intro')}</div>
-            <div class="fs1 lh1-5 ff-mono mt1">
-              ${page()
-                .value('introtags')
-                .map(tag => html`<span class="pr1">#${tag}</span>`)
+          <div class="xx x xdc xjb p0-5 z2 fc-white">
+            <div class="lh1 fsvw12 pen p0-5">${page().value('intro')}</div>
+            <div class="c12 sm-c6 fs2 co0 sm-co6 lh1-25 p0-5 mt4">
+              ${objectValues(page().value('speakers'))
+                .map(function (speaker) {
+                  return html`<div>
+                    <a href="${speaker.href}" target="_blank">${speaker.name}</a>
+                    <span class="external"></span>
+                  </div>`
+                })
               }
+            </div>
+            <div class="x xw mt4 fs2">
+              <div class="c12 sm-c6 lh1-25 ff-mono p0-5">
+                ${page()
+                  .value('introtags')
+                  .map(function (tag) {
+                    return html`<div>#${tag}</div>`
+                  })
+                }
+              </div>
+              <div class="c12 sm-c6 lh1-25 p0-5">
+                <div>${venue.name}</div>
+                <div><a href="${venue.map}">${venue.address}</a></div>
+                <div>${page().value('title')} @ ${page().value('time')}</div>
+              </div>
             </div>
           </div>
           ${state
@@ -42,6 +64,17 @@ function view (state, emit) {
               displacement: page().file('displacement.png').value('path'),
             })
           }
+        </div>
+        <div class="c12 p0-5 x xjc bb1-black">
+          <div class="c12 sm-c6 fs2 p0-5">
+            ${state
+              .cache(FormRsvp, 'berlin-rsvp')
+              .render({
+                event: 'berlin-2',
+                lang: state.ui.lang
+              })
+            }
+          </div>
         </div>
       </div>
       ${footer()}

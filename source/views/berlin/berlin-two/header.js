@@ -55,8 +55,8 @@ module.exports = class Header extends Nanocomponent {
 
     // smoothing
     var smooth = pm.transform.transformMap({
-      x: pm.transform.smooth(2000),
-      y: pm.transform.smooth(2000)
+      x: pm.transform.smooth(4000),
+      y: pm.transform.smooth(4000)
     })
 
     // initial position
@@ -107,7 +107,7 @@ module.exports = class Header extends Nanocomponent {
 
   handleResize () {
     var size = this.element.getBoundingClientRect()
-    this.image.height = window.innerHeight * 3
+    this.image.height = window.innerHeight * 6
     this.image.width = window.innerWidth * 3
     this.app.renderer.autoResize = true
     this.app.renderer.resize(size.width, size.height)

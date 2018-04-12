@@ -1,0 +1,17 @@
+title: About
+----
+titlede: Abouten
+----
+visible: false
+----
+private: true
+----
+view: about
+----
+texten: As incumbent tech platforms face growing scrutiny over their global influence, it is clear that we must envision decentralized, user-owned alternatives to counter the status quo. But how do we build those alternatives? What do their implementations look like, and how do we address their technical and ethical challenges in the face of increasing user adoption?
+
+Peer-to-Peer Web / Berlin is for those new to the decentralized web, who are curious in exploring the possibilities that lie beyond a centralized internet controlled by platform monopolies. Through a series of presentations and workshops, we examine the social, political, ethical and economic potentials and challenges of the peer-to-peer movement.
+----
+textde: Da etablierte Technologieplattformen einer wachsenden kritischen Überprüfung und Kontrolle ihres globalen Einflusses ausgesetzt sind, ist es klar, dass wir uns dezentrale, nutzereigene Alternativen vorstellen müssen, um dem Status quo entgegenzuwirken. Aber wie entwerfen wir realistische Alternativen? Wie sehen ihre Implementierungen aus und wie gehen wir mit den technischen und ethischen Herausforderungen um, die sich aus der zunehmenden Benutzeradaption ergeben?
+
+Peer-to-Peer Web ist für Neueinsteiger im dezentralen Web, die daran interessiert sind, die Möglichkeiten jenseits einem von Plattformmonopolen kontrollierten und zentralisierten Internet zu untersuchen. In einer Reihe von Vorträgen und Workshops werden wir die sozialen, politischen, ethischen und wirtschaftlichen Potenziale und Herausforderungen der Peer-to-Peer-Bewegung untersuchen.

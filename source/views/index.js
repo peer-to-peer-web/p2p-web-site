@@ -1,6 +1,7 @@
 module.exports = {
   main: require('./main'),
   coc: require('./coc'),
+  about: require('./about'),
   city: require('./city'),
   nyc: require('./nyc'),
   la: require('./la/la'),
