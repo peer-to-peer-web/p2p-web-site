@@ -74,7 +74,7 @@ module.exports = class FormRsvp extends Nanocomponent {
         event: 'Event',
         name: 'Name',
         email: 'Email address',
-        submit: 'Submit',
+        submit: 'Submit RSVP',
         submitting: 'Submitting…',
         success: 'Success!',
         error: 'Submission failed'
@@ -84,7 +84,7 @@ module.exports = class FormRsvp extends Nanocomponent {
          event: 'Veranstaltung',
          name: 'Name',
          email: 'Email addresse',
-         submit: 'Senden',
+         submit: 'Senden RSVP',
          submitting: 'Wird Eingereicht!',
          success: 'Erfolg',
          error: 'Fehlgeschlagen'
