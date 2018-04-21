@@ -2,6 +2,7 @@ module.exports = {
   main: require('./main'),
   coc: require('./coc'),
   about: require('./about'),
+  log: require('./log'),
   city: require('./city'),
   nyc: require('./nyc'),
   la: require('./la/la'),

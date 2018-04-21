@@ -1,15 +1,25 @@
-var Page = require('enoki/page')
 var html = require('choo/html')
 var css = require('sheetify')
 
 var Form = require('../components/form-mailinglist')
 var header = require('../components/header')
+var footer = require('../components/footer')
 var libEvents = require('../lib/events')
 var form = new Form()
 
 var TITLE = 'Peer-to-Peer Web'
 
 var styles = css`
+  :host .home-about {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: -2rem;
+    transform: rotate(10deg);
+  }
+
   @media (min-width: 767px) {
     :host .city:hover {
       filter: invert(1);
@@ -17,10 +27,29 @@ var styles = css`
   }
 `
 
+var entries = [
+  {
+    title: 'One',
+    text: 'this is some text'
+  },
+  {
+    title: 'Two',
+    text: 'hwat up'
+  },
+  {
+    title: 'Three',
+    text: 'nice 1'
+  },
+  {
+    title: 'Four',
+    text: 'this is some text'
+  },
+]
+
 module.exports = view
 
 function view (state, emit) {
-  var page = Page(state)
+  var page = state.page
   var children = page('/')
     .children()
     .sortBy('title', 'asc')
@@ -32,14 +61,50 @@ function view (state, emit) {
   }
 
   return html`
-    <div class="vhmn100 x xdc ${styles}">
-      <div>
-        ${header(state, emit)}
+    <div class="${styles}">
+      <div class="vhmn100 x xdc">
+        <div>
+          ${header(state, emit)}
+        </div>
+        <div class="x xw">
+          ${createAbout()}
+          ${createSubscribe()}
+        </div>
+        <div class="xx x xdc tac">
+          ${children.map(createChild)}
+        </div>
       </div>
-      <div class="xx x xdc tac">
-        ${children.map(createChild)}
+      ${footer(state, emit)}
     </div>
   `
+
+  function createAbout () {
+    var text = state.page('/about').value('texten') || ''
+    return html`
+      <a href="/about" class="db c6 psr bgc-black fc-white">
+        <div class="home-about">
+          ${text}
+        </div>
+      </a>
+    `
+  }
+
+  function createSubscribe () {
+    var subscribe = page('/about')
+    return html`
+      <div class="c6 p1 psr">
+        <img src="/assets/list-bg.png" class="pixelate psa t0 l0 r0 b0 pen">
+        ${state
+          .cache(Form, 'home-list')
+          .render()
+        }
+      </div>
+    `
+  }
+
+  function createEntry (props) {
+
+  }
 
   function createChild (props) {
     var image = page(props).files().first().value()

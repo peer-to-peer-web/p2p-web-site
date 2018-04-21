@@ -7,6 +7,7 @@ var qs = require('qs')
 var style = css`
   :host {
     padding: 1px;
+    position: relative;
   }
 
   form input, form label { margin: 0 0 1px 0 }
