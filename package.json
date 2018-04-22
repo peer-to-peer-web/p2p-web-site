@@ -6,7 +6,7 @@
   "dependencies": {
     "@pixi/filter-dot": "^2.5.0",
     "choo": "^6.11.0-preview1",
-    "enoki": "^2.0.8-next.4",
+    "enoki": "^2.0.8-next.5",
     "ez.js": "^1.0.3",
     "fontfaceobserver": "^2.0.13",
     "form-data-to-object": "^0.2.0",
