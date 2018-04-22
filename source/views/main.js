@@ -75,9 +75,7 @@ function view (state, emit) {
   return html`
     <div class="${styles}">
       <div class="vhmn100 x xdc">
-        <div class="c12">
-          ${header(state, emit)}
-        </div>
+        ${header(state, emit)}
         <div class="x xw c12">
           ${createAbout()}
           ${createSubscribe()}
@@ -85,7 +83,7 @@ function view (state, emit) {
         <div class="c12">
           <div class="mxa mxwidth c12 oh home-entries">
             <div class="lh1 c12 p1 x xw xjb">
-              <div>Recent Updates</div>
+              <div><a href="/log">Recent Updates</a></div>
               <div><a href="/log">View all</a> →</div>
             </div>
             <div class="bb1-black mx1 sm-mb1"></div>

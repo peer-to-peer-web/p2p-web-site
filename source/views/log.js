@@ -24,17 +24,13 @@ function view (state, emit) {
 
   return html`
     <div class="x xdc vhmn100">
-      <div>
-        ${header(state, emit)}
-      </div>
-      <div class="x xx xjc xac">
+      ${header(state, emit)}
+      <div class="x xx xjc xac py3">
         <div>
           ${entries.map(props => logEntry(state, emit, props))}
         </div>
       </div>
-      <div>
-        ${footer(state, emit)}
-      </div>
+      ${footer(state, emit)}
     </div>
   `
 }
