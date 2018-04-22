@@ -3,10 +3,6 @@ var html = require('choo/html')
 var css = require('sheetify')
 
 var styles = css`
-  :host {
-    height: 3rem;
-  }
-
   :host .breadcrumbs span:first-child:after,
   :host .breadcrumbs span:not(:last-child):after {
     display: inline-block;
@@ -48,9 +44,6 @@ function header (state, emit, props) {
           <a href="?subscribe=active">Subscribe</a>
         </div>
         <div class="p0-5">
-          <a href="https://peer-to.peer-to-peer-web.com" class="external">Exhibitions</a>
-        </div>
-        <div class="p0-5">
           <a href="?lang=select" class="ttu">${state.ui.lang}</a>
         </div>
       </div>
@@ -69,6 +62,7 @@ function breadcrumbs (props) {
     .filter(str => str)
     .reduce(function (result, path) {
       var href = result.map(crumb => crumb.path).join('/') + '/' + path
+      if (content[href].view === 'logentry') return result
       result.push({
         path: path,
         el: html`<span class="wsnw toe"><a href="${href}">${content[href].title}</a></span>`

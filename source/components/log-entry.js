@@ -6,7 +6,7 @@ module.exports = logEntry
 function logEntry (state, emit, props) {
   var date = props.date.split('-').splice(1, 2).join('/')
   return html`
-    <div id="log-${props.name}" class="b1-black w100 copy-width m1">
+    <div id="log-${props.name}" class="b1-black copy-width m1">
       <div class="x xjb w100 p1 lh1">
         <div><a href="${props.url}">${props.title}</a></div>
         <div class="ff-mono">${date}</div>
