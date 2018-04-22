@@ -142,7 +142,7 @@ function view (state, emit) {
 
     if (text.length > max) {
       shouldTruncate = true
-      text = text.substring(0, max) 
+      text = text.substring(0, max).trim()
       text += '… Continue reading →'
     }
 
