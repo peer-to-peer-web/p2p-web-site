@@ -6,7 +6,7 @@
   "dependencies": {
     "@pixi/filter-dot": "^2.5.0",
     "choo": "^6.11.0-preview1",
-    "enoki": "^2.0.8-next.3",
+    "enoki": "^2.0.8-next.4",
     "ez.js": "^1.0.3",
     "fontfaceobserver": "^2.0.13",
     "form-data-to-object": "^0.2.0",
@@ -48,6 +48,7 @@
   },
   "scripts": {
     "start": "enoki content -w & watchify source/index.js -o bundles/bundle.js -t brfs -t sheetify -p [ css-extract -o bundles/bundle.css ] source/index.js",
+    "dev": "enoki content -w & budo source/index.js:bundles/bundle.js --dir . -- -t brfs -t sheetify -p [ css-extract -o bundles/bundle.css ] source/index.js",
     "build": "enoki content && browserify source/index.js -o bundles/bundle.js -t brfs -t yo-yoify -t  [ sheetify -t sheetify-cssnext ] -g es2040 -p [ css-extract -o bundles/bundle.css ] -p tinyify"
   },
   "keywords": [],

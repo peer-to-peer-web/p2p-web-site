@@ -46,7 +46,7 @@ utils.push({
 })
 
 utils.push({
-  prop: { vhmn: 'height' },
+  prop: { vhmn: 'min-height' },
   unit: 'vh',
   vals: [ 25, 33, 50, 75 ]
 })

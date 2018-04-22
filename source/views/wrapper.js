@@ -8,7 +8,7 @@ var form = new Form()
 module.exports = wrapper
 
 function wrapper (state, emit) {
-  if (!state.site.loaded) return createLoading()
+  if (isLoading()) return createLoading() 
   var page = getPage()
   var view = getView()
   var colors = getColors()
@@ -24,12 +24,19 @@ function wrapper (state, emit) {
   }
 
   return html`
-    <body class="ff-sans lh1-5 fs1 ${colors}">
+    <body class="ff-sans fs1 ${colors}">
       ${view(state, emit)}
       ${state.query.subscribe ? createSubscribe() : ''}
       ${state.query.lang === 'select' ? createLang(state) : ''}
     </body>
   `
+
+  function isLoading () {
+    return (
+      !state.site.loaded || 
+      !state.site.logLoaded
+    )
+  }
 
   function getPage () {
     var page = state.content[state.href || '/'] || { }
@@ -91,6 +98,8 @@ function createLoading () {
           <polygon class="title-blink" points="954.913399 507.184268 954.913399 492.036065 1406.63219 492.036065 1406.63219 507.184268"/>
         </g>
       </svg>
+      <span class="ff-sans op0">sans</span>
+      <span class="ff-wmono op0">mono</span>
     </body>
   `
 }

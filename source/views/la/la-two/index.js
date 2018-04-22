@@ -43,7 +43,7 @@ function view (state, emit) {
         })}
         <div class="psr fs2 fc-white lh1-25 pen">
           <span class="pea">
-            ${page().value('title')} @ 3–6pm<br>
+            ${page().value('title')} @ 11:30am–3pm<br>
             <a href="https://duckduckgo.com/?q=1031+N.+Broadway+los+angeles&t=ffab&ia=maps&iaxm=maps">1031 N. Broadway</a> (<a href="https://folder.studio/building-block" target="_blank">Folder Studio</a>)
           </span>
         </div>
@@ -61,9 +61,4 @@ function view (state, emit) {
       ${footer()}
     </div>
   `
-
-  function slideshow (props) {
-    return html`
-    `
-  }
 }

@@ -8,33 +8,26 @@ module.exports = view
 function view (state, emit) {
   var page = state.page
 
-  // loading
-  if (!state.site.logLoaded) {
-    return html`
-      <div class="vhmn100 x xjc xac">
-        Loading
-      </div>
-    `
-  }
-
-  var entries = page('/log')
-    .pages()
-    .sortBy('date', 'desc')
-    .value()
-
   return html`
     <div class="x xdc vhmn100">
       <div>
         ${header(state, emit)}
       </div>
-      <div class="x xx xjc xac">
-        <div>
-          ${entries.map(props => logEntry(state, emit, props))}
-        </div>
+      <div class="xx x xjc xac">
+        ${logEntry(state, emit, page().value())} 
       </div>
       <div>
         ${footer(state, emit)}
       </div>
     </div>
   `
+
+  function createEntry (props) {
+    return html`
+      <div>
+        ${props.title}<br>
+        ${props.text}<br>
+      </div>
+    `
+  }
 }

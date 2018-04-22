@@ -3,6 +3,10 @@ var html = require('choo/html')
 var css = require('sheetify')
 
 var styles = css`
+  :host {
+    height: 3rem;
+  }
+
   :host .breadcrumbs span:first-child:after,
   :host .breadcrumbs span:not(:last-child):after {
     display: inline-block;
@@ -36,6 +40,9 @@ function header (state, emit, props) {
       <div class="x">
         <div class="p0-5 ${state.href === '/about' ? 'op25 pen' : ''}">
           <a href="/about">About</a>
+        </div>
+        <div class="p0-5 ${state.href.indexOf('/log') === 0 ? 'op25 oph100' : ''}">
+          <a href="/log">Log</a>
         </div>
         <div class="p0-5">
           <a href="?subscribe=active">Subscribe</a>

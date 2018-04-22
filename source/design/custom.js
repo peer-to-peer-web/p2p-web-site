@@ -16,6 +16,7 @@ var custom = `
   body {
     margin: 0;
     padding: 0;
+    line-height: 1.5;
   }
 
   @media (max-width: 767px) {
@@ -166,7 +167,6 @@ var custom = `
 
   .copy-simple > *+* {
     margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
   }
 
   .copy-simple ul li {
