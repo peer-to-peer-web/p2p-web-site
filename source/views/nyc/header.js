@@ -36,7 +36,6 @@ var styleMarkings = css`
   :host > div > img {
     max-height: 100%;
     max-width: 100%;
-    object-fit: contain;
     image-rendering: -moz-crisp-edges;
     image-rendering: pixelated;
   }

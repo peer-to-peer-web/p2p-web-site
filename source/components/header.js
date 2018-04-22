@@ -25,7 +25,7 @@ function header (state, emit, props) {
   props = props || { }
 
   return html`
-    <div class="psr z3 fs1 c12 lh1 p0-5 db sm-x xjb ${styles}">
+    <div class="w100 psr z3 fs1 c12 lh1 p0-5 db sm-x xjb ${styles}">
       <div class="p0-5 x breadcrumbs wsnw oh toe"> 
         <span><a href="/">Peer-to-Peer Web</a></span>
         ${breadcrumbs({

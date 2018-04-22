@@ -3,13 +3,12 @@ var Page = require('enoki/page')
 var html = require('choo/html')
 var css = require('sheetify')
 
-var Rsvp = require('../../components/form-rsvp')
+var FormRsvp = require('../../components/form-rsvp')
 var header = require('../../components/header')
 var format = require('../../components/format')
 var footer = require('../../components/footer')
 var NycHeader = require('./header')
 
-var rsvp = new Rsvp()
 var nycHeader = new NycHeader()
 
 var container = css`
@@ -56,16 +55,22 @@ function view (state, emit) {
         <div class="p2 lh1-25 nyc-copy" style="margin-top: -1.25em">
           ${format(active.meta)}
         </div>
-        <div class="p2 fs1 co0 sm-co2 sm-c8 psr z3">
-          ${rsvp.render({
-            event: 'nyc'
-          })}
-        </div>
-        <div class="p2 lh1-25 nyc-copy">
-          ${format(active.text)}
+      </div>
+      <div class="c12 p0-5 bgc-white psr z2">
+        <div class="x xw mxa mxwidth">
+          <div class="c12 sm-c6 p0-5 fc-black copy">
+            ${page('/about').value('texten').split('\n')[0]}<a href="/about" class="ml0-5">Continue reading…</a>
+          </div>
+          <div class="c12 sm-c6 fs2 p0-5">
+            ${state
+              .cache(FormRsvp, 'nyc-rsvp')
+              .render({ event: 'nyc' })
+            }
+          </div>
         </div>
       </div>
-      ${footer()}
+      <div class="bgc-black psr z2">
+        ${footer()}
     </div>
   `
 }
