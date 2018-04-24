@@ -12,7 +12,6 @@ function ui (state, emitter, app) {
     lang: 'en',
     langs: ['en', 'de'],
     p2p: false,
-    livestream: false,
     loaded: false,
     rsvp: false
   }
@@ -23,7 +22,6 @@ function ui (state, emitter, app) {
     state.ui.dev = state.query.dev
     state.ui.p2p = typeof DatArchive === 'function'
     loadFonts()
-    // checkLivestream()
   })
 
   emitter.on(state.events.UI, function (data) {
@@ -33,17 +31,6 @@ function ui (state, emitter, app) {
   emitter.on(state.events.NAVIGATE, function () {
     window.scrollTo(0, 0)
   })
-
-  function checkLivestream() {
-    var dateNow = new Date()
-    var dateLocal = dateNow.valueOf() + dateNow.getTimezoneOffset() * 60000
-    if (dateLocal >= streamDate.valueOf() && !state.ui.livestream) {
-      state.ui.livestream = true
-      emitter.emit(state.events.RENDER)
-    } else {
-      setTimeout(checkLivestream, 1000 * 60)
-    }
-  }
 
   function loadFonts () {
     var fontsLoaded = new FontFaceObserver('Lars Light')

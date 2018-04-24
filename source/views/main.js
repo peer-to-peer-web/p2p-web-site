@@ -2,6 +2,7 @@ var html = require('choo/html')
 var css = require('sheetify')
 
 var Form = require('../components/form-mailinglist')
+var Livestream = require('../components/livestream')
 var header = require('../components/header')
 var footer = require('../components/footer')
 var format = require('../components/format')
@@ -78,34 +79,39 @@ function view (state, emit) {
 
   return html`
     <div class="${styles}">
-      <div class="vhmn100 x xdc">
+      <div class="${isLive() ? 'vhmn100' : ''} x xdc psr">
         ${header(state, emit)}
-        <div class="x xw c12">
-          ${createAbout()}
-          ${createSubscribe()}
-        </div>
-        <div class="c12">
-          <div class="mxa mxwidth c12 oh home-entries">
-            <div class="lh1 c12 p1 x xw xjb">
-              <div><a href="/log">Recent Updates</a></div>
-              <div><a href="/log">View all</a> →</div>
-            </div>
-            <div class="bb1-black mx1 sm-mb1"></div>
-            <div class="x xw px1 py0 sm-pb1 sm-px0 w100">
-              ${entries.length > 0
-                ? createLogEntries()
-                : createLogEmpty()
-              }
-            </div>
+        ${createLivestream()}
+      </div>
+      <div class="x xw c12">
+        ${createAbout()}
+        ${createSubscribe()}
+      </div>
+      <div class="c12">
+        <div class="mxa mxwidth c12 oh home-entries">
+          <div class="lh1 c12 p1 x xw xjb">
+            <div><a href="/log">Recent Updates</a></div>
+            <div><a href="/log">View all</a> →</div>
+          </div>
+          <div class="bb1-black mx1 sm-mb1"></div>
+          <div class="x xw px1 py0 sm-pb1 sm-px0 w100">
+            ${entries.length > 0
+              ? createLogEntries()
+              : createLogEmpty()
+            }
           </div>
         </div>
-        <div class="xx x xdc tac">
-          ${children.map(createChild)}
-        </div>
+      </div>
+      <div class="xx x xdc tac">
+        ${children.map(createChild)}
       </div>
       ${footer(state, emit)}
     </div>
   `
+
+  function isLive () {
+    return state.livestream.active
+  }
 
   function createLogEmpty () {
     return html`
@@ -148,6 +154,13 @@ function view (state, emit) {
         }
       </div>
     `
+  }
+
+  function createLivestream () {
+    if (!isLive()) return
+    return state
+      .cache(Livestream, 'home:livestream')
+      .render(state.livestream)
   }
 
   function createEntry (props) {
