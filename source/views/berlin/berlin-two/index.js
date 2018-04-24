@@ -91,6 +91,7 @@ function view (state, emit) {
                   lang: state.ui.lang
                 })
               }
+              ${createSponsors(state, emit)}
             </div>
           </div>
         </div>
@@ -98,6 +99,29 @@ function view (state, emit) {
       ${footer()}
     </div>
   `
+}
+
+function createSponsors (state, emit) {
+  var sponsors = objectValues(state.page().v('sponsors'))
+
+  return html`
+    <div class="x xac xjb fs1 fc-black pt1">
+      <div>Sponsors</div>
+      <div class="x">
+        ${sponsors.map(createSponsor)} 
+      </div>
+    </div>
+  `
+
+  function createSponsor (props) {
+    return html`
+      <div class="pl1">
+        <a href="${props.href}" target="_blank">
+          <img src="${state.page().v('path')}/${props.svg}" class="db" style="height: 1.25rem">
+        </a>
+      </div>
+    `
+  }
 }
 
 function createExtra (props) {
