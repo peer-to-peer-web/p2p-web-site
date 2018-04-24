@@ -35,6 +35,10 @@ var styles = css`
     border-right: 1px solid #000;
   }
 
+  :host .home-log-empty {
+    min-height: 8rem;
+  }
+
   @media (min-width: 767px) {
     :host .city:hover {
       filter: invert(1);
@@ -88,15 +92,9 @@ function view (state, emit) {
             </div>
             <div class="bb1-black mx1 sm-mb1"></div>
             <div class="x xw px1 py0 sm-pb1 sm-px0 w100">
-              ${entries
-                .map(createEntry)
-                .reduce(function(res, cur, i, src) {
-                  res.push(cur)
-                  if (i % 2 && i !== src.length - 1) {
-                    res.push(html`<div class="w100 m1 bb1-black dn sm-db"></div>`)
-                  }
-                  return res
-                }, [ ])
+              ${entries.length > 0
+                ? createLogEntries()
+                : createLogEmpty()
               }
             </div>
           </div>
@@ -108,6 +106,26 @@ function view (state, emit) {
       ${footer(state, emit)}
     </div>
   `
+
+  function createLogEmpty () {
+    return html`
+      <div class="home-log-empty w100 p1 x xjc xac">
+        (Must be online to access the Log)
+      </div>
+    `
+  }
+
+  function createLogEntries () {
+    return entries
+      .map(createEntry)
+      .reduce(function(res, cur, i, src) {
+        res.push(cur)
+        if (i % 2 && i !== src.length - 1) {
+          res.push(html`<div class="w100 m1 bb1-black dn sm-db"></div>`)
+        }
+        return res
+      }, [ ])
+  }
 
   function createAbout () {
     var text = state.page('/about').value('texten') || ''

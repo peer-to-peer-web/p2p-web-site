@@ -36,8 +36,16 @@ function store () {
       var url = typeof DatArchive !== 'undefined'
         ? 'dat://6005cde9da60715afeb82152f0a7126a10b36e5c184a43c7aa951f817e9bbc60'
         : 'https://p2p-json-blog.glitch.me/'
-      var enoki = new Enoki({ fallback: 'https://p2p-json-blog.glitch.me/' })
-      await enoki.load(url)
+
+      try {
+        var enoki = new Enoki({ fallback: 'https://p2p-json-blog.glitch.me/' })
+        await enoki.load(url)
+      } catch (err) {
+        state.site.logLoaded = true
+        if (props.render !== false) emitter.emit(state.events.RENDER)
+        return
+      }
+
       // store our state
       var entries = await enoki.readContent()
       objectKeys(entries).forEach(function (key) {

@@ -26,11 +26,20 @@ function view (state, emit) {
     <div class="x xdc vhmn100">
       ${header(state, emit)}
       <div class="x xx xjc xac py3">
-        <div>
-          ${entries.map(props => logEntry(state, emit, props))}
-        </div>
+        ${entries.length > 1
+          ? entries.map(props => logEntry(state, emit, props))
+          : createLogEmpty()
+        }
       </div>
       ${footer(state, emit)}
+    </div>
+  `
+}
+
+function createLogEmpty () {
+  return html`
+    <div class="home-log-empty w100 p1 x xjc xac">
+      (Must be online to access the Log)
     </div>
   `
 }
