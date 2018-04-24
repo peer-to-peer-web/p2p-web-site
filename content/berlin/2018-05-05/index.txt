@@ -34,8 +34,12 @@ sponsors:
     title: Resonate
     href: https://resonate.is/
     svg: resonate.svg
+  libsci:
+    title: Liberate Science
+    href: http://libscie.org/
+    svg: libsci.svg
 ----
-time: 3pm
+time: 11:30am
 ----
 venue:
   name: Trust

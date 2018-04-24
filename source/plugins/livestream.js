@@ -20,8 +20,8 @@ function plugin (opts) {
       // fetch livestream check
       // -> markup for that here
       // yeah we’re loaded
+      // state.livestream.active = true
       state.livestream.source = '/content/los-angeles/2017-12-10/media/02-jon-gacnik.mp4' 
-      state.livestream.active = true
       state.livestream.loaded = true
       emitter.emit(state.events.RENDER)
     }
