@@ -65,8 +65,8 @@ function view (state, emit) {
           src="${page().file('ig-poster.jpg').v('path')}"
           class="psa t0 l0 r0 b0 h100 w100"
         >
-        <div class="pen psa z2 b0 l0 p1 fc-white">
-          Limited edition risograph<br>print by Folder Studio →
+        <div class="pen psa z2 b0 r0 p1 fc-white external">
+          Risograph print by Folder Studio
         </div>
       </a>
       ${footer()}
