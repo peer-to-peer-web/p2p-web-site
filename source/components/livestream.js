@@ -14,10 +14,9 @@ module.exports = class Livestream extends Nanocomponent {
 
     this.local = {
       supported: true,
-      fallbackActive: false,
       muted: false,
       ready: false,
-      fallback: '',
+      fallback: false,
       source: '',
       title: ''
     }
@@ -28,18 +27,29 @@ module.exports = class Livestream extends Nanocomponent {
   load (element) {
     var self = this
     var hls = this.hls = new Hls()
-    var supported = Hls.isSupported()
+    var supported = (
+      Hls.isSupported() || 
+      video.canPlayType('application/vnd.apple.mpegurl')
+    )
     var shouldUpdate = supported !== this.local.supported
     var elVideo = this.elVideo = element.querySelector('video')
 
     // start streaming if supported
-    if (supported) {
+    if (Hls.isSupported()) {
       hls.loadSource(this.local.source)
       hls.attachMedia(elVideo)
       hls.on(Hls.Events.MANIFEST_PARSED, function() {
         elVideo.play()
+        self.handleStreamLoad()
       })
-    } 
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      elVideo.src = self.local.source
+      elVideo.addEventListener('canplay',function() {
+        elVideo.play()
+      })
+    } else {
+      supported = false
+    }
 
     // update
     this.local.supported = supported
@@ -58,10 +68,19 @@ module.exports = class Livestream extends Nanocomponent {
         <div class="xx">
           ${this.createContent()}
         </div>
+        ${!this.local.ready ? this.createLoading() : ''}
         <div class="x xjb p0-5 lh1 psr z2">
           <div class="p0-5">${this.local.title}</div>
-          <div class="p0-5 blink-sec">LIVE</div>
+          <div class="p0-5 ${this.local.ready ? '' : 'op0'}" data-live-indicator>LIVE</div>
         </div>
+      </div>
+    `
+  }
+
+  createLoading () {
+    return html`
+      <div class="psa t0 l0 r0 b0 x xjc xac pen ttu ff-mono" data-livestream-loading>
+        <div class="blink">Buffering</div>
       </div>
     `
   }
@@ -70,8 +89,16 @@ module.exports = class Livestream extends Nanocomponent {
     if (this.local.supported) {
       return html`<video onclick=${this.handlePlayPause}></video>`
     } else {
-      return html`<div>${this.local.fallback}</div>`
+      return html`<iframe src="https://player.twitch.tv/?channel=jondashkyle" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>`
     }
+  }
+
+  handleStreamLoad () {
+    var loading = this.element.querySelector('[data-livestream-loading]')
+    var live = this.element.querySelector('[data-live-indicator]')
+    if (loading) loading.parentNode.removeChild(loading)
+    if (live) live.classList.remove('op0')
+    self.local.ready = true
   }
 
   handlePlayPause (event) {

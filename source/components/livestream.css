@@ -13,6 +13,7 @@
 
 :host iframe,
 :host video {
+  object-fit: contain;
   position: absolute;
   top: 0;
   left: 0;

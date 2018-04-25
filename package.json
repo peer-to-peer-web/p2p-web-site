@@ -48,7 +48,7 @@
   },
   "scripts": {
     "start": "enoki content -w & watchify source/index.js -o bundles/bundle.js -t brfs -t sheetify -p [ css-extract -o bundles/bundle.css ] source/index.js",
-    "dev": "enoki content -w & budo source/index.js:bundles/bundle.js --dir . -P -- -t brfs -t sheetify -p [ css-extract -o bundles/bundle.css ] source/index.js",
+    "dev": "enoki content -w & budo source/index.js:bundles/bundle.js --dir . --ssl --cors -P -- -t brfs -t sheetify -p [ css-extract -o bundles/bundle.css ] source/index.js",
     "build": "enoki content && browserify source/index.js -o bundles/bundle.js -t brfs -t yo-yoify -t  [ sheetify -t sheetify-cssnext ] -g es2040 -p [ css-extract -o bundles/bundle.css ] -p tinyify"
   },
   "keywords": [],
