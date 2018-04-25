@@ -1,0 +1,9 @@
+title: NYC
+----
+view: city
+----
+visible: false
+----
+redirect: /nyc/2018-05-26
+----
+invert: true

@@ -1,5 +1,0 @@
-title: Los Angeles
-----
-short: los-angeles
-----
-view: la
