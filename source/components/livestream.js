@@ -34,20 +34,22 @@ module.exports = class Livestream extends Nanocomponent {
     var shouldUpdate = supported !== this.local.supported
     var elVideo = this.elVideo = element.querySelector('video')
 
+    // play
+    hls.on(Hls.Events.MANIFEST_PARSED, function() {
+      elVideo.play()
+      self.handleStreamLoad()
+    })
+
     // start streaming if supported
     if (Hls.isSupported()) {
-      hls.loadSource(this.local.source)
-      hls.attachMedia(elVideo)
-      hls.on(Hls.Events.MANIFEST_PARSED, function() {
-        elVideo.play()
-        self.handleStreamLoad()
-      })
+      this.attemptLoad()
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
       elVideo.src = self.local.source
       elVideo.addEventListener('canplay',function() {
         elVideo.play()
       })
     } else {
+      this.local.ready = true
       supported = false
     }
 
@@ -98,12 +100,20 @@ module.exports = class Livestream extends Nanocomponent {
     var live = this.element.querySelector('[data-live-indicator]')
     if (loading) loading.parentNode.removeChild(loading)
     if (live) live.classList.remove('op0')
-    self.local.ready = true
+    this.local.ready = true
   }
 
   handlePlayPause (event) {
     if (this.elVideo.paused) this.elVideo.play()
     else this.elVideo.pause()
+  }
+
+  attemptLoad () {
+    this.hls.loadSource(this.local.source)
+    this.hls.attachMedia(this.elVideo)
+    if (!this.local.ready) {
+      setTimeout(this.attemptLoad.bind(this), 5000)
+    }
   }
 
   update (props) {

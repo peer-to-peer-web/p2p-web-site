@@ -110,7 +110,7 @@ function view (state, emit) {
   `
 
   function isLive () {
-    return state.livestream.active
+    return state.livestream.live
   }
 
   function createLogEmpty () {
