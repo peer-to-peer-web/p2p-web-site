@@ -19,7 +19,9 @@ var video = new Video()
 var TITLE = 'Peer-to-Peer Web / Los Angeles'
 
 var styles = css`
-  :host .la2-header { min-height: 100vh; }
+  :host .la2-header { min-height: 100vh }
+  :host .la2-poster { height: calc(100vh - 3rem) }
+  :host .la2-poster img { object-fit: contain }
 `
 
 module.exports = view
@@ -38,12 +40,12 @@ function view (state, emit) {
           ${header(state, emit)}
         </div>
         ${laHeader.render({
-          imageOld: page().files().first().value('path'),
-          imageNew: page().files().last().value('path')
+          imageOld: page().file('street1.png').v('path'),
+          imageNew: page().file('street2.png').v('path')
         })}
         <div class="psr fs2 fc-white lh1-25 pen">
           <span class="pea">
-            ${page().value('title')} @ 11:30am–3pm<br>
+            ${page().v('title')} @ 11:30am–3pm<br>
             <a href="https://duckduckgo.com/?q=1031+N.+Broadway+los+angeles&t=ffab&ia=maps&iaxm=maps">1031 N. Broadway</a> (<a href="https://folder.studio/building-block" target="_blank">Folder Studio</a>)
           </span>
         </div>
@@ -58,6 +60,15 @@ function view (state, emit) {
           </div>
         </div>
       </div>
+      <a href="https://folder.studio" class="db bgc-black psr la2-poster">
+        <img
+          src="${page().file('ig-poster.jpg').v('path')}"
+          class="psa t0 l0 r0 b0 h100 w100"
+        >
+        <div class="pen psa z2 b0 l0 p1 fc-white">
+          Limited edition risograph<br>print by Folder Studio →
+        </div>
+      </a>
       ${footer()}
     </div>
   `
