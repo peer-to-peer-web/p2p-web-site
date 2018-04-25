@@ -1,6 +1,6 @@
 .DS_Store
+.dat
 node_modules
-dist
 bundles/bundle.js
 bundles/bundle.css
 package-lock.json
