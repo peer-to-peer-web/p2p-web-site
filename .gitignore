@@ -1,5 +1,8 @@
 .DS_Store
+.dat
+bundles/bundle.js
+bundles/bundle.css
 node_modules
 dist
-
+dat.json
 *.mp4
