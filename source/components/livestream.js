@@ -88,7 +88,7 @@ module.exports = class Livestream extends Nanocomponent {
   }
 
   createContent () {
-    if (this.local.supported) {
+    if (this.local.supported && !this.local.fallback) {
       return html`<video onclick=${this.handlePlayPause}></video>`
     } else {
       return html`<iframe src="https://player.twitch.tv/?channel=jondashkyle" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>`
@@ -118,7 +118,7 @@ module.exports = class Livestream extends Nanocomponent {
 
   update (props) {
     props = props || { }
-    return props.fallbackActive !== this.local.fallbackActive
+    return props.fallback !== this.local.fallback
   }
 }
 

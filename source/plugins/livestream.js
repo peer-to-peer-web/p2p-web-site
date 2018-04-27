@@ -1,4 +1,5 @@
 var WebSocket = require('../lib/ws')
+var xtend = require('xtend')
 
 module.exports = plugin
 
@@ -15,9 +16,7 @@ function plugin (opts) {
     }
 
     state.events.LIVESTREAM = 'livestream' 
-
     emitter.on(state.events.DOMCONTENTLOADED, handleLoad)
-    emitter.on(state.events.LIVESTREAM, handleLivestream)
 
     function handleLoad () {
       ws = new WebSocket(state.livestream.address)
@@ -35,23 +34,9 @@ function plugin (opts) {
 
       ws.addEventListener('message', function (event) {
         var data = JSON.parse(event.data)
-
-        // active
-        if (data.live !== undefined) {
-          state.livestream.live = data.live
-        }
-
-        // scratch
-        if (!state.livestream.editing && data.scratch !== undefined) {
-          state.livestream.scratch = data.scratch
-        }
-
+        state.livestream = xtend(state.livestream, data)
         emitter.emit(state.events.RENDER)
       })
-    }
-
-    function handleLivestream (data) {
-      console.log('livestream stuff')
     }
   }
 }
