@@ -1,8 +1,7 @@
 .DS_Store
 .dat
 node_modules
-bundles/bundle.js
-bundles/bundle.css
+bundles
 package-lock.json
 dat.json
 *.mp4

@@ -1,4 +1,5 @@
 module.exports = {
+  archive: require('./archive'),
   main: require('./main'),
   coc: require('./coc'),
   about: require('./about'),
