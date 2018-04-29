@@ -10,8 +10,8 @@ module.exports = view
 function view (state, emit) {
   var page = Page(state)
   var children = page().children().toArray().filter(isVisible)
-  var previous = page(libEvents.previous(children)).sortBy('date', 'asc').toArray()
-  var upcoming = page(libEvents.upcoming(children)).sortBy('date', 'asc').toArray()
+  var previous = page(libEvents.previous(children)).sortBy('date', 'desc').toArray()
+  var upcoming = page(libEvents.upcoming(children)).sortBy('date', 'desc').toArray()
 
   return html`
     <div class="x xdc vhmn100">
