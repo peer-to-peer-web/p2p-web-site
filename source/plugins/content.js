@@ -17,6 +17,7 @@ function store () {
     // lol
     state.custom['/los-angeles/2017-12-10'] = require('../../content/los-angeles/2017-12-10/index.json')
     state.custom['/berlin/2018-02-10'] = makeBerlin()
+    state.custom['/los-angeles/2018-04-28'] = makeLosAngelesTwo()
 
     state.events.CUSTOM = 'custom'
     state.events.LOG_LOAD = 'log:load'
@@ -108,6 +109,38 @@ function makeBerlin () {
   state.playing = false
 
   return state
+}
+
+function makeLosAngelesTwo () {
+  return {
+    playing: false,
+    video: "peer-to",
+    "videos": {
+      "peer-to": {
+        "id": 1,
+        "title": "Peer-to",
+        "text": "",
+        "time": "29:15"
+      },
+      "dat": {
+        "id": 2,
+        "title": "Dat",
+        "text": "",
+        "time": "29:15"
+      },
+      "jon": {
+        "id": 3,
+        "title": "Jon Gacnick",
+        "text": "",
+        "time": "43:56"
+      },
+      "enoki": {
+        id: 4,
+        title: 'Enoki',
+        time: '30:00'
+      }
+    }
+  } 
 }
 
 function shuffle(array) {

@@ -8,6 +8,8 @@ visible: true
 ----
 text: 
 
-There will be two brief talks, followed by a workshop and open time to hang. <span class="ic">1</span> An introduction to Enoki, an accessible peer-to-peer native publishing tool. <span class="ic">2</span> An overview of creating a  `dat://` plugin for [Kirby](https://getkirby.com/) as a way of bridging p2p and http. <span class="ic">3</span> A workshop on creating your first peer-to-peer site with (or without) [Enoki](https://enoki.site).
+Peer-to-Peer Web / Los Angeles (Edition Two) was held April 28th, 2018 at [Folder Studio](https://folder.studio) in Chinatown. Collectively we ate one-hundred (100) spring rolls.
 
-Everyone is welcome regardless of skill or familiarity; we’re here to provide a helping community. Please RSVP if planning to attend. Thanks!
+<span class="ic">1</span> Peer-to, a decentralized online exhibition space providing permanent infrastructure ensuring continued accessibility to work contained within the collection. <span class="ic">2</span> Danielle and Joe from the [Dat](https://datproject.org) team share updates on the protocol and non-profit. <span class="ic">3</span> [Jon Gacnik](https://jongacnik.com/) gives a quick look at progressively introducing `dat://` to an established workflow. <span class="ic">4</span> A brief overview of [Enoki](https://enoki.site), a set of peer-to-peer tools and ultralight content management system.
+
+Thanks to all who attended or tuned into the livestream!
