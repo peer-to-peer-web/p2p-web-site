@@ -130,7 +130,7 @@ function makeLosAngelesTwo () {
       },
       "jon": {
         "id": 3,
-        "title": "Jon Gacnick",
+        "title": "Jon Gacnik",
         "text": "",
         "time": "43:56"
       },

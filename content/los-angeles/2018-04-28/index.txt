@@ -8,8 +8,6 @@ visible: true
 ----
 text: 
 
-Peer-to-Peer Web / Los Angeles (Edition Two) was held April 28th, 2018 at [Folder Studio](https://folder.studio) in Chinatown. Collectively we ate one-hundred (100) spring rolls.
+Peer-to-Peer Web / Los Angeles (Edition Two) was held April 28th, 2018 at [Folder Studio](https://folder.studio) in Chinatown. Collectively we ate one hundred (`100`) spring rolls.
 
-<span class="ic">1</span> Peer-to, a decentralized online exhibition space providing permanent infrastructure ensuring continued accessibility to work contained within the collection. <span class="ic">2</span> Danielle and Joe from the [Dat](https://datproject.org) team share updates on the protocol and non-profit. <span class="ic">3</span> [Jon Gacnik](https://jongacnik.com/) gives a quick look at progressively introducing `dat://` to an established workflow. <span class="ic">4</span> A brief overview of [Enoki](https://enoki.site), a set of peer-to-peer tools and ultralight content management system.
-
-Thanks to all who attended or tuned into the livestream!
+<span class="ic">1</span> [Peer-to](https://peer-to.peer-to-peer-web.com), a decentralized online exhibition space providing permanent infrastructure ensuring continued accessibility to work contained within the collection. <span class="ic">2</span> Danielle and Joe from the [Dat](https://datproject.org) team share updates on the protocol and non-profit. <span class="ic">3</span> [Jon Gacnik](https://jongacnik.com/) gives a quick look at progressively introducing `dat://` to an established workflow. <span class="ic">4</span> A brief overview of [Enoki](https://enoki.site), a set of peer-to-peer tools and ultralight content management system.

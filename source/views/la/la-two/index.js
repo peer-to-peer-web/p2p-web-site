@@ -47,14 +47,9 @@ function view (state, emit) {
           imageNew: state.page().file('street2.png').v('path')
         })}
       </div>
-      <div class="w100">
+      <div class="w100 bgc-black fc-white py3">
         <div class="x xw mxwidth p0-5" style="margin: 0 auto;">
-          <div class="p0-5 c12 sm-c6">
-            <div class="copy copy-simple">
-              ${format(state.page().v('text'))}
-            </div>
-          </div>
-          <div class="c12 sm-c6">
+          <div class="c12 sm-c8 co0 sm-co2">
             <div class="p0-5">
               ${video.render({
                 active: !page.timeout || state.ui.p2p,
@@ -67,6 +62,20 @@ function view (state, emit) {
               })}
             </div>
             ${objectKeys(page.videos).map(renderTalk)}
+          </div>
+        </div>
+      </div>
+      <div class="w100">
+        <div class="x xw mxwidth p0-5" style="margin: 0 auto;">
+          <div class="p0-5 c12 sm-c6">
+            <a href="https://twitter.com/daniellecrobins/status/990341378302361601" target="_blank">
+              <img src="${state.page().file('group.jpg').v('path')}" class="db">
+            </a>
+          </div>
+          <div class="p0-5 c12 sm-c6">
+            <div class="copy copy-simple">
+              ${format(state.page().v('text'))}
+            </div>
           </div>
         </div>
       </div>

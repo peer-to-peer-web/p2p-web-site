@@ -12,6 +12,7 @@ var colors = {
   grey_15: '#ccc',
   grey_90: '#333',
   highlight: '#ff0',
+  cc: 'currentColor',
   black: '#000'
 }
 

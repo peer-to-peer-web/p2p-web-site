@@ -8,6 +8,7 @@ var style = css`
   }
 
   input[type='range'] {
+    color: currentColor;
     -webkit-appearance: none;
     background-color: none;
     height: 1rem;
@@ -20,14 +21,14 @@ var style = css`
 
   input[type='range']::-webkit-slider-runnable-track {
     -webkit-appearance: none;
-    background: #000;
+    background: currentColor;
     height: 1px;
     outline: 0;
   }
 
   input[type='range']::-moz-range-track {
     -moz-appearance: none;
-    background: #000;
+    background: currentColor;
     height: 1px;
     outline: 0;
   }
@@ -36,7 +37,7 @@ var style = css`
     -webkit-appearance: none !important;
     border-radius: 0.5rem;
     border: 0;
-    background: #000;
+    background: currentColor;
     margin-top: -0.5rem;
     height: 1rem;
     width: 1rem;
@@ -46,7 +47,7 @@ var style = css`
     -moz-appearance: none;
     border-radius: 0.5rem;
     border: 0;
-    background: #000;
+    background: currentColor;
     margin-top: -0.5rem;
     height: 1rem;
     width: 1rem;
@@ -100,7 +101,7 @@ module.exports = class Video extends Nanocomponent {
             : this.renderPlaceholder()
           }
         </div>
-        <div class="x py0-5 lh1 bb1-black">
+        <div class="x py0-5 lh1 bb1-cc">
           ${this.elScrubber}
           ${this.elTimeStamp}
         </div>

@@ -20,14 +20,14 @@ var style = css`
 
   input[type='range']::-webkit-slider-runnable-track {
     -webkit-appearance: none;
-    background: #000;
+    background: currentColor;
     height: 0.3vw;
     outline: 0;
   }
 
   input[type='range']::-moz-range-track {
     -moz-appearance: none;
-    background: #000;
+    background: currentColor;
     height: 0.35vw;
     outline: 0;
   }
@@ -36,7 +36,7 @@ var style = css`
     -webkit-appearance: none !important;
     border-radius: 2vw;
     border: 0;
-    background: #000;
+    background: currentColor;
     margin-top: -2vw;
     height: 4vw;
     width: 4vw;
@@ -46,7 +46,7 @@ var style = css`
     -moz-appearance: none;
     border-radius: 2vw;
     border: 0;
-    background: #000;
+    background: currentColor;
     margin-top: -2vw;
     height: 4vw;
     width: 4vw;
@@ -100,7 +100,7 @@ module.exports = class Video extends Nanocomponent {
             : this.renderPlaceholder()
           }
         </div>
-        <div class="px1 pt1 pb0-5 fc-black">
+        <div class="px1 pt1 pb0-5">
           ${this.elScrubber}
         </div>
       </div>
