@@ -93,7 +93,7 @@ module.exports = class Video extends Nanocomponent {
     return html`
       <div class="fs1">
         <div
-          class="bgc-black psr ${style}"
+          class="bgc-cc psr ${style}"
           style="padding-bottom: 56.25%"
         >
           ${this.state.active

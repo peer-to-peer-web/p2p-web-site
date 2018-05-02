@@ -178,7 +178,7 @@ function view (state, emit) {
     return html`
       <a
         href="${props.url}"
-        class="db c12 sm-xx py1 sm-px1 sm-py0 home-entry"
+        class="db c12 sm-xx py1 sm-px1 sm-py0 home-entry copy copy-simple"
       >${format(text)}</a>
     `
   }

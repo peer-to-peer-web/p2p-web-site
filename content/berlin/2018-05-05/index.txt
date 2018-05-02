@@ -39,7 +39,7 @@ sponsors:
     href: http://libscie.org/
     svg: libsci.svg
 ----
-time: 11:30am
+time: 3:00pm
 ----
 venue:
   name: Trust
