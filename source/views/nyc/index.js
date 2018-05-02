@@ -1,3 +1,4 @@
+var objectValues = require('object-values')
 var objectKeys = require('object-keys')
 var Page = require('enoki/page')
 var html = require('choo/html')
@@ -48,12 +49,28 @@ function view (state, emit) {
       <div class="fc-white psa t0 l0 r0 z3" style="mix-blend-mode: difference">
         ${header(state, emit)}
       </div>
-      <div class="${container} w100 vhmn100 pb3 bgc-black fc-white tac fs2 sm-fsvw6">
+      <div class="${container} w100 vhmn100 bgc-black fc-white">
         ${nycHeader.render(state, emit, {
           markings: markings
         })}
-        <div class="p2 lh1-25 nyc-copy" style="margin-top: -1.25em">
-          ${format(active.meta)}
+        <div class="w100 sm-psa l0 b0 r0 z3 p-05" style="mix-blend-mode: difference">
+          <div class="x xw mxa mxwidth">
+            <ul class="c12 sm-c6 p0-5">
+              <li class="">${active.time}</li>
+              <li class="external"><a href="${active.locationhref}" target="_blank">${active.location}</a></div>
+              <li class="external"><a href="${active.addresshref}" target="_blank">${active.address}</a></div>
+            </ul>
+            <ul class="c12 sm-c3 p0-5">
+              ${objectValues(active.speakers).map(function (speaker) {
+                return html`<li class="external"><a href="${speaker.href}">${speaker.name}</a></li>`
+              })}
+            </ul>
+            <ul class="c12 sm-c3 p0-5">
+              ${active.tags.map(function (tag) {
+                return html`<li class="ti1">#${tag}</li>`
+              })}
+            </ul>
+          </div>
         </div>
       </div>
       <div class="c12 p0-5 bgc-white psr z2">

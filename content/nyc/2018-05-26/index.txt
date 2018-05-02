@@ -6,8 +6,30 @@ date: 2018-05-26
 ----
 invert: true
 ----
-meta:
-
-May 26th @ 1–5pm → [School for Poetic Computation](https://duckduckgo.com/?q=155+Bank+St.%2C+New+York%2C+NY+10014&t=ffab&ia=maps&iaxm=maps)
+time: May 26th, 2018 @ 1–5pm
+----
+location: School for Poetic Computation
+----
+locationhref: http://sfpc.io/
+----
+address: 155 Bank Street, New York
+----
+addresshref: https://duckduckgo.com/?q=155+Bank+St.%2C+New+York%2C+NY+10014&t=ffab&ia=maps&iaxm=maps
+----
+speakers:
+  laurel:
+    name: Laurel Schwulst
+    href: http://laurelschwulst.com
+  sam:
+    name: Sam Hart
+    href: http://avant.org
+  hugh:
+    name: Hugh Isaacs
+    href: https://twitter.com/Lucid00
+----
+tags:
+  - transition
+  - texture
+  - decentralization
 ----
 text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a nunc condimentum, dapibus dolor quis, gravida sapien. Sed dictum eleifend ex in dignissim. Nunc eget orci sapien. Aliquam et viverra ex, at viverra lacus. Curabitur suscipit neque ut erat molestie, ac mollis purus aliquam.

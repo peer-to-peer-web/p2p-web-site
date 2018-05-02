@@ -120,7 +120,7 @@ module.exports = class Header extends Nanocomponent {
       .map(this.createMarking)
 
     return html`
-      <div class="psf t0 l0 r0 b0 vh100 x xw z2 ${styleMarkings}">
+      <div class="psf t0 l0 r0 b0 vh100 x xw z2 pen ${styleMarkings}">
         ${markings} 
       </div>
     `
@@ -146,7 +146,7 @@ module.exports = class Header extends Nanocomponent {
           src="/content/nyc/2018-05-26/covers/img2.png"
         />
         ${this.createMarkings()}
-        <div data-nyc-mask class="${styleMask}"></div>
+        <div data-nyc-mask class="${styleMask} pen"></div>
         <div
           class="nyc-title x xac xjc psr lh1-25 vh100 tac pen z3"
           style="mix-blend-mode: difference; font-size: 13vw;"

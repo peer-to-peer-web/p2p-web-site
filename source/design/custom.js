@@ -54,6 +54,11 @@ var custom = `
     -webkit-user-select: none;
   }
 
+  .ti1 {
+    margin-left: 1rem;
+    text-indent: -1rem;
+  }
+
   .angle {
     position: fixed;
     top: 0;
@@ -84,6 +89,7 @@ var custom = `
   }
 
   .external:after {
+    margin-left: 0.5ch;
     content: '→';
     display: inline-block;
     font-family: 'Lars Mono', monospace;
