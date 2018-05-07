@@ -25,6 +25,7 @@ speakers:
   yosh:
     name: Yoshua Wuyts
     href: https://www.yoshuawuyts.com
+----
 sponsors:
   arena:
     title: Are.na

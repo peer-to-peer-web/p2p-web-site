@@ -8,6 +8,7 @@ var FormRsvp = require('../../components/form-rsvp')
 var header = require('../../components/header')
 var format = require('../../components/format')
 var footer = require('../../components/footer')
+var sponsors = require('../../components/sponsors')
 var NycHeader = require('./header')
 
 var nycHeader = new NycHeader()
@@ -49,11 +50,11 @@ function view (state, emit) {
       <div class="fc-white psa t0 l0 r0 z3" style="mix-blend-mode: difference">
         ${header(state, emit)}
       </div>
-      <div class="${container} w100 vhmn100 bgc-black fc-white">
+      <div class="${container} w100 vhmn100 bgc-black">
         ${nycHeader.render(state, emit, {
           markings: markings
         })}
-        <div class="w100 sm-psa l0 b0 r0 z3 p-05" style="mix-blend-mode: difference">
+        <div class="w100 sm-psa l0 b0 r0 z3 p0-5 fc-white" style="mix-blend-mode: difference">
           <div class="x xw mxa mxwidth">
             <ul class="c12 sm-c6 p0-5">
               <li class="">${active.time}</li>
@@ -73,7 +74,7 @@ function view (state, emit) {
           </div>
         </div>
       </div>
-      <div class="c12 p0-5 bgc-white psr z2">
+      <div class="c12 p0-5 bgc-white psr z2 fc-black">
         <div class="x xw mxa mxwidth">
           <div class="c12 sm-c6 p0-5 fc-black copy">
             ${page('/about').value('texten').split('\n')[0]}<a href="/about" class="ml0-5">Continue reading…</a>
@@ -84,8 +85,16 @@ function view (state, emit) {
               .render({ event: 'nyc' })
             }
           </div>
+          <div class="p0-5 c12"><div class="w100 bb1-black"></div></div>
+          <div class="p0-5 c12 sm-c6 copy">
+            <span class="external">Presented by <a href="https://newcomputers.group/" target="_blank">New Computer Working Group</a></span>
+          </div>
+          <div class="p0-5 c12 sm-c6">
+            ${sponsors(state, emit)}
+          </div>
         </div>
       </div>
+
       <div class="bgc-black psr z2">
         ${footer()}
     </div>

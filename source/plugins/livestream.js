@@ -12,7 +12,7 @@ function plugin (opts) {
       fallback: false,
       address: 'wss://p2p-web-livestream.glitch.me',
       source: 'https://broadcast.sh:4433/hls/b73bg37478bkb9b/index.m3u8',
-      title: 'Berlin'
+      title: 'NYC'
     }
 
     state.events.LIVESTREAM = 'livestream' 

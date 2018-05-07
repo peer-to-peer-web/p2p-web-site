@@ -29,7 +29,7 @@ speakers:
 ----
 tags:
   - transition
-  - texture
+  - mesh
   - decentralization
 ----
 text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a nunc condimentum, dapibus dolor quis, gravida sapien. Sed dictum eleifend ex in dignissim. Nunc eget orci sapien. Aliquam et viverra ex, at viverra lacus. Curabitur suscipit neque ut erat molestie, ac mollis purus aliquam.
