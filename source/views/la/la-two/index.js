@@ -92,7 +92,6 @@ function view (state, emit) {
     </div>
   `
 
-
   function renderTalk (key, i) {
     var props = page.videos[key]
     var active = key === page.video

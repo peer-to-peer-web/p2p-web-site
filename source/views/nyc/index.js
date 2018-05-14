@@ -3,6 +3,7 @@ var objectKeys = require('object-keys')
 var Page = require('enoki/page')
 var html = require('choo/html')
 var css = require('sheetify')
+var xtend = require('xtend')
 
 var FormRsvp = require('../../components/form-rsvp')
 var header = require('../../components/header')
@@ -12,6 +13,7 @@ var sponsors = require('../../components/sponsors')
 var NycHeader = require('./header')
 
 var nycHeader = new NycHeader()
+var positionSmile = getPosition({ range: 40 })
 
 var container = css`
   :host { }
@@ -49,6 +51,12 @@ function view (state, emit) {
     <div>
       <div class="fc-white psa t0 l0 r0 z3" style="mix-blend-mode: difference">
         ${header(state, emit)}
+      </div>
+      <div class="psa t0 l0 r0 vh100 pen" style="z-index: 5">
+        ${createExtra({
+          position: positionSmile,
+          source: '/assets/happy.png'
+        })}
       </div>
       <div class="${container} w100 vhmn100 bgc-black">
         ${nycHeader.render(state, emit, {
@@ -97,6 +105,37 @@ function view (state, emit) {
 
       <div class="bgc-black psr z2">
         ${footer()}
+    </div>
+  `
+}
+
+function getPosition (props) {
+  var opts = xtend({
+    range: 0
+  }, props)
+  return {
+    x: Math.floor(Math.random() * 90),
+    y: Math.floor(Math.random() * 60),
+    rotation: (Math.random() * opts.range) - (opts.range / 2)
+  }
+}
+
+
+function createExtra (props) {
+  return html`
+    <div
+      class="psa z3 pen m2"
+      style="
+        top: ${props.position.y}%;
+        left: ${props.position.x}%;
+        transform: rotate(${props.position.rotation}deg);
+      "
+    >
+      <img
+        src="${props.source}"
+        class="db"
+        style="max-width: 5rem; width: 5rem; height: 5rem;"
+      >
     </div>
   `
 }

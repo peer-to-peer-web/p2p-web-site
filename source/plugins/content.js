@@ -16,8 +16,9 @@ function store () {
 
     // lol
     state.custom['/los-angeles/2017-12-10'] = require('../../content/los-angeles/2017-12-10/index.json')
-    state.custom['/berlin/2018-02-10'] = makeBerlin()
     state.custom['/los-angeles/2018-04-28'] = makeLosAngelesTwo()
+    state.custom['/berlin/2018-02-10'] = makeBerlin()
+    state.custom['/berlin/2018-05-05'] = makeBerlinTwo()
 
     state.events.CUSTOM = 'custom'
     state.events.LOG_LOAD = 'log:load'
@@ -138,6 +139,40 @@ function makeLosAngelesTwo () {
         id: 4,
         title: 'Enoki',
         time: '30:00'
+      }
+    }
+  } 
+}
+
+
+function makeBerlinTwo () {
+  return {
+    playing: false,
+    video: "jay-springett",
+    "videos": {
+      "jay-springett": {
+        "id": 1,
+        "title": "Jay Springett",
+        "text": "",
+        "time": "29:15"
+      },
+      "yoshua-wuyts": {
+        "id": 2,
+        "title": "Yoshua Wuyts",
+        "text": "",
+        "time": "29:15"
+      },
+      "kei-kreutler": {
+        "id": 3,
+        "title": "Kei Kreutler",
+        "text": "",
+        "time": "43:56"
+      },
+      "louis-center": {
+        "id": 4,
+        "title": "Louis Center",
+        "text": "",
+        "time": "43:56"
       }
     }
   } 

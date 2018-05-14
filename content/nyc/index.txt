@@ -2,7 +2,7 @@ title: NYC
 ----
 view: city
 ----
-visible: false
+visible: true
 ----
 redirect: /nyc/2018-05-26
 ----

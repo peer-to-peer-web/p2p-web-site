@@ -1,4 +1,5 @@
 var objectValues = require('object-values')
+var objectKeys = require('object-keys')
 var Page = require('enoki/page')
 var html = require('choo/html')
 var xtend = require('xtend')
@@ -7,8 +8,10 @@ var FormRsvp = require('../../../components/form-rsvp')
 var format = require('../../../components/format')
 var footer = require('../../../components/footer')
 var header = require('../../../components/header')
+var Video = require('../../../components/video-two')
 
 var BerlinHeader = require('./header')
+var video = new Video()
 var positions = {
   one: getPosition(),
   smile: getPosition({ range: 40 })
@@ -19,6 +22,10 @@ module.exports = view
 function view (state, emit) {
   var page = new Page(state)
   var venue = page().value('venue')
+  var local = xtend(
+    state.content['/berlin/2018-05-05'],
+    state.custom['/berlin/2018-05-05']
+  ) 
 
   var lang = {
     en: {
@@ -78,38 +85,88 @@ function view (state, emit) {
             })
           }
         </div>
-        <div class="c12 p0-5 bgc-white">
-          <div class="x xw mxa mxwidth">
-            <div class="c12 sm-c6 p0-5 fc-black copy">
-              ${lang[state.ui.lang].text.split('\n')[0]}<a href="/about" class="ml0-5">Continue reading…</a>
+      </div>
+      <div class="bgc-white fc-black py3">
+        <div class="x xw mxwidth p0-5" style="margin: 0 auto;">
+          <div class="c12 sm-c8 co0 sm-co2">
+            <div class="p0-5">
+              ${video.render({
+                active: !local.timeout || state.ui.p2p,
+                video: local.video,
+                src: '/content/berlin/2018-05-05/videos/' + local.video + '.mp4',
+                play: local.videoPlaying,
+                handlePlay: handlePlay,
+                handlePause: handlePause,
+                handleTimeout: handleTimeout
+              })}
             </div>
-            <div class="c12 sm-c6 fs2 p0-5">
-              ${state
-                .cache(FormRsvp, 'berlin-rsvp')
-                .render({
-                  event: 'berlin-2',
-                  lang: state.ui.lang
-                })
-              }
-              ${createSponsors(state, emit)}
-            </div>
+            ${objectKeys(local.videos).map(renderTalk)}
+          </div>
+        </div>
+      </div>
+      <div class="w100 fc-white py3 bgc-white">
+        <div class="c12 p0-5">
+          <div class="mxa mxwidth">
+            ${createSponsors(state, emit)}
           </div>
         </div>
       </div>
       ${footer()}
     </div>
   `
+
+  function renderTalk (key, i) {
+    var props = local.videos[key]
+    var active = key === local.video
+    return html`
+      <div class="x ${local.public !== false ? 'curp' : ''} px0-5" onclick=${local.public !== false ? handleClick : ''}>
+        <div class="ff-mono ${active && local.playing ? 'blink' : ''}" style="width: 1.5em">
+          ${active ? '→' : i + 1}
+        </div>
+        <div class="xx">${props.title}</div>
+        <div class="ff-mono">
+          ${props.time}
+        </div>
+      </div>
+    `
+
+    function handleClick () {
+      if (local.timeout) return
+      emit(state.events.CUSTOM, {
+        page: '/los-angeles/2018-04-28',
+        data: { videoPlaying: true, video: key }
+      })
+    }
+  }
+
+  function handlePlay (data) {
+    emit(state.events.CUSTOM, {
+      page: '/berlin/2018-05-05',
+      data: { videoPlaying: true, video: data.video }
+    })
+  }
+
+  function handlePause () {
+    emit(state.events.CUSTOM, {
+      page: '/berlin/2018-05-05',
+      data: { videoPlaying: false }
+    })
+  }
+
+  function handleTimeout () {
+    emit(state.events.CUSTOM, {
+      page: '/berlin/2018-05-05',
+      data: { timeout: true }
+    })
+  }
 }
 
 function createSponsors (state, emit) {
   var sponsors = objectValues(state.page().v('sponsors'))
 
   return html`
-    <div class="x xac xjb fs1 fc-black pt1">
-      <div>Sponsors</div>
-      <div class="x">
-        ${sponsors.map(createSponsor)} 
-      </div>
+    <div class="x xjc fs1 fc-black p0-5 w100">
+      ${sponsors.map(createSponsor)} 
     </div>
   `
 
