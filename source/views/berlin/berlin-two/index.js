@@ -86,6 +86,7 @@ function view (state, emit) {
           }
         </div>
       </div>
+      ${createVideo()}
       <div class="w100 fc-white bgc-white">
         <div class="c12 p0-5">
           <div class="mxa mxwidth">
@@ -99,7 +100,7 @@ function view (state, emit) {
 
   function createVideo () {
     return html`
-      <div class="bgc-white fc-black py3">
+      <div class="bgc-white fc-black sm-py3">
         <div class="x xw mxwidth p0-5" style="margin: 0 auto;">
           <div class="c12 sm-c8 co0 sm-co2">
             <div class="p0-5">
@@ -138,7 +139,7 @@ function view (state, emit) {
     function handleClick () {
       if (local.timeout) return
       emit(state.events.CUSTOM, {
-        page: '/los-angeles/2018-04-28',
+        page: '/berlin/2018-05-05',
         data: { videoPlaying: true, video: key }
       })
     }

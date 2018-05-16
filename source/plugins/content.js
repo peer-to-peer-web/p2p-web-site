@@ -154,25 +154,25 @@ function makeBerlinTwo () {
         "id": 1,
         "title": "Jay Springett",
         "text": "",
-        "time": "29:15"
-      },
-      "yoshua-wuyts": {
-        "id": 2,
-        "title": "Yoshua Wuyts",
-        "text": "",
-        "time": "29:15"
+        "time": "21:06"
       },
       "kei-kreutler": {
-        "id": 3,
+        "id": 2,
         "title": "Kei Kreutler",
         "text": "",
-        "time": "43:56"
+        "time": "15:32"
+      },
+      "cory-levinson": {
+        "id": 3,
+        "title": "Cory Levinson",
+        "text": "",
+        "time": "20:57"
       },
       "louis-center": {
         "id": 4,
         "title": "Louis Center",
         "text": "",
-        "time": "43:56"
+        "time": "18:18"
       }
     }
   } 
