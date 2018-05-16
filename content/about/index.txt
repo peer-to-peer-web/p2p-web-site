@@ -26,3 +26,7 @@ sponsors:
     href: https://foam.space/
     svg: foam.png
     scale: 1.25
+  sfpc:
+    title: School for Poetic Computation
+    href: http://sfpc.io/
+    svg: sfpc.svg

@@ -86,6 +86,19 @@ function view (state, emit) {
           }
         </div>
       </div>
+      <div class="w100 fc-white bgc-white">
+        <div class="c12 p0-5">
+          <div class="mxa mxwidth">
+            ${createSponsors(state, emit)}
+          </div>
+        </div>
+      </div>
+      ${footer()}
+    </div>
+  `
+
+  function createVideo () {
+    return html`
       <div class="bgc-white fc-black py3">
         <div class="x xw mxwidth p0-5" style="margin: 0 auto;">
           <div class="c12 sm-c8 co0 sm-co2">
@@ -104,16 +117,8 @@ function view (state, emit) {
           </div>
         </div>
       </div>
-      <div class="w100 fc-white py3 bgc-white">
-        <div class="c12 p0-5">
-          <div class="mxa mxwidth">
-            ${createSponsors(state, emit)}
-          </div>
-        </div>
-      </div>
-      ${footer()}
-    </div>
-  `
+    `
+  }
 
   function renderTalk (key, i) {
     var props = local.videos[key]
