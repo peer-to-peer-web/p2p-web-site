@@ -87,7 +87,10 @@ function view (state, emit) {
           <div class="c12 sm-c6 p0-5 fc-black copy">
             ${page('/about').value('texten').split('\n')[0]}<a href="/about" class="ml0-5">Continue reading…</a>
           </div>
-          <div class="c12 sm-c6 fs2 p0-5">
+          <div class="c12 sm-c6 fs2 p0-5 psr pen">
+            <div class="tac x xjc xac psa m0-5 t0 l0 r0 b0 b1-black z3 fs1" style="background: rgba(255, 255, 255, 0.9)">
+              RSVP is closed, see you on the livestream!
+            </div>
             ${state
               .cache(FormRsvp, 'nyc-rsvp')
               .render({ event: 'nyc' })

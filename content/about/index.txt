@@ -30,3 +30,7 @@ sponsors:
     title: School for Poetic Computation
     href: http://sfpc.io/
     svg: sfpc.svg
+  tci:
+    title: The Creative Independent
+    href: https://thecreativeindependent.com/
+    svg: tci.png
