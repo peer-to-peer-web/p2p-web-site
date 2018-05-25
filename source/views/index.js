@@ -4,6 +4,7 @@ module.exports = {
   coc: require('./coc'),
   about: require('./about'),
   log: require('./log'),
+  livestream: require('./livestream'),
   logentry: require('./log-entry'),
   city: require('./city'),
   nyc: require('./nyc'),
