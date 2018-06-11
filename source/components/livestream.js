@@ -91,7 +91,7 @@ module.exports = class Livestream extends Nanocomponent {
     if (this.local.supported && !this.local.fallback) {
       return html`<video onclick=${this.handlePlayPause}></video>`
     } else {
-      return html`<iframe src="https://player.twitch.tv/?channel=jondashkyle" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>`
+      return html`<iframe src="https://player.twitch.tv/?channel=callil" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>`
     }
   }
 

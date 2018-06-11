@@ -13,7 +13,7 @@ var TITLE = 'Peer-to-Peer Web'
 
 var styles = css`
   :host .home-about {
-    min-height: 8rem;
+    min-height: 6rem;
   }
 
   :host .home-about > div:nth-child(1) {
@@ -26,6 +26,14 @@ var styles = css`
     margin: -2rem;
     transform: rotate(10deg);
     z-index: 2;
+  }
+
+  :home-form {
+    overflow: hidden;
+  }
+
+  :host .home-form > form {
+    padding: 1px 0;
   }
 
   :host .home-entry {
@@ -87,6 +95,19 @@ function view (state, emit) {
         ${createAbout()}
         ${createSubscribe()}
       </div>
+      <div class="xx x xdc tac">
+        ${children.map(createChild)}
+      </div>
+      ${footer(state, emit)}
+    </div>
+  `
+
+  function isLive () {
+    return state.livestream.live
+  }
+
+  function createLog () {
+    return html`
       <div class="c12">
         <div class="mxa mxwidth c12 oh home-entries">
           <div class="lh1 c12 p1 x xw xjb">
@@ -102,15 +123,7 @@ function view (state, emit) {
           </div>
         </div>
       </div>
-      <div class="xx x xdc tac">
-        ${children.map(createChild)}
-      </div>
-      ${footer(state, emit)}
-    </div>
-  `
-
-  function isLive () {
-    return state.livestream.live
+    `
   }
 
   function createLogEmpty () {
@@ -146,8 +159,7 @@ function view (state, emit) {
   function createSubscribe () {
     var subscribe = page('/about')
     return html`
-      <div class="c12 sm-c6 p1 psr oh">
-        <img src="/assets/list-bg.png" class="pixelate psa t0 l0 r0 b0 ofc h100 w100 pen">
+      <div class="c12 sm-c6 psr oh home-form">
         ${state
           .cache(Form, 'home-list')
           .render()
