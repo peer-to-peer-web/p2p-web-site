@@ -5,7 +5,7 @@ var html = require('choo/html')
 var css = require('sheetify')
 var xtend = require('xtend')
 
-var FormRsvp = require('../../components/form-rsvp')
+var Video = require('../../components/video-two')
 var header = require('../../components/header')
 var format = require('../../components/format')
 var footer = require('../../components/footer')
@@ -40,8 +40,11 @@ module.exports = view
 
 function view (state, emit) {
   var page = Page(state)
-  var active = state.content['/nyc/2018-05-26']
   var markings = page('/nyc/2018-05-26/markings').files().value()
+  var active = xtend(
+    state.content['/nyc/2018-05-26'],
+    state.custom['/nyc/2018-05-26']
+  )
 
   if (!state.title === TITLE) {
     emit(state.events.DOMTITLECHANGE, TITLE)
@@ -64,37 +67,35 @@ function view (state, emit) {
         })}
         <div class="w100 sm-psa l0 b0 r0 z3 p0-5 fc-white" style="mix-blend-mode: difference">
           <div class="x xw mxa mxwidth">
-            <ul class="c12 sm-c6 p0-5">
-              <li class="">${active.time}</li>
-              <li class="external"><a href="${active.locationhref}" target="_blank">${active.location}</a></div>
-              <li class="external"><a href="${active.addresshref}" target="_blank">${active.address}</a></div>
-            </ul>
-            <ul class="c12 sm-c3 p0-5">
-              ${objectValues(active.speakers).map(function (speaker) {
-                return html`<li class="external"><a href="${speaker.href}">${speaker.name}</a></li>`
-              })}
-            </ul>
-            <ul class="c12 sm-c3 p0-5">
-              ${active.tags.map(function (tag) {
-                return html`<li class="ti1">#${tag}</li>`
-              })}
-            </ul>
+            <div class="c12 sm-c4 p0-5">
+              ${active.time}
+            </div>
+            <div class="c12 sm-tac sm-c4 p0-5">
+              <a href="${active.locationhref}" target="_blank">${active.location}</a>
+            </div>
+            <div class="c12 sm-tar sm-c4 p0-5">
+              <a href="${active.addresshref}" target="_blank">${active.address}</a>
+            </div>
           </div>
         </div>
       </div>
       <div class="c12 p0-5 bgc-white psr z2 fc-black">
         <div class="x xw mxa mxwidth">
-          <div class="c12 sm-c6 p0-5 fc-black copy">
-            ${page('/about').value('texten').split('\n')[0]}<a href="/about" class="ml0-5">Continue reading…</a>
-          </div>
-          <div class="c12 sm-c6 fs2 p0-5 psr pen">
-            <div class="tac x xjc xac psa m0-5 t0 l0 r0 b0 b1-black z3 fs1" style="background: rgba(255, 255, 255, 0.9)">
-              RSVP is closed, see you on the livestream!
+          <div class="c12 sm-c8 py3" style="margin: 0 auto">
+            <div class="p0-5">
+              ${state.cache(Video, 'nyc-video')
+                .render({
+                  active: !active.timeout || state.ui.p2p,
+                  video: active.video,
+                  src: '/content/nyc/videos/' + active.video + '.mp4',
+                  play: active.videoPlaying,
+                  handlePlay: handlePlay,
+                  handlePause: handlePause,
+                  handleTimeout: handleTimeout
+                })
+              }
             </div>
-            ${state
-              .cache(FormRsvp, 'nyc-rsvp')
-              .render({ event: 'nyc' })
-            }
+            ${objectKeys(active.videos).map(renderTalk)}
           </div>
           <div class="p0-5 c12"><div class="w100 bb1-black"></div></div>
           <div class="p0-5 c12 sm-c6 copy">
@@ -110,6 +111,60 @@ function view (state, emit) {
         ${footer()}
     </div>
   `
+
+  function renderTalk (key, i) {
+    if (!active) return
+    var props = active.videos[key]
+    var isActive = key === active.video
+    return html`
+      <div class="x ${active.public !== false ? 'curp' : ''} px0-5" onclick=${active.public !== false ? handleClick : ''}>
+        <div class="ff-mono ${isActive && active.playing ? 'blink' : ''}" style="width: 1.5em">
+          ${isActive ? '→' : i + 1}
+        </div>
+        <div class="xx">${props.title}</div>
+        <div class="ff-mono">
+          ${props.time}
+        </div>
+      </div>
+    `
+
+    function handleClick () {
+      if (active.timeout) return
+      emit(state.events.CUSTOM, {
+        page: '/berlin/2018-02-10',
+        data: { videoPlaying: true, video: key }
+      })
+    }
+  }
+
+  function toggleSound () {
+    if (sound) sound.load()
+    emit(state.events.CUSTOM, {
+      page: '/berlin/2018-02-10',
+      data: { playing: !active.playing }
+    })
+  }
+
+  function handlePlay (data) {
+    emit(state.events.CUSTOM, {
+      page: '/berlin/2018-02-10',
+      data: { videoPlaying: true, video: data.video }
+    })
+  }
+
+  function handlePause () {
+    emit(state.events.CUSTOM, {
+      page: '/berlin/2018-02-10',
+      data: { videoPlaying: false }
+    })
+  }
+
+  function handleTimeout () {
+    emit(state.events.CUSTOM, {
+      page: '/berlin/2018-02-10',
+      data: { timeout: true }
+    })
+  }
 }
 
 function getPosition (props) {

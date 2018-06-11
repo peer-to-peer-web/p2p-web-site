@@ -1,5 +1,5 @@
-var Enoki = require('enoki')
 var objectKeys = require('object-keys')
+var Enoki = require('enoki')
 var xtend = require('xtend')
 var path = require('path')
 var xhr = require('xhr')
@@ -19,9 +19,11 @@ function store () {
     state.custom['/los-angeles/2018-04-28'] = makeLosAngelesTwo()
     state.custom['/berlin/2018-02-10'] = makeBerlin()
     state.custom['/berlin/2018-05-05'] = makeBerlinTwo()
+    state.custom['/nyc/2018-05-26'] = makeNyc()
 
     state.events.CUSTOM = 'custom'
     state.events.LOG_LOAD = 'log:load'
+
     emitter.on(state.events.CUSTOM, custom)
     emitter.on(state.events.LOG_LOAD, handleLogLoad)
     emitter.on(state.events.DOMCONTENTLOADED, handleLogLoad)
@@ -144,7 +146,6 @@ function makeLosAngelesTwo () {
   } 
 }
 
-
 function makeBerlinTwo () {
   return {
     playing: false,
@@ -173,6 +174,69 @@ function makeBerlinTwo () {
         "title": "Louis Center",
         "text": "",
         "time": "18:18"
+      }
+    }
+  } 
+}
+
+function makeNyc () {
+  return {
+    playing: false,
+    video: "laurel-schwulst",
+    "videos": {
+      "alejandro-seth": {
+        "id": 1,
+        "title": "Alejandro Matamala & Seth Thompson",
+        "text": "",
+        "time": "19:14"
+      },
+      "bailbloc": {
+        "id": 2,
+        "title": "Bail Bloc",
+        "text": "",
+        "time": "09:16"
+      },
+      "exonemo": {
+        "id": 3,
+        "title": "Exonemo",
+        "text": "",
+        "time": "16:00"
+      },
+      "grace": {
+        "id": 4,
+        "title": "Grace",
+        "text": "",
+        "time": "11:13"
+      },
+      "hugh-isaacs": {
+        "id": 5,
+        "title": "Hugh Isaacs",
+        "text": "",
+        "time": "18:33"
+      },
+      "lai-yi": {
+        "id": 6,
+        "title": "Lai Yi",
+        "text": "",
+        "time": "13:23"
+      },
+      "laurel-schwulst": {
+        "id": 7,
+        "title": "laurel-schwulst",
+        "text": "",
+        "time": "24:12"
+      },
+      "nyc-mesh": {
+        "id": 8,
+        "title": "NYC Mesh",
+        "text": "",
+        "time": "26:00"
+      },
+      "sam-hart": {
+        "id": 9,
+        "title": "Sam Hart",
+        "text": "",
+        "time": "36:13"
       }
     }
   } 

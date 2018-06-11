@@ -213,7 +213,7 @@ function view (state, emit) {
           <div class="lh1 fs2 sm-fsvw6 bgc-black fc-white p0-5">
             ${props.title}
           </div>
-          <div class="mt0-5 bgc-black fc-white p0-5 ff-mono">
+          <div class="mt0-5 bgc-black fc-white p0-5 ff-mono dn">
             ${[
               previous ? previous + ' Previous' : '',
               upcoming ? upcoming + ' Upcoming' : ''
