@@ -87,7 +87,7 @@ function view (state, emit) {
                 .render({
                   active: !active.timeout || state.ui.p2p,
                   video: active.video,
-                  src: '/content/nyc/videos/' + active.video + '.mp4',
+                  src: '/content/nyc/2018-05-26/videos/' + active.video + '.mp4',
                   play: active.videoPlaying,
                   handlePlay: handlePlay,
                   handlePause: handlePause,

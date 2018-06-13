@@ -184,6 +184,48 @@ function makeNyc () {
     playing: false,
     video: "laurel-schwulst",
     "videos": {
+      "grace": {
+        "id": 1,
+        "title": "Grace Kredell",
+        "text": "",
+        "time": "11:13"
+      },
+      "sam-hart": {
+        "id": 2,
+        "title": "Sam Hart",
+        "text": "",
+        "time": "36:13"
+      },
+      "hugh-isaacs": {
+        "id": 3,
+        "title": "Hugh Isaacs",
+        "text": "",
+        "time": "18:33"
+      },
+      "laurel-schwulst": {
+        "id": 4,
+        "title": "Laurel Schwulst",
+        "text": "",
+        "time": "24:12"
+      },
+      "exonemo": {
+        "id": 5,
+        "title": "Exonemo",
+        "text": "",
+        "time": "16:00"
+      },
+      "nyc-mesh": {
+        "id": 6,
+        "title": "NYC Mesh",
+        "text": "",
+        "time": "26:00"
+      },
+      "lai-yi": {
+        "id": 7,
+        "title": "Lai Yi",
+        "text": "",
+        "time": "13:23"
+      },
       "alejandro-seth": {
         "id": 1,
         "title": "Alejandro Matamala & Seth Thompson",
@@ -195,48 +237,6 @@ function makeNyc () {
         "title": "Bail Bloc",
         "text": "",
         "time": "09:16"
-      },
-      "exonemo": {
-        "id": 3,
-        "title": "Exonemo",
-        "text": "",
-        "time": "16:00"
-      },
-      "grace": {
-        "id": 4,
-        "title": "Grace",
-        "text": "",
-        "time": "11:13"
-      },
-      "hugh-isaacs": {
-        "id": 5,
-        "title": "Hugh Isaacs",
-        "text": "",
-        "time": "18:33"
-      },
-      "lai-yi": {
-        "id": 6,
-        "title": "Lai Yi",
-        "text": "",
-        "time": "13:23"
-      },
-      "laurel-schwulst": {
-        "id": 7,
-        "title": "laurel-schwulst",
-        "text": "",
-        "time": "24:12"
-      },
-      "nyc-mesh": {
-        "id": 8,
-        "title": "NYC Mesh",
-        "text": "",
-        "time": "26:00"
-      },
-      "sam-hart": {
-        "id": 9,
-        "title": "Sam Hart",
-        "text": "",
-        "time": "36:13"
       }
     }
   } 
