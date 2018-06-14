@@ -222,7 +222,7 @@ function makeNyc () {
       },
       "lai-yi": {
         "id": 7,
-        "title": "Lai Yi",
+        "title": "Lai Yi Ohlsen",
         "text": "",
         "time": "13:23"
       },
